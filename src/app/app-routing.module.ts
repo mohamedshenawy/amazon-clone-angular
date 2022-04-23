@@ -10,16 +10,18 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
-  {path:"" , component:MainLayoutComponent , children:[
-  {path:"" , component:HomeComponent , pathMatch:"full"} , 
-  {path:"home" , component:HomeComponent} , 
-  {path:"orders" , component:OrdersComponent} , 
-  {path:"cart" , component:CartComponent} , 
-  {path:"productdetails/:pid" , component:ProductdetailsComponent},
-  {path:"category/:catid" , component:CategoryComponent}
-  ]} , 
-  {path:"signup" , component:SignupComponent},
-  {path:"login" , component:LoginComponent}
+  {
+    path: "", component: MainLayoutComponent, children: [
+      { path: "", component: HomeComponent, pathMatch: "full" },
+      { path: "home", component: HomeComponent },
+      { path: "orders", component: OrdersComponent },
+      { path: "cart", component: CartComponent },
+      { path: "productdetails/:pid", component: ProductdetailsComponent },
+      { path: "category/:catid", component: CategoryComponent }
+    ]
+  },
+  { path: "signup", component: SignupComponent },
+  { path: "login", component: LoginComponent }
 ];
 
 @NgModule({
