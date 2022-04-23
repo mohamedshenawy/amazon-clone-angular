@@ -1,0 +1,512 @@
+.firstnav {
+    background-color: #131921;
+  }
+  
+  #deliver {
+    float: right;
+  }
+  
+  #deliver p {
+    font-size: .7em;
+    margin: 0;
+  }
+  
+  #deliver span {
+    font-weight: 600;
+  }
+  
+  
+  .alllink {
+    max-width: 40px;
+    
+  }
+  
+  .alllink a {
+    border-radius: 5px 0 0 5px;
+    background-color: #DADADA;
+    padding:8px
+  }
+  
+  .navbar input {
+    min-height: 40px;
+    min-width: 750px;
+  }
+  
+  /*********** Start Second Nav bar **************/
+  #secnav {
+    background-color: #232F3E;
+  
+  }
+  #secnav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  #secnav ul li {
+    margin:10px 20px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  #secnav ul li:hover {
+    background-color: #767f8a;
+  }
+  #secnav ul li a {
+    text-decoration: none;
+  }
+  .open {
+    color: white;
+    cursor: pointer;
+    width: 70px;
+  }
+  
+  .fsize a{
+    font-size: 16px;
+  }
+  
+  
+  /* The side navigation menu */
+  .sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 999;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  
+  /* The navigation menu links */
+  .sidenav a {
+  
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+  
+    .sidenav a {
+        font-size: 18px;
+    }
+  }
+  
+  /*********** End  Second Nav bar ************/
+  
+  
+  .navbar .btn-success {
+    background-color: #F3A847;
+  }
+  
+  .navbar form img {
+    max-width: 23px;
+  }
+  
+  .countries {
+    max-width: 80px;
+  }
+  
+  .countries img {
+    max-width: 30px;
+  }
+  
+  .signin div,
+  .signin span {
+    color: white
+  }
+  
+  .signin #sign,
+  #return {
+    font-size: 12px;
+    font-weight: 400px;
+  }
+  
+  #navbarbold {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  
+  
+  
+  
+  
+  .first-nav {
+    background-color: #131921;
+    color: white;
+  }
+  .w-border:hover {
+    border: 1px solid white;
+  }
+  /* .holder-of-logo-div {
+    width: 12%;
+  } */
+  .firstnav-logo {
+    max-width: 50%;
+  }
+  .input-div {
+    width: 87%;
+    height: 100%;
+  }
+  .input-div input {
+    height: 100%;
+  }
+  .all-div-search {
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  .search-div-nav1 {
+    border-radius: 0px 5px 5px 0px;
+    background-color: #febd69;
+  }
+  .search-div-nav1:hover {
+    background-color: #ff9d1c;
+  }
+  
+  .nav1-flag-img {
+    width: 50%;
+  }
+  .flag-parnt-div {
+    width: 15%;
+  }
+  .down-in-flag {
+    color: #898f95;
+    font-size: x-small;
+  }
+  .second-nav {
+    background-color: #232f3a;
+    color: white;
+    justify-content: space-between;
+    overflow: auto;
+  }
+  .nav2-div {
+    align-self: center;
+    width: 30%;
+    padding: 0% 1%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav2-div a {
+    text-align: center;
+    margin: 0% 1%;
+    font-size: 0.8rem;
+  }
+  .nav2-div:hover {
+    border: 1px solid white;
+  }
+  .second-nav-a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+  }
+  .img-in-nav2 {
+    max-width: 100%;
+  }
+  
+  .second-nav-a:hover {
+    color: white;
+  }
+  .three-tally {
+    color: white;
+  }
+  .third-nav {
+    background-color: #fafafa;
+    box-shadow: 1px 1px 5px rgba(42, 40, 40, 0.308);
+    font-size: 1.1vw;
+    padding-left: 0.2%;
+    margin-bottom: 2px;
+  }
+  .third-nav div {
+    margin-right: 1%;
+    padding: 0.5% 0%;
+  }
+  .third-nav div a {
+    color: black;
+    text-decoration: none;
+  }
+  .third-nav div a:hover {
+    color: orangered;
+  }
+  .third-nav div:hover {
+    border-bottom: 1px solid orangered;
+  }
+  
+  @media screen and (min-width: 720px) {
+    .free-shipping {
+      align-self: center;
+      width: 50%;
+    }
+  }
+  .back-to-results {
+    margin-left: 2%;
+    margin-bottom: 1%;
+    font-size: 0.9rem;
+  }
+  .back-to-results a {
+    color: black;
+    text-decoration: none;
+  }
+  .back-to-results a:hover {
+    border-bottom: 0.9px solid black;
+  }
+  .imags-div div {
+    margin-top: 20%;
+    margin-left: 3%;
+    justify-content: end;
+    padding: 0%;
+    box-shadow: 1px 1px 1px rgba(139, 137, 137, 0.5);
+    border: 1px solid rgba(32, 31, 31, 0.719);
+  }
+  .imags-div div a {
+    width: 100%;
+  }
+  .imags-div div:hover {
+    border: 1px solid orangered;
+  }
+  .brand-style {
+    color: #3e9dbc;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  .brand-style:hover {
+    border-bottom: 1px solid orangered;
+    color: orangered;
+  }
+  .rate-img {
+    width: 100%;
+  }
+  .img-rate-div {
+    width: 35%;
+  }
+  .d-rate {
+    font-size: 0.9vw;
+    color: black;
+  }
+  .desc-style {
+    color: #aa2e6a;
+    font-size: 1.5rem;
+  }
+  .list-price {
+    font-size: small;
+    color: rgba(128, 128, 128, 0.753);
+  }
+  .list-price span {
+    text-decoration: line-through;
+  }
+  .small-txt {
+    font-size: small;
+  }
+  .dlevry-img {
+    width: 40%;
+  }
+  .bold-txt {
+    font-weight: bold;
+  }
+  .item-featrs li {
+    padding-bottom: 3%;
+  }
+  .payment-div div {
+    padding: 0% 3%;
+  }
+  .fb-icon {
+    color: #3664a2;
+  }
+  .tw-icon {
+    color: #68add3;
+  }
+  .pint-icon {
+    color: #e03018;
+  }
+  .select-item-q-w {
+    width: 20%;
+  }
+  .add-to-cart-btn {
+    font-size: small;
+    border-radius: 20px;
+  }
+  .add-to-list-btn {
+    border: 1px solid rgba(0, 0, 0, 0.404);
+    box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.281);
+    width: 90%;
+    background-color: rgb(255, 245, 245);
+  }
+  .add-to-list-btn:hover {
+    background-color: rgb(168, 161, 161);
+  }
+  .buy-btn {
+    background-color: #ffa41c;
+    border-radius: 20px;
+    font-size: small;
+  }
+  .buy-btn:hover {
+    background-color: #f89603;
+  }
+  .pay-first-div {
+    border: 1px solid rgba(0, 0, 0, 0.328);
+    border-radius: 20px;
+  }
+  
+  .all-three {
+    border-radius: 20px;
+    font-size: small;
+    border: 0px solid black;
+  }
+  .i-icon {
+    font-size: large;
+    background-color: #1196ab;
+    width: 2%;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+  }
+  
+  .p-info-tilte {
+    color: #cc6948;
+  }
+  .technical-table-div {
+    color: #606363;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  .slider-btn {
+    border: 0.1 px solid rgba(184, 184, 184, 0.575);
+    padding: 10%;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.322);
+  }
+  
+  .cards-div div {
+    margin: 1%;
+  }
+  
+  .v-line {
+    border: 1px solid gray;
+    opacity: 30%;
+    box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.308);
+  }
+  
+  .inpt-w-search {
+    border: 1px solid black;
+    border-radius: 7px;
+    width: 50%;
+  }
+  .inpt-w-search i {
+    text-align: center;
+    align-self: center;
+  }
+  .q-input {
+    border: 0px solid white;
+  }
+  
+  .cust-reviews {
+    background-color: red;
+  }
+  .best-seller-sec {
+    background-color: steelblue;
+  }
+  .sing-in-sec {
+    background-color: yellow;
+  }
+  
+  .footer-sec {
+    background-color: #232f3e;
+  }
+  .back-to-top {
+    background-color: #37475a;
+    width: 100%;
+    color: white;
+    padding: 1%;
+  }
+  .back-to-top:hover {
+    background-color: #585c615d;
+  }
+  .about-amazon-sec div {
+    margin: 5%;
+  }
+  .about-amazon-sec div p {
+    padding-bottom: 1%;
+  }
+  .about-amazon-sec div p a {
+    text-decoration: none;
+  }
+  .about-amazon-sec div p a:hover {
+    text-decoration: underline;
+  }
+  
+  .f-amazon-img {
+    width: 10%;
+  }
+  .f-en-arb-div {
+    border: 1px solid rgba(255, 255, 255, 0.37);
+    border-radius: 6%;
+    color: rgba(255, 255, 255, 0.322);
+    width: 22%;
+  }
+  .eng-egy {
+    text-decoration: none;
+    color: white;
+  }
+  .eng-egy:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  
+  .f-en-arb-div i {
+    font-size: small;
+  }
+  .flag-footer {
+    max-width: 25%;
+  }
+  

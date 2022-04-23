@@ -1,0 +1,53 @@
+.regon-select {
+    border: 1px solid black;
+    border-radius: 5%;
+    width: 30%;
+    background-color: #eeeff2;
+    box-shadow: 1px 1px 5px #b3aaaa;
+  }
+  .logo-photo {
+    width: 103px;
+    height: 31px;
+  }
+  
+  .content-sec {
+    border: 0.2px solid rgb(202, 201, 201);
+    border-radius: 4px;
+    width: 40%;
+    padding: 3%;
+  }
+  
+  .regon-icon {
+    width: 100%;
+  }
+  .small-text {
+    font-size: 0.8rem;
+  }
+  .singup-btn {
+    width: 80%;
+    background-image: linear-gradient(#f1c658d5, #f6b30ab2);
+    border-radius: 3px;
+    transition: 0.1s all;
+    border: 0.1px solid rgba(0, 0, 0, 0.465);
+    color: rgba(0, 0, 0, 0.774);
+  }
+  .singup-btn:hover {
+    background-color: #fdb500;
+  }
+  .up-and-down {
+    font-size: 70%;
+    margin-right: 5px;
+  }
+  .line-div {
+    margin-top: 1.5vh;
+    width: 50%;
+    border: 1px solid rgb(221, 219, 219);
+    box-shadow: 1px 5px 15px rgb(109, 107, 107);
+    opacity: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .inpt:focus {
+    box-shadow: 3px 1px 8px #fa6a09;
+  }
+  

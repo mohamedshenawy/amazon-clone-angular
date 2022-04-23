@@ -1,0 +1,570 @@
+* {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #EAEDED;
+    
+}
+
+/* Start Navbar */
+.firstnav {
+    background-color: #131921;
+}
+
+#deliver {
+    float: right;
+}
+
+#deliver p {
+    font-size: .7em;
+    margin: 0;
+}
+
+#deliver span {
+    font-weight: 600;
+}
+
+
+.alllink {
+    max-width: 40px;
+    
+}
+
+.alllink a {
+    border-radius: 5px 0 0 5px;
+    background-color: #DADADA;
+    padding:12px
+}
+
+.navbar input {
+    min-height: 40px;
+    min-width: 750px;
+}
+
+.navbar .btn-success {
+    background-color: #F3A847;
+}
+
+.navbar form img {
+    max-width: 23px;
+}
+
+.countries {
+    max-width: 80px;
+}
+
+.countries img {
+    max-width: 30px;
+}
+
+.signin div,
+.signin span {
+    color: white
+}
+
+.signin #sign,
+#return {
+    font-size: 12px;
+    font-weight: 400px;
+}
+
+#navbarbold {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+
+/*********** Start Second Nav bar **************/
+#secnav {
+    background-color: #232F3E;
+
+}
+#secnav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+#secnav ul li {
+    margin:10px 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+#secnav ul li:hover {
+    background-color: #767f8a;
+}
+#secnav ul li a {
+    text-decoration: none;
+}
+.open {
+    color: white;
+    cursor: pointer;
+    width: 70px;
+}
+
+.fsize a{
+    font-size: 16px;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 999;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+/* The navigation menu links */
+.sidenav a {
+
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/*********** End  Second Nav bar ************/
+
+
+
+
+/* Start category section */
+
+/* .secondsec {
+    margin-top: -350px;
+    position: relative;
+} */
+
+.categories {
+    background-color: white;
+}
+
+.categories p,
+a {
+    font-size: .7rem;
+}
+
+.categories a {
+    text-decoration: none;
+}
+
+.game {
+    font-weight: bold;
+}
+
+.health img {
+    max-width: 315px;
+}
+
+.ship img {
+    max-width: 220px;
+}
+
+.ship p {
+    font-size: 1.2rem;
+}
+
+.ship button {
+    background-color: #F7CA00;
+    border-radius: 10px;
+}
+
+.amazonbasic img {
+    max-width: 258px
+}
+
+.electronics {
+    max-width: 384px;
+    margin-left: 4px;
+}
+
+/* Start Product slider  */
+
+
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		main{
+			width: 100%;
+			height: 840px;
+			/*background: red;*/
+			margin: 10px auto;
+			position: relative;
+			padding: 5px 0;
+		}
+		main .text{
+			padding: 10px;
+			text-align: center;
+			/*font-size: 30px;*/
+			color: #554;
+		}
+		.text h1{
+			font-size: 50px;
+		}
+		.text p{
+			width: 60%;
+			padding: 5px;
+			margin: auto;
+			line-height: 30px;
+		}
+		main header{
+			width: 98%;
+			height: 60px;
+			margin: 0 auto;
+			/*background: gray;*/
+			display: flex;
+			align-items: center;
+			padding: 20px;
+			justify-content: space-between;
+			border-bottom: 2px solid #ddd;
+		}
+		header p .sp{
+			font-size: 40px;
+		    margin: 0 5px;
+		    cursor: pointer;
+		    color: #555;
+		    width: 30px;
+		    height: 30px;
+		    display: inline-block;
+		    line-height: 19px;
+		    text-align: center;
+		    border-radius: 3px;
+		}
+		header p .sp:hover{
+			background: #222;
+    		color: white;
+		}
+		section{
+			width: 98%;
+			height: 600px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			overflow-x: auto;
+		}
+		section::-webkit-scrollbar{
+			display: none;
+		}
+		section .product{
+			min-width: 24%;
+			height: 90%;
+			background: whitesmoke;
+			margin:  0 20px  0 0;
+			border-radius: 20px;
+			position: relative;
+			left: 0;
+			transition: 0.5s;
+
+		}
+		picture{
+			width: 100%;
+			height: 70%;
+			padding: 20px;
+			/*background: green;*/
+			display: flex;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		picture img{
+			width: 100%;
+		}
+		.detail,
+		.button{
+			width: 90%;
+			/*background: red;*/
+			margin: auto;
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 50px;
+			font-size: 20px;
+			color: #444;
+		}
+		small{color: #555;}
+		.button a{
+			text-decoration: none;
+			padding: 6px 14px;
+		    font-size: 15px;
+		    margin: auto;
+		    display: inline-block;
+		    background: #6773ff;
+		    color: white;
+		}
+		p.star{
+			margin: 5px auto;
+		    width: 65%;
+		    font-size: 25px;
+		    color: #808080;
+		}
+		@media (max-width: 768px) {
+			.text h1{
+				font-size: 35px;
+			}
+			.text p{
+				width: 90%;
+			}
+			header h1{
+				font-size: 25px;
+			}
+			header p span{
+				font-size: 30px;
+			}
+			section .product {
+				min-width: 49%;
+				margin:  0 10px  0 0;
+			}
+			.detail, .button{
+				font-size: 16px;
+			}
+			.button a{
+				padding: 6px 10px;
+			}
+		}
+
+
+
+/* End Product slider  */
+
+
+
+
+
+
+
+
+
+/* Start Footer  */
+
+footer a {
+    color: #fff;
+}
+
+footer .top {
+    background: #37475a;
+}
+
+footer .top a {
+    padding: 17px;
+    width: 100%;
+    display: inline-block;
+}
+
+footer .top a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .top:hover {
+    background: #485769;
+}
+
+footer .center {
+    margin: 0 auto;
+    max-width: 1080px;
+}
+
+footer ul {
+    margin: 30px 40px 30px 0;
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+}
+
+footer .middle {
+    background: #232f3e;
+}
+
+footer .middle h3 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 16px;
+}
+
+footer .middle li {
+    position: relative;
+}
+
+// footer .middle .logo {
+//     background: transparent url('../img/logo.png') no-repeat 0 0;
+//     background-size: 76px;
+//     width: 76px;
+//     height: 23px;
+//     display: block;
+//     border: none !important;
+//     margin-right: 60px;
+//     position: absolute;
+//     top: -14px;
+//     left: -120px;
+// }
+
+footer .middle a {
+    color: #ddd;
+    font-size: 13px;
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+}
+
+footer ul.copy {
+    display: inline-block;
+    width: 100%;
+}
+
+footer ul.copy li {
+    display: inline-block;
+    margin-right: 20px;
+    color: #999;
+    font-size: 11px;
+}
+
+footer .middle .copy {
+    border-top: 1px solid #3a4553;
+    padding: 30px 20px 20px 20px;
+}
+
+footer .middle .copy a {
+    padding: 10px 30px 10px 10px;
+    color: #ccc;
+    border: 1px solid #848688;
+    border-radius: 3px;
+
+}
+
+footer .middle .copy a:hover {
+    text-decoration: none;
+    border-color: #8D9096;
+}
+
+footer .middle .fa-globe {
+    margin-right: 5px;
+}
+
+footer .middle .flag-icon-us {
+    background-image: url('https://sp-bootstrap.global.ssl.fastly.net/8.0.0/images/flags/us.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 1em;
+    width: 1.3em;
+    margin-right: 7px;
+    background-position: 0 2px;
+}
+
+footer .bottom {
+    background: #131a22;
+}
+
+footer .bottom ul {
+    margin-right: 0;
+}
+
+footer .bottom li {
+    margin-bottom: 15px;
+}
+
+footer .bottom a {
+    color: #ddd;
+    font-size: 11px;
+    line-height: 11px;
+    text-decoration: none;
+}
+
+footer .bottom a span {
+    color: #999;
+    font-size: 10px;
+}
+
+
+/* End Footer  */
+
+
+
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .categories {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .health img, .amazonbasic img{
+        margin: auto;
+    }
+    .health a, .amazonbasic a, .categories a {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .top {
+        margin-top: 80px;
+    }
+
+    .navbar input {
+        min-height: 40px;
+        min-width: 350px;
+    }
+
+    #secnav ul li {
+        margin: 5px;
+        padding:5px 5px
+    }
+}
