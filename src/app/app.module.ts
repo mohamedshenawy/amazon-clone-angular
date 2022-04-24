@@ -14,6 +14,7 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { ChangeproductimgDirective } from './directives/changeproductimg.directive';
 import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProductsComponent } from './components/products/products.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

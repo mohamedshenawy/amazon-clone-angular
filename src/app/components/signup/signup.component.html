@@ -2,71 +2,100 @@
     <div class="row justify-content-center">
         <!-- logo -->
         <section class="w-100 d-flex justify-content-center pt-3">
-            <a href="#">
+            <a routerLink="/home">
                 <img class="logo-photo" src="../../../assets/amazon-logo-blacktxt.png" alt="">
             </a>
         </section>
 
         <!-- content for sign up -->
         <section class="d-flex  content-sec mt-5">
-            <div class="d-flex justify-content-center flex-column">
-                <p class="h2">Create Account</p>
-                <label class="h6" for="name-input">Your name</label>
-                <input class="inpt" type="text" name="name-input" id="name-input">
-
-                <label class="h6" for="mobile-input">Mobile number</label>
-                <div class="w-100 d-flex  justify-content-between">
-                    <select class="mobile-regon d-flex justify-content-between regon-select">
-                        <option value="">
-                            <div class="align-self-center me-1 w-50 ps-1">
-                                <img src="images/Flag_of_Egypt.png" class="regon-icon" alt="regin-icon">
-                            </div>
-                            <p class="align-self-center mt-3">
-                                +20</p>
-                            <div class="up-and-down d-flex flex-column ps-3 align-self-center">
-                                <i class="fa-solid fa-angle-up"></i>
-                                <i class="fa-solid fa-angle-down"></i>
-                            </div>
-                        </option>
-                    </select>
-
-                    <input class="w-100 ms-2 inpt" type="text" name="name-input" id="name-input">
-                </div>
-
-                <div>
-                    <a href="#">Use your email instead</a>
-                </div>
-
-
+            <form [formGroup]="customerFormGroup" (ngSubmit)="register()">
                 <div class="d-flex justify-content-center flex-column">
-                    <label class="h6" for="name-input">Password</label>
-                    <input class="inpt" type="password" name="password-input" id="password-input">
-                </div>
-                <div class="d-flex pt-1 small-text">
-                    <i class="fa-solid fa-info text-primary mt-1"></i>
-                    <p class="ms-2">Passwords must be at least 6 characters.</p>
-                </div>
+                    <p class="h2">Create Account</p>
+                    <label class="h6" for="name-input">user name</label>
+                    <input type="text" formControlName="userName" class="form-control inpt" name="userName"
+                        id="userName-input" [class.is-valid]="userName?.valid" [class.is-invalid]="userName?.invalid">
 
-                <div>
-                    <p>By enrolling a mobile phone number, you consent to receiving automated security notifications via
-                        text message from Amazon. You can opt out by removing your mobile number on the Login & Security
-                        page located in Your Account settings. Message and data rates may apply.</p>
+                    <label class="h6" for="name-input">first name</label>
+                    <input type="text" formControlName="firstName" class="form-control inpt" name="firstName"
+                        id="firstName-input" [class.is-valid]="firstName?.valid"
+                        [class.is-invalid]="firstName?.invalid">
+
+                    <label class="h6" for="name-input">last name</label>
+                    <input type="text" formControlName="lastName" class="form-control inpt" name="lastName"
+                        id="lastName-input" [class.is-valid]="lastName?.valid" [class.is-invalid]="lastName?.invalid">
+
+
+                    <label class="h6" for="Email-input">Email</label>
+                    <input type="email" formControlName="email" class="form-control inpt" name="email" id="email-input"
+                        [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid">
+
+                    <div class="d-flex justify-content-center flex-column">
+                        <label class="h6" for="password-input">Password</label>
+                        <div class="d-flex">
+                            <input type="Password" #passwordInput formControlName="password" class="form-control inpt"
+                                name="password" id="password-input" [class.is-valid]="password?.valid"
+                                [class.is-invalid]="password?.invalid">
+                            <!-- <i class="fa-solid fa-eye align-self-center ms-3" (click)="passwordInput.type = 'text'"></i> -->
+                        </div>
+                    </div>
+                    <div class="d-flex pt-1 small-text">
+                        <i class="fa-solid fa-info text-primary mt-1"></i>
+                        <p class="ms-2">Passwords must be at least 6 characters.</p>
+                    </div>
+
+                    <label class="h6" for="mobile-input">Mobile number</label>
+                    <div class="w-100 d-flex  justify-content-between">
+                        <input type="text" formControlName="phoneNumber" class="form-control inpt" name="phoneNumber"
+                            id="phone-input" [class.is-valid]="phoneNumber?.valid"
+                            [class.is-invalid]="phoneNumber?.invalid">
+                    </div>
+
+                    <label class="h6 mt-2" for="mobile-input">Gender</label>
+                    <div class="w-100 d-flex">
+                        <input type="radio" class="align-self-center" value="m" formControlName="gender" name="gender">
+                        <span>male</span>
+
+                        <input type="radio" class="align-self-center ms-4" value="f" formControlName="gender"
+                            name="gender">
+                        <span>female</span>
+                    </div>
+
+                    <label class="h6 mt-2" for="postalcode-input">PostalCode</label>
+                    <div class="w-100 d-flex">
+                        <input type="number" class="form-control inpt" formControlName="postalCode" name="PostalCode">
+                    </div>
+
+                    <label class="h6 mt-2" for="address-input">Address</label>
+                    <div class="w-100 d-flex">
+                        <input type="text" class="form-control inpt" formControlName="address" name="address"
+                            [class.is-valid]="address?.valid" [class.is-invalid]="address?.invalid">
+                    </div>
+
+                    <label class="h6 mt-2" for="city-input">City</label>
+                    <div class="w-100 d-flex">
+                        <input type="text" class="form-control inpt" formControlName="city" name="city">
+                    </div>
+
+                    <label class="h6 mt-2" for="street-input">Street</label>
+                    <div class="w-100 d-flex">
+                        <input type="text" class="form-control inpt" formControlName="street" name="street">
+                    </div>
+
+
+                    <div class="btn">
+                        <!-- <input class="singup-btn" [disabled]="customerFormGroup.invalid" type="submit" value="sing up"> -->
+                        <button type="submit" [disabled]="customerFormGroup.invalid" class="singup-btn">sing up</button>
+                    </div>
+                    <div class="line-div align-self-center"></div>
+                    <div>
+                        <p>
+                            Already have an account?
+                            <a routerLink="/login">sign in</a>
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <p>We will send you a text to verify your phone.
-                        Message and Data rates may apply.</p>
-                </div>
-                <div class="btn">
-                    <input class="singup-btn" type="submit" value="continue">
-                </div>
-                <div class="line-div align-self-center"></div>
-                <div>
-                    <p>
-                        Already have an account?
-                        <a routerLink="/login">sign in</a>
-                    </p>
-                </div>
-            </div>
+            </form>
         </section>
 
 
@@ -81,6 +110,7 @@
             <div class="d-flex justify-content-center">
                 <p> &copy; 1996–2022, Amazon.com, Inc. or its affiliates</p>
             </div>
+            <div>{{customerFormGroup.value|json}}</div>
         </footer>
     </div>
 </div>
