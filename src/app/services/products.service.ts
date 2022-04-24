@@ -10,49 +10,50 @@ import { Iproduct } from '../models/iproduct';
 })
 export class ProductsService {
 
-  httpOptions={};
-  constructor(private httpClient:HttpClient) {
-    this.httpOptions={
-      headers: new HttpHeaders({ 
-        'Content-Type':'application/json'
-      })
-    };
-    }
+  httpOptions = {};
+  constructor(private httpClient: HttpClient) {
+    // this.httpOptions={
+    //   headers: new HttpHeaders({
+    //     'Content-Type':'application/json'
+    //   })
+    // };
+  }
 
   //read
-  getAllProducts():Observable<Iproduct[]>{
+  getAllProducts(): Observable<Iproduct[]> {
     return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/api/Product`)
+    // return this.httpClient.get<Iproduct[]>(`https://localhost:44326/api/Product`)
   }
-  
-  getProductsByCategory(catID:number):Observable<Iproduct[]>{
-    if(catID==0){
+
+  getProductsByCategory(catID: number): Observable<Iproduct[]> {
+    if (catID == 0) {
       return this.getAllProducts();
     }
 
     return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/products?CategoryID=${catID}`)
   }
 
-  getProductsById(prodID:number):Observable<Iproduct>{
-    //let p:Iproduct 
+  getProductsById(prodID: number): Observable<Iproduct> {
+    //let p:Iproduct
     return this.httpClient.get<Iproduct>(`${environment.apiBaseUrl}/products/${prodID}`)
     //obserProd.subscribe(prod => p = prod);
     //return p;
-    
+
   }
-  
-  getProductsIds():number[]{
-    let idsList:number[] = []
+
+  getProductsIds(): number[] {
+    let idsList: number[] = []
     this.getAllProducts().subscribe(
-      list=>{
-        idsList =  list.map(item=>item.id);
+      list => {
+        idsList = list.map(item => item.id);
       }
     )
     return idsList;
   }
-  addProduct(prod:Iproduct):Observable<Iproduct>{
-    return this.httpClient.post<Iproduct>(`${environment.apiBaseUrl}/products` , JSON.stringify(prod) , this.httpOptions)
+  addProduct(prod: Iproduct): Observable<Iproduct> {
+    return this.httpClient.post<Iproduct>(`${environment.apiBaseUrl}/products`, JSON.stringify(prod), this.httpOptions)
   }
-  deleteProduct(prodID:number):Observable<Iproduct>{
+  deleteProduct(prodID: number): Observable<Iproduct> {
     return this.httpClient.delete<Iproduct>(`${environment.apiBaseUrl}/products/${prodID}`)
   }
 }

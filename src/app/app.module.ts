@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http"
+import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
@@ -11,9 +11,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
-import { CategoryComponent } from './components/category/category.component';
 import { ChangeproductimgDirective } from './directives/changeproductimg.directive';
 import { LoginComponent } from './components/login/login.component';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,9 @@ import { LoginComponent } from './components/login/login.component';
     OrdersComponent,
     CartComponent,
     ProductdetailsComponent,
-    CategoryComponent,
     ChangeproductimgDirective,
     LoginComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,98 @@
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <div class="row p-3">
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Climate Pledge Friendly</p>
+          <input type="checkbox" name="Climate" value="Climate Pledge Friendly">
+          <label for="Climate Pledge Friendly"> Climate Pledge Friendly</label>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Department</p>
+          <a href="#">Computers & Tablets</a>
+          <a href="#">Traditional Laptop Computers</a>
+          <a href="#">2 in 1 Laptop Computers</a>
+          <a href="#">Electronics</a>
+          <a href="#">Cell Phones & Accessories</a>
+          <a href="#">Industrial & Scientific</a>
+          <a href="#">Office Products</a>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Brands</p>
+          <input type="checkbox" name="brand" value="HP"> HP<br>
+          <input type="checkbox" name="brand" value="Acer"> Acer<br>
+          <input type="checkbox" name="brand" value="Dell"> Dell<br>
+          <input type="checkbox" name="brand" value="Lenovo"> Lenovo<br>
+          <input type="checkbox" name="brand" value="ASUS"> ASUS<br>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p class="p-1" style="font-size: small;">Laptop Price</p>
+          <a href="#">Under $500</a>
+          <a href="#">$500 to $600</a>
+          <a href="#">$600 to $700</a>
+          <a href="#">$700 to $800</a>
+          <a href="#">$800 to $900</a>
+          <a href="#">$900 to $ 1000</a>
+          <a href="#">$1000 & Above</a>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Laptop CPU Manufacturer</p>
+          <input type="checkbox" name="CPU" value="AMD"> AMD<br>
+          <input type="checkbox" name="CPU" value="Apple"> Apple<br>
+          <input type="checkbox" name="CPU" value="ARM"> ARM<br>
+          <input type="checkbox" name="CPU" value="Intel"> Intel<br>
+          <input type="checkbox" name="CPU" value="VIA"> VIA<br>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Number of CPU Cores</p>
+          <input type="checkbox" name="CPU cores" value="Single Core"> Single Core<br>
+          <input type="checkbox" name="CPU cores" value="Dual Core"> Dual Core<br>
+          <input type="checkbox" name="CPU cores" value="Quad Core"> Quad Core<br>
+          <input type="checkbox" name="CPU cores" value="Hexa Core"> Hexa Core<br>
+          <input type="checkbox" name="CPU cores" value="Octa Core"> Octa Core<br>
+        </div>
+        <div class="p-1" style="font-size: small;">
+          <p style="font-weight: bold;">Laptop Usage</p>
+          <input type="checkbox" name="CPU" value="Business"> Business<br>
+          <input type="checkbox" name="CPU" value="Gaming"> Gaming<br>
+          <input type="checkbox" name="CPU" value="Multimedia"> Multimedia<br>
+          <input type="checkbox" name="CPU" value="Student"> Student<br>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-md-8 col-sm-6">
+      <div class="p-3">
+        <p style="font-weight: bold;"> FIND YOUR LAPTOP</p>
+        <p>How will you primarily be using your laptop?</p>
+        <button class="btn btn-secondary m-1">Home & Entertainment</button>
+        <button class="btn btn-secondary m-1">Bussiness</button>
+        <button class="btn btn-secondary m-1">Education</button>
+        <button class="btn btn-secondary m-1">Gaming</button>
+      </div>
+      <div class="row p-3">
+        <p style="font-size: large; font-weight: bold;">Results</p>
+      </div>
+
+
+      <ng-container *ngFor="let item of allProducts">
+        <div class="col-lg-12 col-md-8 col-sm-6">
+          <div class="row p-3">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <a href="index2.html">
+                <img [src]="item.picture" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-lg-9 col-md-6 col-sm-12">
+              <p>{{item.name}}</p>
+              <p>{{item.price}}</p>
+              <p>{{item.shipping}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+
+  </div>
+</div>
