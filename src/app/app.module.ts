@@ -14,8 +14,13 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { ChangeproductimgDirective } from './directives/changeproductimg.directive';
 import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
+<<<<<<< HEAD
 import { FilterPipe } from './Pipes/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+=======
+import { ReactiveFormsModule } from '@angular/forms';
+
+>>>>>>> d7b80ca5ee9c0bd5b3f1f2f550af2ca2e1695171
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +41,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+<<<<<<< HEAD
     FormsModule,
+=======
+>>>>>>> d7b80ca5ee9c0bd5b3f1f2f550af2ca2e1695171
     ReactiveFormsModule
   ],
   providers: [],
