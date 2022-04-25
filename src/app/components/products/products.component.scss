@@ -1,0 +1,41 @@
+.priceLinks a{
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+.priceLinks a:hover {
+  color:orange
+}
+
+
+.leftside {
+  margin-top: 200px;
+}
+
+.card {
+  padding: 20px
+}
+
+.card img {
+  // min-height: 290px;
+  width: 250px;
+  height: 250px;
+  margin:  20px 0;
+  transition: .3s ease-in-out;
+}
+.card img:hover {
+  transform: scale(1.1);
+}
+
+
+
+.back-to-top {
+  background-color: #37475a;
+  width: 100%;
+  color: white;
+  padding: 1%;
+}
+.back-to-top:hover {
+  background-color: #585c615d;
+}
+

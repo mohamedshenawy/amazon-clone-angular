@@ -9,6 +9,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { SignupComponent } from './components/signup/signup.component';
 
+
 const routes: Routes = [
   {
     path: "", component: MainLayoutComponent, children: [

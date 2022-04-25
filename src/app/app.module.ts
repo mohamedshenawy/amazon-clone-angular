@@ -14,7 +14,8 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { ChangeproductimgDirective } from './directives/changeproductimg.directive';
 import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
-
+import { FilterPipe } from './Pipes/filter.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +30,14 @@ import { ProductsComponent } from './components/products/products.component';
     ChangeproductimgDirective,
     LoginComponent,
     ProductsComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

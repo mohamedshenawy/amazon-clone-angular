@@ -1,7 +1,8 @@
+import { Icategory } from './../models/icategory';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Iproduct } from '../models/iproduct';
 
@@ -21,7 +22,7 @@ export class ProductsService {
 
   //read
   getAllProducts(): Observable<Iproduct[]> {
-    return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/api/Product`)
+    return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/api/Product`).pipe(map((res: any) => { return res }))
     // return this.httpClient.get<Iproduct[]>(`https://localhost:44326/api/Product`)
   }
 
@@ -56,4 +57,10 @@ export class ProductsService {
   deleteProduct(prodID: number): Observable<Iproduct> {
     return this.httpClient.delete<Iproduct>(`${environment.apiBaseUrl}/products/${prodID}`)
   }
+
+  getAllCategories(): Observable<Icategory[]> {
+    return this.httpClient.get<Icategory[]>(`${environment.apiBaseUrl}/api/FilterProduct/AllCategories`)
+      .pipe(map((res: any) => { return res }))
+  }
+
 }
