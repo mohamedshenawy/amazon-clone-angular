@@ -3,16 +3,22 @@ import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Iproduct } from 'src/app/models/iproduct';
 import { ProductsService } from 'src/app/services/products.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
+  template: `<pagination-controls (pageChange)="p = $event"></pagination-controls>`
 })
 export class ProductsComponent implements OnInit, OnChanges {
 
 
+
   searchkey: string = "";
+
+  p: number = 1;
+
   allProductsList: Iproduct[] = [];
   arrays: any[] = [];
 
