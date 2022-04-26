@@ -4,15 +4,18 @@
       <div class="row p-3">
         <div class="p-1">
           <p style="font-weight: bold;">Brands</p>
-          <input type="checkbox" name="brand" value="HP"> HP<br>
-          <input type="checkbox" name="brand" value="Dell"> Dell<br>
-          <input type="checkbox" name="brand" value="Lenovo"> Lenovo<br>
+          <ng-container *ngFor="let checkbox of checkBoxArrayForBrand">
+            <input type="{{checkbox.type}}" value="{{checkbox.Name}}" (change)="onChange($event)">{{checkbox.Name}}
+            <br>
+          </ng-container>
         </div>
         <div class="p-1 priceLinks mt-5">
           <p style="font-weight: bold;">Price</p>
-          <a href="#">Under $500</a>
-          <a href="#">$800 to $ 1000</a>
-          <a href="#">$1000 & Above</a>
+          <!-- <ng-container *ngFor="let checkbox of checkBoxArrayForPrice">
+            <input type="{{checkbox.type}}" value="{{checkbox.id}}" (change)="onChange($event)">{{checkbox.price}}
+            <br>
+          </ng-container> -->
+
         </div>
       </div>
     </div>
@@ -37,7 +40,7 @@
         <ng-container *ngFor="let item of allProductsList | filter:searchkey:'name'">
           <!-- [class.d-none]="catId != item.categoryId" -->
           <!-- *ngIf="item.categoryId == catId" -->
-          <div class="col-lg-3 mb-3" *ngIf="item.categoryId == catId">
+          <div class="col-lg-3 mb-3 ">
             <div class="card" style="width: 18rem;">
               <div class="text-center">
                 <img class="img-fluid" [src]="item.picture" alt="Card image cap">
@@ -49,6 +52,8 @@
                 </h5>
                 <p class="card-text">Price : {{item.price | currency : "USD"}}</p>
                 <p class="card-text">Shippd by: {{item.shipping}}</p>
+                <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
+                    class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
                 <div class="text-center">
                   <button class="btn btn-primary px-5" (click)="addtoCart(item)">Add to Cart</button>
                 </div>

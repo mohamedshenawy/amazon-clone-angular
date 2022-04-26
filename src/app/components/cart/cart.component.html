@@ -1,4 +1,4 @@
-<ng-container *ngIf="products.length == 0">
+<ng-container *ngIf="getcartDetails.length == 0">
   <div class="container-fluid mt-100">
     <div class="row">
       <div class="col-md-12">
@@ -23,7 +23,7 @@
 
 <!-- --------------------------------------------------------------------------------------------------  -->
 
-<ng-container *ngIf="products.length != 0">
+<ng-container *ngIf="getcartDetails.length != 0">
 
   <div class="card">
     <div class="row">
@@ -34,30 +34,41 @@
             <div class="col">
               <h4><b>Shopping Cart</b></h4>
             </div>
-            <div class="col align-self-center text-right text-muted">3 items</div>
+            <div class="col align-self-center text-right text-muted">{{TotalItem}} Items</div>
           </div>
         </div>
 
-        <ng-container *ngFor="let item of products; let i = index">
-          <div class="row border-top border-bottom">
-            <div class="row main align-items-center">
-              <div class="col"> {{ i + 1 }} </div>
-              <div class="col-2"><img class="img-fluid" [src]="item.picture"></div>
-              <div class="col">
-                <div class="row text-muted">{{item.Name}}</div>
-                <div class="row">{{item.Brand}}</div>
+        <ng-container *ngFor="let cartItem of getcartDetails; let i = index">
+          <div *ngIf="getcartDetails">
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col"> {{ i + 1 }} </div>
+                <div class="col-2"><img class="img-fluid" [src]="cartItem.picture"></div>
+                <div class="col">
+                  <div class="row text-muted">{{cartItem.Name}}</div>
+                  <div class="row">{{cartItem.Brand}}</div>
+                </div>
+
+                <div class="col">&euro; {{cartItem.price | currency : 'USD'}}</div>
+
+                <div class="col"> <button (click)="decQnt(cartItem.id, cartItem.quantity, cartItem.stock)">-</button><a
+                    class="border">{{cartItem.quantity}}</a><button
+                    (click)="incQnt(cartItem.id, cartItem.quantity, cartItem.stock)">+</button> </div>
+
+                <div class="col">&euro; {{cartItem.price * cartItem.quantity | currency : 'USD'}}</div>
+
+                <button (click)="removeItem(cartItem.id)" class="col deleteicon"><i class="fas fa-trash-alt"></i>
+                </button>
+
               </div>
-              <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-              <div class="col">&euro; {{item.price | currency : 'USD'}}</div>
-              <button (click)="removeItem(item)" class="col deleteicon"><i class="fas fa-trash-alt"></i> </button>
             </div>
           </div>
         </ng-container>
 
 
+
         <button routerLink="/product" class="btn btn-primary backtoshop">Back to shop</button>
-        <button (click)="emptyCart()" class="btn btn-danger emptycart">Empty
-          Cart</button>
+        <button (click)="removeAllItems()" class="btn btn-danger emptycart">Remove All Items</button>
       </div>
 
       <div class="col-md-4 summary">
@@ -66,13 +77,12 @@
         </div>
         <hr>
         <div class="row">
-          <div class="col" style="padding-left:0;">ITEMS 3</div>
+          <div class="col" style="padding-left:0;">{{TotalItem}} Items</div>
           <div class="col text-right"> {{TotalPrice | currency : 'USD'}}</div>
         </div>
         <form>
           <p>SHIPPING</p>
           <select>
-            <option class="text-muted">Amazon</option>
             <option class="text-muted">Standard-Delivery- {{ Delivery |currency : 'USD'}}</option>
           </select>
         </form>
