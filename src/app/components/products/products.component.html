@@ -37,14 +37,19 @@
 
       <div class="row">
 
-        <ng-container *ngFor="let item of allProductsList | filter:searchkey:'name'">
+        <ng-container
+          *ngFor="let item of allProductsList| paginate : {itemsPerPage:5, currentPage: p} | filter:searchkey:'name'">
           <!-- [class.d-none]="catId != item.categoryId" -->
           <!-- *ngIf="item.categoryId == catId" -->
           <div class="col-lg-3 mb-3 ">
             <div class="card" style="width: 18rem;">
+
               <div class="text-center">
-                <img class="img-fluid" [src]="item.picture" alt="Card image cap">
+                <a class="" (click)="goTodetails(item.id)" role="button">
+                  <img class="img-fluid" [src]="item.picture" alt="Card image cap">
+                </a>
               </div>
+
               <div class="card-body">
                 <h5 class="card-title"
                   style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
@@ -61,9 +66,10 @@
             </div>
           </div>
 
-
         </ng-container>
-
+        <div>
+          <pagination-controls (pageChange)="p = $event"> </pagination-controls>
+        </div>
 
       </div>
 

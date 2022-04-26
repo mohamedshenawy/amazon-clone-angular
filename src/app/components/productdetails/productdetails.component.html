@@ -3,14 +3,15 @@
   <a href="#">Back to results</a>
 </div>
 
+<div>{{product.name}}</div>
+
 <!-- product section -->
 <section class="row row-cols-3 d-flex justify-content-center product-sec w-100">
   <!-- images div -->
   <div class="imags-div col-1 d-none d-md-flex flex-column">
     <div class="d-flex justify-content-center">
       <a href="">
-        <img class="w-100 p-img" (mouseover)="testImg.src = t1.src" #t1
-          src="https://m.media-amazon.com/images/I/31KUAop6x6L._AC_SX466_.jpgm" alt="">
+        <img class="w-100 p-img" (mouseover)="testImg.src = t1.src" #t1 [src]="product.picture" alt="">
       </a>
     </div>
     <div class="d-flex justify-content-center">

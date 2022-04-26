@@ -17,12 +17,13 @@ const routes: Routes = [
       { path: "home", component: HomeComponent },
       { path: "orders", component: OrdersComponent },
       { path: "cart", component: CartComponent },
-      { path: "productdetails/:pid", component: ProductdetailsComponent },
+      { path: "productdetails/:id", component: ProductdetailsComponent },
       { path: "product", component: ProductsComponent }
     ]
   },
   { path: "signup", component: SignupComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: "**", redirectTo: '', component: HomeComponent }
 ];
 
 @NgModule({

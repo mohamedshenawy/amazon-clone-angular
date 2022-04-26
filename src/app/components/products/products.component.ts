@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Icategory } from './../../models/icategory';
 import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
@@ -28,7 +29,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   allCategoriesList: Icategory[] = []
   catId: number = 0;
 
-  constructor(private productsService: ProductsService, private cartService: CartServiceService) {
+  constructor(private productsService: ProductsService, private cartService: CartServiceService, private router: Router) {
   }
 
   checkBoxArrayForPrice: any = [
@@ -87,10 +88,21 @@ export class ProductsComponent implements OnInit, OnChanges {
   ];
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.filterProdByCategoryId();
-
+    // this.filterProdByCategoryId();
+    if (this.catId == 0) {
+      this.productsService.getAllProducts().subscribe(products => {
+        this.FilteredProductList = products
+      })
+    } else {
+      this.productsService.getProductsByCategory(this.catId).subscribe(products => {
+        this.FilteredProductList = products
+      })
+    }
   }
 
+  goTodetails(id: number) {
+    this.router.navigate(['productdetails/', id]);
+  }
 
 
   ngOnInit(): void {
