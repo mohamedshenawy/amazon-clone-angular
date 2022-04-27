@@ -132,12 +132,18 @@ export class ProductsComponent implements OnInit, OnChanges {
         this.FilteredProductList = this.allProductsList;
         // console.log(this.allProductsList)
         // console.log(this.FilteredProductList)
+        this.FilteredProductList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price })
+        });
       });
     } else {
       this.FilteredProductList = [];
       this.productsService.getProductsByCategory(catId).subscribe(prod => {
         this.FilteredProductList = prod;
         console.log(this.FilteredProductList)
+        this.FilteredProductList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price })
+        });
       })
     }
   }
