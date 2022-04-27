@@ -23,12 +23,11 @@ export class ProductsComponent implements OnInit, OnChanges {
   allProductsList: Iproduct[] = [];
   arrays: any[] = [];
 
-  FilteredProductList: Iproduct[] = []
-
 
   allCategoriesList: Icategory[] = []
   catId: number = 0;
 
+  FilteredProductList: Iproduct[] = [];
   constructor(private productsService: ProductsService, private cartService: CartServiceService, private router: Router) {
   }
 
@@ -89,15 +88,15 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     // this.filterProdByCategoryId();
-    if (this.catId == 0) {
-      this.productsService.getAllProducts().subscribe(products => {
-        this.FilteredProductList = products
-      })
-    } else {
-      this.productsService.getProductsByCategory(this.catId).subscribe(products => {
-        this.FilteredProductList = products
-      })
-    }
+    // if (this.catId == 0) {
+    //   this.productsService.getAllProducts().subscribe(products => {
+    //     this.FilteredProductList = products
+    //   })
+    // } else {
+    //   this.productsService.getProductsByCategory(this.catId).subscribe(products => {
+    //     this.FilteredProductList = products
+    //   })
+    // }
   }
 
   goTodetails(id: number) {
@@ -110,12 +109,12 @@ export class ProductsComponent implements OnInit, OnChanges {
     // get all products
     this.productsService.getAllProducts().subscribe(prods => {
       this.allProductsList = prods;
-
+      this.FilteredProductList = prods
       this.arrays = prods;
       this.allProductsList.forEach((a: any) => {
         Object.assign(a, { quantity: 1, total: a.price })
       });
-      console.log(this.arrays)
+      // console.log(this.arrays)
     });
 
     // get all category
@@ -125,54 +124,96 @@ export class ProductsComponent implements OnInit, OnChanges {
       this.searchkey = val
     })
   }
+  getprod(catId: number) {
 
-  getCatId(id: number) {
-    this.catId = id;
-    console.log(typeof (this.catId))
-  }
-
-  private filterProdByCategoryId() {
-    if (this.catId == 0) {
-      this.FilteredProductList = this.allProductsList;
+    if (catId == 0) {
+      this.productsService.getAllProducts().subscribe(prods => {
+        this.allProductsList = prods;
+        this.FilteredProductList = this.allProductsList;
+        // console.log(this.allProductsList)
+        // console.log(this.FilteredProductList)
+      });
     } else {
-      this.FilteredProductList = this.allProductsList.filter(prod => prod.categoryId == this.catId)
+      this.FilteredProductList = [];
+      this.productsService.getProductsByCategory(catId).subscribe(prod => {
+        this.FilteredProductList = prod;
+        console.log(this.FilteredProductList)
+      })
     }
   }
+
+
+  // private filterProdByCategoryId() {
+  //   if (this.catId == 0) {
+  //     this.FilteredProductList = this.allProductsList;
+  //   } else {
+  //     this.FilteredProductList = this.allProductsList.filter(prod => prod.categoryId == this.catId)
+  //   }
+  // }
 
   tempArrayForBrand: any = [];
   newArrayForBrand: any = [];
 
+  flag: number = 0;
 
+  nocheck: number = 0;
   // Filter by brand
   onChange(event: any) {
+
+
+
+    if (!event.target.value) {
+
+      this.productsService.getAllProducts().subscribe(prods => {
+        this.allProductsList = prods;
+
+        this.arrays = prods;
+        this.allProductsList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price })
+        });
+        // console.log(this.arrays)
+      });
+    }
     if (event.target.checked) {
-      this.tempArrayForBrand = this.arrays.filter((e: any) => e.brand == event.target.value);
+      this.nocheck += 1;
+      this.tempArrayForBrand = this.allProductsList.filter((e: any) => e.brand == event.target.value);
+      if (this.flag == 0) {
+        this.FilteredProductList = [];
+        this.flag = 1;
+      }
       // console.log(this.tempArrayForBrand)
-      this.allProductsList = [];
-      this.newArrayForBrand.push(this.tempArrayForBrand);
+      // this.allProductsList = [];
+      // this.newArrayForBrand.push(this.tempArrayForBrand);
       // console.log(this.newArrayForBrand)
-      for (let i = 0; i < this.newArrayForBrand.length; i++) {
-        var firstarray = this.newArrayForBrand[i];
-        for (let j = 0; j < firstarray.length; j++) {
-          var obj = firstarray[j]
-          this.allProductsList.push(obj)
-          // console.log(obj.name)
-        }
+      for (let i = 0; i < this.tempArrayForBrand.length; i++) {
+        this.FilteredProductList.push(this.tempArrayForBrand[i])
+      }
+      if (this.nocheck == 0) {
+
+        this.productsService.getAllProducts().subscribe(prods => {
+          this.FilteredProductList = prods;
+          // console.log(this.arrays)
+        });
       }
     } else {
-      this.tempArrayForBrand = this.allProductsList.filter((e: any) => e.brand != event.target.value);
-      this.newArrayForBrand = [];
-      this.allProductsList = [];
-      this.newArrayForBrand.push(this.tempArrayForBrand)
-      for (let i = 0; i < this.newArrayForBrand.length; i++) {
-        var firstarray = this.newArrayForBrand[i];
-        for (let j = 0; j < firstarray.length; j++) {
-          var obj = firstarray[j]
-          this.allProductsList.push(obj)
-          // console.log(obj.name)
-        }
+      this.nocheck -= 1;
+
+      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => e.brand != event.target.value);
+      // this.newArrayForBrand = [];
+      this.FilteredProductList = [];
+      // this.allProductsList.push(this.tempArrayForBrand)
+      for (let i = 0; i < this.tempArrayForBrand.length; i++) {
+        this.FilteredProductList.push(this.tempArrayForBrand[i])
+      }
+      if (this.nocheck == 0) {
+        this.flag = 0;
+        this.productsService.getAllProducts().subscribe(prods => {
+          this.FilteredProductList = prods;
+          // console.log(this.arrays)
+        });
       }
     }
+    console.log(this.allProductsList)
   }
 
   decrease(item: any) {

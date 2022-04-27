@@ -1,6 +1,6 @@
 <div class="back-to-results">
   <i class="fa fa-caret-left" aria-hidden="true"></i>
-  <a href="#">Back to results</a>
+  <a routerLink="/product">Back to results</a>
 </div>
 
 <div>{{product.name}}</div>
@@ -14,41 +14,7 @@
         <img class="w-100 p-img" (mouseover)="testImg.src = t1.src" #t1 [src]="product.picture" alt="">
       </a>
     </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
 
-        <img class="w-100 p-img" (mouseover)="testImg.src = t2.src" #t2
-          src="https://m.media-amazon.com/images/I/31L5t5PRuZL._AC_SX466_.jpg" alt="">
-      </a>
-    </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
-        <img class="w-100" (mouseover)="testImg.src = t3.src" #t3
-          src="https://m.media-amazon.com/images/I/311wmWAZq8L._AC_SX466_.jpg" alt="">
-
-      </a>
-    </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
-        <img class="w-100" (mouseover)="testImg.src = t4.src" #t4
-          src="https://m.media-amazon.com/images/I/21gcxMSlrXL._AC_SX466_.jpg" alt="">
-
-      </a>
-    </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
-        <img class="w-100" (mouseover)="testImg.src = t5.src" #t5
-          src="https://m.media-amazon.com/images/I/21wkvE+GkjL._AC_SX466_.jpg" alt="">
-
-      </a>
-    </div>
-    <div class="d-flex justify-content-center">
-      <a href="">
-        <img class="w-100" (mouseover)="testImg.src = t6.src" #t6
-          src="https://m.media-amazon.com/images/I/21MZsVL3ZIL._AC_SX466_.jpg" alt="">
-
-      </a>
-    </div>
   </div>
 
 
@@ -56,207 +22,67 @@
   <div class="item-details col-12 col-md-8 row row-cols-2">
 
     <div class="col-md-7 col-12  d-flex align-items-start pt-5">
-      <img class="w-100" id="desplayed-img" #testImg
-        src="https://m.media-amazon.com/images/I/31KUAop6x6L._AC_SX466_.jpg" alt="">
+      <img class="w-100" id="desplayed-img" #testImg [src]="product.picture" alt="">
     </div>
 
-    <div class="imags-div col-12 d-flex d-md-none">
-      <div class="d-flex justify-content-center">
-        <a href="">
-          <img class="w-100 p-img" (mouseover)="testImg.src = ts1.src" #ts1
-            src="https://m.media-amazon.com/images/I/31KUAop6x6L._AC_SX466_.jpg" alt="">
-        </a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="">
 
-          <img class="w-100 p-img" (mouseover)="testImg.src = ts2.src" #ts2
-            src="https://m.media-amazon.com/images/I/31L5t5PRuZL._AC_SX466_.jpg" alt="">
-        </a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="">
-          <img class="w-100" (mouseover)="testImg.src = ts3.src" #ts3
-            src="https://m.media-amazon.com/images/I/311wmWAZq8L._AC_SX466_.jpg" alt="">
-
-        </a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="">
-          <img class="w-100" (mouseover)="testImg.src = ts4.src" #ts4
-            src="https://m.media-amazon.com/images/I/21gcxMSlrXL._AC_SX466_.jpg" alt="">
-
-        </a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="">
-          <img class="w-100" (mouseover)="testImg.src = ts5.src" #ts5
-            src="https://m.media-amazon.com/images/I/21wkvE+GkjL._AC_SX466_.jpg" alt="">
-
-        </a>
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="">
-          <img class="w-100" (mouseover)="testImg.src = ts6.src" #ts6
-            src="https://m.media-amazon.com/images/I/21MZsVL3ZIL._AC_SX466_.jpg" alt="">
-
-        </a>
-      </div>
-    </div>
 
     <div class="col-12 col-md-5">
       <hr>
-      <p class="h5">HP Laptop 15-dw3014ne - 11th Intel Core i5-1135G7, 8GB RAM, 256GB SSD, NVIDIA GeForce
-        MX350 2GB GDDR5 dedicated Graphics, 15.6" FHD (1920 x 1080) micro-edge, anti-glare 250 nits, Dos
-        - Natural silver</p>
-      <a href="#" class="brand-style">Brand: HP</a>
-      <div class="rate-img d-flex">
-        <div class="img-rate-div">
-          <img class="w-100" src="images/PngItem_2656802.png" alt="">
+      <p class="h5">{{product.name}}</p>
+      <span href="#" class="brand-style">Brand: {{product.brand}}</span>
 
-        </div>
 
-        <div class="ps-1 pe-3">
-          <i class="fa fa-caret-down d-rate" aria-hidden="true"></i>
-        </div>
-        <div class="w-50">
-          <a href="#" class="brand-style">3 ratings</a>
-        </div>
-      </div>
-      <div>
-        <span style="color: #3e9dbc;">|</span><a href="" class="brand-style"> 7 answered questions</a>
-      </div>
       <hr>
       <div>
         <div class="d-flex">
-          <p class="desc-style pe-2">-4%</p>
+          <p class="desc-style pe-2">{{product.discount * 100}}%</p>
           <div class="d-flex">
-            <p>EGP</p>
-            <p class="h3">11,499</p>
-            <p class="h6">00</p>
+
+            <p class="h3">{{product.price - (product.price * product.discount) | currency : 'USD'}}</p>
           </div>
         </div>
         <div>
-          <p class="list-price">List Price: <span> EGP11,999.00</span></p>
+          <p class="list-price">List Price: <span> {{product.price}}</span></p>
         </div>
+
+
         <div>
-          <p class="small-txt">All prices include VAT.</p>
-        </div>
-        <div>
-          <p class=".small-txt">Buy with installments and pay EGP 356.09 for 48 months with select
-            banks.
-            <a href="#" class="brand-style"> Learn more</a>
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-          </p>
+          <div class="dlevry-img ">
+            <img class="w-50"
+              src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB403797073_.png"
+              alt="">
+          </div>
+          <a href="#" class="brand-style small-text">Delivered by {{product.shipping}}</a>
         </div>
 
-        <div class="d-flex">
-          <div>
-            <div class="dlevry-img">
-              <img class="w-100"
-                src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-cod._CB638858551_.png"
-                alt="">
-            </div>
-            <a href="#" class="brand-style small-text">Cash on Delivery</a>
-          </div>
-
-          <div>
-            <div class="dlevry-img">
-              <img class="w-100"
-                src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB403797073_.png"
-                alt="">
-            </div>
-            <a href="#" class="brand-style small-text">Delivered by Amazon</a>
-          </div>
-
-          <div>
-            <div class="dlevry-img">
-              <img class="w-100"
-                src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-secure-transaction._CB414468582_.png"
-                alt="">
-            </div>
-            <a href="#" class="brand-style small-text">Secure transaction</a>
-          </div>
-        </div>
 
         <hr>
 
         <div>
           <div class="d-flex">
             <a href="#" class="brand-style small-txt">
-              New (2) from
               <span style="color: #ba4223;">
-                EGP 11,499.00
+                price: {{product.price * product.discount | currency : 'USD'}}
               </span>
             </a>
-            <p class="small-txt"> &
-              <span class="bold-txt">
-                FREE Shipping.
-              </span>
-            </p>
           </div>
           <div>
             <ul class="item-featrs">
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  Series</span>
-                <span class="small-txt">15-dw3014ne</span>
-              </li>
 
               <li class="row row-cols-2">
                 <span class="bold-txt small-txt pe-5">
                   Brand</span>
-                <span class="small-txt">HP</span>
+                <span class="small-txt">{{product.brand}}</span>
               </li>
 
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt">
-                  Specific uses for product</span>
-                <span class="small-txt">Multimedia, Student, Business</span>
-              </li>
-
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt">
-                  Screen size</span>
-                <span class="small-txt"> 15.6 Inches</span>
-              </li>
-
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  Operating System</span>
-                <span class="small-txt">DOS</span>
-              </li>
-
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  CPU manufacturer</span>
-                <span class="small-txt">Intel</span>
-              </li>
-
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  Graphics card description</span>
-                <span class="small-txt">Dedicated</span>
-              </li>
-
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  Special features</span>
-                <span class="small-txt">PCIe SSD storage, DDR4 RAM, NVIDIA® GeForce® MX350
-                  graphics, Full HD display, Anti-glare panel,…</span>
-              </li>
 
               <li class="row row-cols-2">
                 <span class="bold-txt small-txt pe-5">
                   Colour</span>
-                <span class="small-txt">Silver</span>
+                <span class="small-txt">Black</span>
               </li>
 
-              <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
-                  Processor count</span>
-                <span class="small-txt">4</span>
-              </li>
             </ul>
           </div>
 
@@ -265,8 +91,7 @@
           <div>
             <p class="h5">About this item</p>
             <ul>
-              <li class="small-txt">HP Laptop with 11th Generation Intel Core i5 processor & 256
-                GB SSD</li>
+              <li class="small-txt">{{product.description}}</li>
             </ul>
           </div>
         </div>
@@ -299,14 +124,8 @@
     <div class="pay-first-div pt-3 mt-1 pb-3">
 
       <div class="d-flex">
-        <p class="small-txt">EGP</p>
-        <p class="h5">11,499</p>
+        <p class="h5">{{product.price - (product.price * product.discount)  | currency : 'USD'}}</p>
         <p class="small-txt">00</p>
-      </div>
-
-      <div>
-        <a href="#" class="brand-style small-txt">FREE delivery:</a>
-        <span class="small-txt bold-txt">Tomorrow</span>
       </div>
 
       <div class="d-flex pt-2">
@@ -316,619 +135,25 @@
       </div>
 
       <div>
-        <p class="h5 text-success">In Stock.</p>
+        <p class="h5 text-success">In Stock. {{product.stock}}</p>
       </div>
 
-      <div class="d-flex">
-        <p class="me-1">QTY:</p>
-        <select class="h-100 select-item-q-w" name="quantity" id="item-quantity">
-          <option value="1" selected>1</option>
-          <option value="2">2</option>
-        </select>
-      </div>
+
 
       <div class="d-flex flex-column justify-content-center">
-        <input type="button" class="btn btn-warning add-to-cart-btn mb-2" value="Add to Cart">
-        <input type="button" class="btn  buy-btn" value="Buy Now">
+        <input type="button" class="btn btn-warning add-to-cart-btn mb-2" value="Add to Cart"
+          (click)="addtoCart(product)">
       </div>
 
       <div class="pt-2">
         <p>Ships from and sold by Amazon.eg.</p>
       </div>
 
-      <div>
-        <p class="small-txt bold-txt">Add a Protection Plan:</p>
-        <div class="d-flex">
-          <input class="mt-1" type="checkbox" name="check-box" id="check-box">
-          <div>
-            <a href="#" class="brand-style small-txt">1-Year Accidental Damage Protection</a>
-            <p class="small-txt">
-              for
-              <span class="text-danger">
-                EGP 1,233.00
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="d-flex justify-content-center">
-        <button class="btn add-to-list-btn">Add to List</button>
-      </div>
-
-
-
-
 
     </div>
 
-    <div class="pay-first-div pt-3 mt-1 d-flex justify-content-between">
-      <div>
-        <p class="small-txt">New (2) from</p>
-        <p class="small-txt">
-
-          <span class="text-danger bold-txt">
-            EGP 11,499.00
-
-          </span>
-          & FREE Sheipping.
-
-        </p>
-      </div>
-      <div class="d-flex justify-content-end align-items-center w-50">
-        <a href="#">
-          <i class="fa-solid fa-angle-right text-dark"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
-</section>
-<hr>
-<!-- buy it with -->
-<section class="buy-it-with-sec">
-  <div>
-    <p class="h3">Buy it with</p>
-  </div>
-
-  <div class="ms-3 d-md-flex">
-    <div class="d-flex">
-      <img src="https://images-eu.ssl-images-amazon.com/images/I/31KUAop6x6L._AC_UL116_SR116,116_.jpg" alt="">
-      <p class="fs-1 align-self-center">+</p>
-      <img src="https://images-eu.ssl-images-amazon.com/images/I/61pUul1oDlL._AC_UL116_SR116,116_.jpg" alt="">
-      <p class="fs-1 align-self-center">+</p>
-      <img src="https://images-eu.ssl-images-amazon.com/images/I/61yo4swj-PL._AC_UL116_SR116,116_.jpg" alt="">
-    </div>
-    <div class="ms-4 d-flex d-md-block">
-      <p>
-        Total price:
-
-        <span class="small-text text-danger">EGP 12,441.90</span>
-      </p>
-
-      <button class="bg-warning all-three ms-1">add all three to cart</button>
-    </div>
-  </div>
-
-  <div class="ms-4">
-    <div class="d-flex">
-      <i class="fa-solid fa-info i-icon ms-2"></i>
-      <p class="small-txt">
-        Some of these items ship sooner than the others.
-        <a href="#" class="brand-style">Show details</a>
-      </p>
-    </div>
-    <div class="d-flex">
-      <input type="checkbox" class="mt-1" name="" id="">
-      <p class="small-txt">
-        <span class="bold-txt small-txt">This item:</span>
-        HP Laptop 15-dw3014ne - 11th Intel Core i5-1135G7, 8GB RAM, 256GB SSD, NVIDIA GeForce MX350
-        2GB..
-        <span class="text-danger">EGP 11,499.00</span>
-      </p>
-    </div>
-
-    <div class="d-flex">
-      <input type="checkbox" class="mt-1" name="" id="">
-      <p class="small-txt">
-        <a href="#" class="brand-style">
-
-          Logitech MK270 Wireless Keyboard And Mouse - Eng/Arabic, Black
-        </a>
-      </p>
-      <span class="text-danger small-txt ms-1">EGP 466.00</span>
-    </div>
-
-    <div class="d-flex">
-      <input type="checkbox" class="mt-1" name="" id="">
-      <p class="small-txt">
-        <a href="#" class="brand-style">
-
-          Logitech C270 Widescreen HD Webcam - Black
-        </a>
-      </p>
-      <span class="text-danger small-txt ms-1">EGP 466.00</span>
-    </div>
-  </div>
-
-
-
-</section>
-<hr>
-
-<!-- product information -->
-<section class="product-info">
-  <div>
-    <p class="p-info-tilte h5">Product information</p>
-  </div>
-
-  <div class="row row-cols-md-2 flex-wrap w-100 d-flex justify-content-center">
-    <div class="col-md-5">
-      <p class="h6">Technical Details</p>
-      <hr>
-      <div class="technical-table-div">
-        <table>
-          <th>Brand</th>
-          <th>HP</th>
-          <tr>
-            <td>Product Dimensions</td>
-            <td>35.85 x 24.2 x 1.99 cm; 1.75 Kilograms</td>
-          </tr>
-          <tr>
-            <td>Batteries</td>
-            <td>1 Lithium ion batteries required. (included)</td>
-          </tr>
-          <tr>
-            <td>Item model number</td>
-            <td>15-dw1014ne</td>
-          </tr>
-          <tr>
-            <td>Manufacturer</td>
-            <td>hp</td>
-          </tr>
-          <tr>
-            <td>Series</td>
-            <td>15-dw3014ne</td>
-          </tr>
-          <tr>
-            <td>Color</td>
-            <td>Silver</td>
-          </tr>
-          <tr>
-            <td>Standing screen display size</td>
-            <td>15.6 Inches</td>
-          </tr>
-          <tr>
-            <td>Resolution</td>
-            <td>1920 x 1080 Pixels</td>
-          </tr>
-          <tr>
-            <td>Processor Brand</td>
-            <td>Intel</td>
-          </tr>
-          ]<tr>
-            <td>Processor Type</td>
-            <td>Intel Core i5</td>
-          </tr>
-          <tr>
-            <td>Processor Speed</td>
-            <td>2.4 GHz</td>
-          </tr>
-          <tr>
-            <td>Processor Count</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>Memory Technology</td>
-            <td>DDR4</td>
-          </tr>
-          <tr>
-            <td>Computer Memory Type</td>
-            <td>DDR4 SDRAM</td>
-          </tr>
-          <tr>
-            <td>Maximum Memory Supported</td>
-            <td>8 MB</td>
-          </tr>
-          <tr>
-            <td>Memory Clock Speed</td>
-            <td>2666 MHz</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-5 mt-5 mt-md-0">
-      <div>
-        <p class="h6">Additional Information</p>
-      </div>
-      <hr>
-      <div class="technical-table-div">
-        <table>
-          <th>ASIN</th>
-          <th>B09J7W71F9</th>
-
-          <tr>
-            <td>Date First Available</td>
-            <td>12 October 2021</td>
-          </tr>
-
-        </table>
-        <div>
-          <p class="h5">Warranty & Support</p>
-
-        </div>
-        <hr>
-        <div>
-          <p class="small-txt">
-            amazon.eg Return Policy:Regardless of your statutory right of withdrawal, you enjoy a
-            15-30 day right of return for most products. For exceptions and conditions, see
-            <a href="#" class="brand-style">Return details.</a>
-          </p>
-        </div>
-      </div>
-    </div>
+    <hr>
 
   </div>
 
-
-</section>
-
-<!-- product information -->
-<section class="product-info">
-  <div>
-    <p class="p-info-tilte h5">Product information</p>
-  </div>
-
-  <div class="row row-cols-md-2 flex-wrap w-100 d-flex justify-content-center">
-    <div class="col-md-5">
-      <p class="h6">Technical Details</p>
-      <hr>
-      <div class="technical-table-div">
-        <table>
-          <th>Brand</th>
-          <th>HP</th>
-          <tr>
-            <td>Product Dimensions</td>
-            <td>35.85 x 24.2 x 1.99 cm; 1.75 Kilograms</td>
-          </tr>
-          <tr>
-            <td>Batteries</td>
-            <td>1 Lithium ion batteries required. (included)</td>
-          </tr>
-          <tr>
-            <td>Item model number</td>
-            <td>15-dw1014ne</td>
-          </tr>
-          <tr>
-            <td>Manufacturer</td>
-            <td>hp</td>
-          </tr>
-          <tr>
-            <td>Series</td>
-            <td>15-dw3014ne</td>
-          </tr>
-          <tr>
-            <td>Color</td>
-            <td>Silver</td>
-          </tr>
-          <tr>
-            <td>Standing screen display size</td>
-            <td>15.6 Inches</td>
-          </tr>
-          <tr>
-            <td>Resolution</td>
-            <td>1920 x 1080 Pixels</td>
-          </tr>
-          <tr>
-            <td>Processor Brand</td>
-            <td>Intel</td>
-          </tr>
-          ]<tr>
-            <td>Processor Type</td>
-            <td>Intel Core i5</td>
-          </tr>
-          <tr>
-            <td>Processor Speed</td>
-            <td>2.4 GHz</td>
-          </tr>
-          <tr>
-            <td>Processor Count</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>Memory Technology</td>
-            <td>DDR4</td>
-          </tr>
-          <tr>
-            <td>Computer Memory Type</td>
-            <td>DDR4 SDRAM</td>
-          </tr>
-          <tr>
-            <td>Maximum Memory Supported</td>
-            <td>8 MB</td>
-          </tr>
-          <tr>
-            <td>Memory Clock Speed</td>
-            <td>2666 MHz</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-5 mt-5 mt-md-0">
-      <div>
-        <p class="h6">Additional Information</p>
-      </div>
-      <hr>
-      <div class="technical-table-div">
-        <table>
-          <th>ASIN</th>
-          <th>B09J7W71F9</th>
-
-          <tr>
-            <td>Date First Available</td>
-            <td>12 October 2021</td>
-          </tr>
-
-        </table>
-        <div>
-          <p class="h5">Warranty & Support</p>
-
-        </div>
-        <hr>
-        <div>
-          <p class="small-txt">
-            amazon.eg Return Policy:Regardless of your statutory right of withdrawal, you enjoy a
-            15-30 day right of return for most products. For exceptions and conditions, see
-            <a href="#" class="brand-style">Return details.</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-</section>
-
-
-<hr>
-
-
-
-<!-- have a quation section -->
-<section class="have-q-sec ps-3">
   <hr>
-  <!-- header -->
-  <div class="cust-sec-header">
-    <p class="h5">Have a question?</p>
-  </div>
-  <div>
-    <p class="small-txt">Find answers in product info, Q&As, reviews</p>
-  </div>
-  <div class="inpt-w-search row row-cols-2 d-flex">
-    <i class="fa fa-search col-1" aria-hidden="true"></i>
-    <input type="text" name="input-text" class="q-input ms-3 ms-md-0 col-md-11" id="">
-  </div>
-</section>
-
-
-<!-- product description -->
-<section class="product-desc">
-  <hr>
-  <!-- header -->
-  <div class="cust-sec-header">
-    <p class="h5" style="color: #cc6600;">Product description</p>
-  </div>
-  <div>
-    <p class="small-txt ms-5">
-      Operating system : FreeDOS Processor family : 11th Generation Intel® Core™ i5 processor Processor :
-      Intel® Core™ i5-1135G7 (up to 4.2 GHz with Intel® Turbo Boost Technology, 8 MB L3 cache, 4 cores)
-      6,7 Chipset : Intel® Integrated SoC Memory : 8 GB DDR4-2666 MHz RAM (1 x 8 GB) Storage : 256 GB
-      PCIe® NVMe™ M.2 SSD Optical drive : Optical drive not included Display : 39.6 cm (15.6") diagonal,
-      FHD (1920 x 1080), micro-edge, anti-glare, 250 nits, 45% NTSC Graphics : NVIDIA GeForce MX350 2GB
-      GDDR5 dedicated Expansion features & ports : 1 SuperSpeed USB Type-C® 5Gbps signaling rate 2
-      SuperSpeed USB Type-A 5Gbps signaling rate 1 HDMI 1.4b 1 RJ-45 1 AC smart pin 1 headphone/microphone
-      combo 1 multi-format SD media card reader Camera : HP True Vision 720p HD camera with integrated
-      dual array digital microphones Audio : Dual speakers Keyboard : Full-size, natural silver keyboard
-      with numeric keypad Network interface : Integrated 10/100/1000 GbE LAN Wireless : Realtek
-      RTL8821CE-M 802.11a/b/g/n/ac (1x1) Wi-Fi® and Bluetooth® 4.2 combo Power supply type : 65 W Smart AC
-      power adapter Battery type : 3-cell, 41 Wh Li-ion Supports battery fast charge Dimensions (W x D x
-      H) : 35.85 x 24.2 x 1.99 cm Weight : 1.75 kg Product color : Natural silver Product design : Paint
-      cover and base finish, vertical brushing pattern with IMR cover and keyboard frame
-    </p>
-  </div>
-</section>
-
-<!-- From the manufacturer -->
-<section class="manufacturer">
-  <hr>
-  <!-- header -->
-  <div class="cust-sec-header">
-    <p class="h5">From the manufacturer</p>
-  </div>
-
-  <div class="w-100">
-    <img
-      src="https://m.media-amazon.com/images/S/aplus-media/sota/7ee98c50-a581-4304-b5ee-86b4394c589f.__CR0,0,600,180_PT0_SX600_V1___.jpg"
-      class="w-100" alt="">
-  </div>
-
-
-  <div class="w-100 row row-cols-2 d-flex justify-content-center">
-    <div class="col-4">
-      <img
-        src="https://m.media-amazon.com/images/S/aplus-media/sota/3f836c8b-0ba1-4d19-a1f4-1895a0809437.__CR0,0,300,300_PT0_SX300_V1___.jpg"
-        class="w-100" alt="">
-    </div>
-    <div class="col-6 align-self-center">
-      <p class="h6">HP Laptop 15-dw3014ne</p>
-      <p class="small-txt">Stay connected to what matters most with a long-lasting battery life and a
-        sleek and portable, micro-edge bezel design. Built to keep you productive and entertained from
-        anywhere, the HP 39.6 cm (15.6”) laptop features reliable performance and an expansive display -
-        letting you stream, surf and speed through tasks from sun up to sun down.</p>
-    </div>
-
-  </div>
-
-  <div class="w-100 row row-cols-xlg-3 p-5">
-    <div class="col">
-      <img
-        src="https://m.media-amazon.com/images/S/aplus-media/sota/bab83e42-6375-482c-84dc-333322a669f6.__CR0,0,300,300_PT0_SX300_V1___.jpg"
-        alt="">
-      <p>See more. Take it anywhere.
-        With its 6.5 mm micro-edge bezel display, slim and light design, plus 81% screen to body ratio –
-        this PC lets you see more and do more, no matter where the day takes you.</p>
-    </div>
-
-    <div class="col">
-      <img
-        src="https://m.media-amazon.com/images/S/aplus-media/sota/7b5faa6b-9990-479f-ba35-7d892023f966.__CR0,0,300,300_PT0_SX300_V1___.jpg"
-        alt="">
-      <p>Reliable performance for every day
-        Tackle your busiest days with the performance of an Intel processor and advanced graphics. Store
-        more of what you love with abundant storage</p>
-    </div>
-
-    <div class="col">
-      <img
-        src="https://m.media-amazon.com/images/S/aplus-media/sota/2bad48e7-ef53-4503-a1d5-0eb70de2ecfe.__CR0,0,300,300_PT0_SX300_V1___.jpg"
-        alt="">
-      <p>Powered up and productive. All day long.
-        With long-lasting battery life and HP Fast Charge technology, this laptop lets you work, watch,
-        and stay connected. Integrated precision touchpad with multi-touch support speeds up both
-        navigation and productivity.</p>
-    </div>
-
-  </div>
-
-  <div class="w-100">
-    <img
-      src="https://m.media-amazon.com/images/S/aplus-media/sota/a577ef0e-11d9-4474-bfec-6dfe15e9d6d2.__CR0,0,970,600_PT0_SX970_V1___.jpg"
-      class="w-100" alt="">
-  </div>
-
-  <div class="container">
-    <div>
-      <p class="h6">Exceptional experience, anywhere</p>
-      <p>11th Gen Intel Core processors bring the perfect combination of features to make you unstoppable.
-        Get things done fast with high performance, instant responsiveness and connectivity.</p>
-    </div>
-    <div>
-      <p class="h6">NVIDIA GeForce MX350 graphics</p>
-      <p>Supercharge your PC for work and play. Get higher graphics performance for smooth gaming and
-        accelerated editing, maximized battery and performance with NVIDIA Optimus Technology, while
-        GeForce Experience enables capturing and sharing videos, driver updates, and live streaming of
-        games- allowing you to do it all.</p>
-    </div>
-    <div>
-      <p class="h6">Full HD display</p>
-      <p>Sit back and enjoy crystal-clear visuals and images with the vibrant quality of 2 million pixels.
-        The 1920 x 1080 resolution gives all your digital content a new dimension.</p>
-    </div>
-  </div>
-
-  <div class="w-100">
-    <img
-      src="https://m.media-amazon.com/images/S/aplus-media/sota/a57f0f7c-4015-4a23-a143-f5d2b7f6e572.__CR0,0,970,600_PT0_SX970_V1___.jpg"
-      class="w-100" alt="">
-  </div>
-
-  <div class="container">
-    <ul>
-      <li>Anti-glare panel: Enjoy the sun and your favorite content with this anti-glare panel.
-        Non-reflective and low gloss means you'll get less glare while you're outside.</li>
-      <li>PCIe SSD storage: Boot up in seconds with lightning fast speed with up to 512 GB PCIe SSD
-        storage.</li>
-      <li>Wi-Fi 5 (1x1) & Bluetooth 4.2 (802.11a/b/g/n/ac): Stay connected to Wi-Fi and to Bluetooth
-        accessories with wireless technology.</li>
-      <li>MU-MIMO supported: If you have several MU-MIMO devices in your home, MU-MIMO support works in
-        combination with a MU-MIMO router to maximize network traffic for a smoother online experience.
-      </li>
-      <li>Dual channel memory: With dual channel technology, two channels work simultaneously to double
-        the communication speed between the memory controller and the RAM increasing system performance.
-      </li>
-      <li>SuperSpeed USB Type-C 5Gbps signaling data rate: Plug in your external storage with this
-        SuperSpeed USB Type-C port, featuring 5Gbps signaling data rate. And it’s reversible, so you
-        never have to worry about plugging in upside down.</li>
-      <li>SD and Micro SD card reader: Simply insert an SD or Micro SD card and increase your device’s
-        storage for more movies, photos, and music, or easily access any content you have stored on an
-        existing card.</li>
-      <li>Full-size keyboard with integrated numeric keypad: The full-sized keyboard with integrated
-        numeric keypad allows you to comfortably type and increase productivity with 1.5mm key travel.
-      </li>
-      <li>HP True Vision HD Camera: Video chat in vibrant clarity, even in low light and make every
-        conversation a face-to-face experience for a better way to stay in touch.</li>
-      <li>Micro-edge display: See more of your screen with a micro-edge display that maximizes your
-        viewing area.</li>
-      <li>Dual speakers: Pump up the volume to your favorite music, movie or game with dual-stereo
-        speakers.</li>
-    </ul>
-  </div>
-</section>
-
-
-
-<!-- customer questions & answers -->
-<section class="cust-q-a">
-  <hr>
-  <!-- header -->
-  <div class="cust-sec-header">
-    <p class="h5" style="color: #cc6600;">Customer questions & answers</p>
-  </div>
-
-  <div class="inpt-w-search row row-cols-2 d-flex ms-1">
-    <i class="fa fa-search col-1" aria-hidden="true"></i>
-    <input type="text" name="input-text" class="q-input ms-3 ms-md-0 col-md-11" id="">
-  </div>
-
-  <div>
-
-    <div class="d-flex ps-1">
-      <div class="d-flex justfiy-content-center flex-column m-4">
-        <i class="fa fa-caret-up fs-4" aria-hidden="true"></i>
-        <p class="fs-3">0</p>
-        <i class="fa fa-caret-down fs-4" aria-hidden="true"></i>
-      </div>
-      <div class="v-line mt-4 mb-5"></div>
-      <div class="m-5">
-        <ul>
-          <li class="d-flex">
-            <p class="bold-txt pe-5">Question:</p>
-            <p class="brand-style">هل الكيبورد backlit ?</p>
-          </li>
-          <li class="d-flex">
-            <p class="bold-txt pe-5">Answer:</p>
-            <p class="brand-style">yes
-              By Amazon Customer on February 20, 2022</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="d-flex ps-1">
-      <div class="d-flex justfiy-content-center flex-column m-4">
-        <i class="fa fa-caret-up fs-4" aria-hidden="true"></i>
-        <p class="fs-3">0</p>
-        <i class="fa fa-caret-down fs-4" aria-hidden="true"></i>
-      </div>
-      <div class="v-line mt-4 mb-5"></div>
-      <div class="m-5">
-        <ul>
-          <li class="d-flex">
-            <p class="bold-txt pe-5">Question:</p>
-            <p class="brand-style">هل الكيبورد backlit ?</p>
-          </li>
-          <li class="d-flex">
-            <p class="bold-txt pe-5">Answer:</p>
-            <p class="brand-style">yes
-              By Amazon Customer on February 20, 2022</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>

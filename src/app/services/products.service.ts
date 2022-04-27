@@ -27,11 +27,7 @@ export class ProductsService {
   }
 
   getProductsByCategory(catID: number): Observable<Iproduct[]> {
-    if (catID == 0) {
-      return this.getAllProducts();
-    }
-
-    return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/products?CategoryID=${catID}`)
+    return this.httpClient.get<Iproduct[]>(`${environment.apiBaseUrl}/api/FilterProduct/ProductByCatID?CatID=${catID}`)
   }
 
   getProductsById(prodID: number): Observable<Iproduct> {

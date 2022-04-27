@@ -23,10 +23,10 @@
     <div class="col-lg-10 col-md-8 col-sm-6">
       <div class="p-3">
         <p style="font-weight: bold;"> FIND YOUR Product</p>
-        <button class="btn btn-secondary m-1" (click)="getCatId(0)">All</button>
+        <button class="btn btn-secondary m-1" (click)="getprod(0)">All</button>
         <ng-container *ngFor="let item of allCategoriesList">
 
-          <button class="btn btn-secondary m-1" (click)="getCatId(item.id)">{{item.name}}</button>
+          <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.name}}</button>
         </ng-container>
 
       </div>
@@ -38,7 +38,7 @@
       <div class="row">
 
         <ng-container
-          *ngFor="let item of allProductsList| paginate : {itemsPerPage:5, currentPage: p} | filter:searchkey:'name'">
+          *ngFor="let item of FilteredProductList | paginate : {itemsPerPage:5, currentPage: p} | filter:searchkey:'name'">
           <!-- [class.d-none]="catId != item.categoryId" -->
           <!-- *ngIf="item.categoryId == catId" -->
           <div class="col-lg-3 mb-3 ">
