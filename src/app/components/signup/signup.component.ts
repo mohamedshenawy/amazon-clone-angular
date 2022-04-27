@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -15,17 +15,16 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class SignupComponent implements OnInit {
   customerFormGroup!: FormGroup;
-  constructor(
-    private fb: FormBuilder,
-    private route: Router,
-    private customerService: CustomerService
-  ) {
+  @ViewChild('passwordInput') passwordInput!: ElementRef;
+  constructor(private route: Router, private customerService: CustomerService) {
     this.customerFormGroup = new FormGroup({
       userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
-        Validators.minLength(6),
         Validators.required,
+        Validators.pattern(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,}$/
+        ),
       ]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -48,9 +47,17 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   register() {
-    this.customerService.addCustomer(this.customerFormGroup.value);
+    this.customerService.addCustomer(this.customerFormGroup.value).subscribe();
 
     this.route.navigate(['/home']);
+  }
+
+  despalyPassword() {
+    if (this.passwordInput.nativeElement.type == 'password') {
+      this.passwordInput.nativeElement.type = 'text';
+    } else {
+      this.passwordInput.nativeElement.type = 'password';
+    }
   }
   //get functions
   get userName() {

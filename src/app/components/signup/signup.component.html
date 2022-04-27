@@ -15,20 +15,44 @@
                     <label class="h6" for="name-input">user name</label>
                     <input type="text" formControlName="userName" class="form-control inpt" name="userName"
                         id="userName-input" [class.is-valid]="userName?.valid" [class.is-invalid]="userName?.invalid">
+                    <div [hidden]="userName?.valid || userName?.untouched" class="alert alert-danger">
+                        <small *ngIf="userName?.errors?.['required']">
+                            User Name is required
+                        </small>
+                    </div>
 
                     <label class="h6" for="name-input">first name</label>
                     <input type="text" formControlName="firstName" class="form-control inpt" name="firstName"
                         id="firstName-input" [class.is-valid]="firstName?.valid"
                         [class.is-invalid]="firstName?.invalid">
+                    <div [hidden]="firstName?.valid || firstName?.untouched" class="alert alert-danger">
+                        <small *ngIf="firstName?.errors?.['required']">
+                            First Name is required
+                        </small>
+                    </div>
 
                     <label class="h6" for="name-input">last name</label>
                     <input type="text" formControlName="lastName" class="form-control inpt" name="lastName"
                         id="lastName-input" [class.is-valid]="lastName?.valid" [class.is-invalid]="lastName?.invalid">
+                    <div [hidden]="lastName?.valid || lastName?.untouched" class="alert alert-danger">
+                        <small *ngIf="lastName?.errors?.['required']">
+                            last Name is required
+                        </small>
+                    </div>
 
 
                     <label class="h6" for="Email-input">Email</label>
                     <input type="email" formControlName="email" class="form-control inpt" name="email" id="email-input"
                         [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid">
+                    <div [hidden]="email?.valid || email?.untouched" class="alert alert-danger">
+                        <small *ngIf="email?.errors?.['required']">
+                            email is required
+                        </small>
+                        <small *ngIf="email?.errors?.['email']">
+                            email must contain @ - Ex: example@gmail.com
+                        </small>
+
+                    </div>
 
                     <div class="d-flex justify-content-center flex-column">
                         <label class="h6" for="password-input">Password</label>
@@ -36,13 +60,21 @@
                             <input type="Password" #passwordInput formControlName="password" class="form-control inpt"
                                 name="password" id="password-input" [class.is-valid]="password?.valid"
                                 [class.is-invalid]="password?.invalid">
-                            <!-- <i class="fa-solid fa-eye align-self-center ms-3" (click)="passwordInput.type = 'text'"></i> -->
+                            <i class="fa-solid fa-eye align-self-center ms-3" (click)="despalyPassword()"></i>
                         </div>
                     </div>
-                    <div class="d-flex pt-1 small-text">
-                        <i class="fa-solid fa-info text-primary mt-1"></i>
-                        <p class="ms-2">Passwords must be at least 6 characters.</p>
+                    <div [hidden]="password?.valid || password?.untouched" class="alert alert-danger">
+                        <small *ngIf="password?.errors?.['required']">
+                            password is required
+                        </small>
+                        <small *ngIf="password?.errors?.['pattern']">
+                            at least one upper case <br> one lower case <br> at least one special charchter <br>at least
+                            one number <br> and length at least 8
+                            .
+                        </small>
+
                     </div>
+
 
                     <label class="h6" for="mobile-input">Mobile number</label>
                     <div class="w-100 d-flex  justify-content-between">
@@ -50,6 +82,16 @@
                             id="phone-input" [class.is-valid]="phoneNumber?.valid"
                             [class.is-invalid]="phoneNumber?.invalid">
                     </div>
+                    <div [hidden]="phoneNumber?.valid || phoneNumber?.untouched" class="alert alert-danger">
+                        <small *ngIf="phoneNumber?.errors?.['required']">
+                            phoneNumber is required
+                        </small>
+                        <small *ngIf="phoneNumber?.errors?.['pattern']">
+                            must start with 010 , 011 , 015 , 012 <br>
+                            mobile length = 11 number
+                        </small>
+                    </div>
+
 
                     <label class="h6 mt-2" for="mobile-input">Gender</label>
                     <div class="w-100 d-flex">
@@ -71,6 +113,11 @@
                         <input type="text" class="form-control inpt" formControlName="address" name="address"
                             [class.is-valid]="address?.valid" [class.is-invalid]="address?.invalid">
                     </div>
+                    <div [hidden]="address?.valid || address?.untouched" class="alert alert-danger">
+                        <small *ngIf="address?.errors?.['required']">
+                            Address is required
+                        </small>
+                    </div>
 
                     <label class="h6 mt-2" for="city-input">City</label>
                     <div class="w-100 d-flex">
@@ -85,7 +132,7 @@
 
                     <div class="btn">
                         <!-- <input class="singup-btn" [disabled]="customerFormGroup.invalid" type="submit" value="sing up"> -->
-                        <button type="submit" [disabled]="customerFormGroup.invalid" class="singup-btn">sing up</button>
+                        <button type="submit" [hidden]="customerFormGroup.invalid" class="singup-btn">sing up</button>
                     </div>
                     <div class="line-div align-self-center"></div>
                     <div>
@@ -110,7 +157,6 @@
             <div class="d-flex justify-content-center">
                 <p> &copy; 1996–2022, Amazon.com, Inc. or its affiliates</p>
             </div>
-            <div>{{customerFormGroup.value|json}}</div>
         </footer>
     </div>
 </div>

@@ -2,43 +2,42 @@
     <div class="row justify-content-center">
         <!-- logo -->
         <section class="w-100 d-flex justify-content-center pt-3">
-            <a href="#">
+            <a routerLink="/home">
                 <img class="logo-photo" src="../../../assets/amazon-logo-blacktxt.png" alt="">
             </a>
         </section>
 
         <!-- content for sign up -->
         <section class="d-flex  content-sec mt-5">
-            <div class="d-flex justify-content-center flex-column">
-                <p class="h2">Log In</p>
-                <label class="h6" for="name-input">Email:</label>
-                <input class="inpt" type="text" name="name-input" id="name-input">
-
-
-
-
-
-
+            <form [formGroup]="loginFormGroup" (ngSubmit)="logIn()">
                 <div class="d-flex justify-content-center flex-column">
-                    <label class="h6" for="name-input">Password</label>
-                    <input class="inpt" type="password" name="password-input" id="password-input">
-                </div>
-                <div class="d-flex pt-1 small-text">
-                    <i class="fa-solid fa-info text-primary mt-1"></i>
-                    <p class="ms-2">Passwords must be at least 6 characters.</p>
-                </div>
-                <div class="btn">
-                    <input class="singup-btn" type="submit" value="login">
-                </div>
-                <div class="line-div align-self-center"></div>
-                <!-- <div>
-                    <p>
-                        <a href="signup.html">Sign in</a>
-                    </p>
-                </div> -->
-            </div>
-        </section>
+                    <p class="h2">Log In</p>
 
+
+                    <label class="h6" for="name-input">user name:</label>
+                    <input type="text" formControlName="userName" class="form-control inpt" name="userName"
+                        id="userName-input">
+
+
+                    <div class="d-flex justify-content-center flex-column">
+                        <label class="h6" for="name-input">Password</label>
+                        <div class="d-flex">
+                            <input type="password" #passwordInput formControlName="password" class="form-control inpt"
+                                name="password" id="password-input">
+                            <i class="fa-solid fa-eye align-self-center ms-3" (click)="despalyPassword()"></i>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <input class="singup-btn" type="submit" value="login">
+                    </div>
+                    <div [hidden]="errorMsg == ''" class="alert alert-danger" role="alert">
+                        {{errorMsg}}
+                    </div>
+                    <div class="line-div align-self-center"></div>
+
+                </div>
+            </form>
+        </section>
 
         <!-- footer -->
         <footer class="d-flex justify-content-center flex-column small-text">
