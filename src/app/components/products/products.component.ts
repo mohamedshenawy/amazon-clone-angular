@@ -35,17 +35,44 @@ export class ProductsComponent implements OnInit, OnChanges {
     {
       id: 1,
       type: "checkbox",
-      price: "under $500",
+      price: "under $200",
+      min: 0,
+      max: 200,
     },
     {
       id: 2,
       type: "checkbox",
-      price: "$800 to $1000",
+      price: "$200 to $400",
+      min: 200,
+      max: 400,
     },
     {
       id: 3,
       type: "checkbox",
+      price: "$400 to $600",
+      min: 400,
+      max: 600,
+    },
+    {
+      id: 4,
+      type: "checkbox",
+      price: "$600 to $800",
+      min: 600,
+      max: 800,
+    },
+    {
+      id: 5,
+      type: "checkbox",
+      price: "$800 to $1000",
+      min: 800,
+      max: 1000,
+    },
+    {
+      id: 6,
+      type: "checkbox",
       price: "above $1000",
+      min: 1000,
+      max: 100000,
     }
   ];
   checkBoxArrayForBrand: any = [
@@ -83,20 +110,15 @@ export class ProductsComponent implements OnInit, OnChanges {
       id: 7,
       type: "checkbox",
       Name: "REALME",
-    }
+    },
+    {
+      id: 8,
+      type: "checkbox",
+      Name: "IPhone",
+    },
   ];
 
   ngOnChanges(changes: SimpleChanges): void {
-    // this.filterProdByCategoryId();
-    // if (this.catId == 0) {
-    //   this.productsService.getAllProducts().subscribe(products => {
-    //     this.FilteredProductList = products
-    //   })
-    // } else {
-    //   this.productsService.getProductsByCategory(this.catId).subscribe(products => {
-    //     this.FilteredProductList = products
-    //   })
-    // }
   }
 
   goTodetails(id: number) {
@@ -148,15 +170,6 @@ export class ProductsComponent implements OnInit, OnChanges {
     }
   }
 
-
-  // private filterProdByCategoryId() {
-  //   if (this.catId == 0) {
-  //     this.FilteredProductList = this.allProductsList;
-  //   } else {
-  //     this.FilteredProductList = this.allProductsList.filter(prod => prod.categoryId == this.catId)
-  //   }
-  // }
-
   tempArrayForBrand: any = [];
   newArrayForBrand: any = [];
 
@@ -165,11 +178,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   nocheck: number = 0;
   // Filter by brand
   onChange(event: any) {
-
-
-
     if (!event.target.value) {
-
       this.productsService.getAllProducts().subscribe(prods => {
         this.allProductsList = prods;
 
@@ -181,16 +190,13 @@ export class ProductsComponent implements OnInit, OnChanges {
       });
     }
     if (event.target.checked) {
+      console.log(event.target.value)
       this.nocheck += 1;
-      this.tempArrayForBrand = this.allProductsList.filter((e: any) => e.brand == event.target.value);
+      this.tempArrayForBrand = this.allProductsList.filter((e: any) => (e.brand == event.target.value || e.price >= event.target.value && e.price <= event.target.value + 200));
       if (this.flag == 0) {
         this.FilteredProductList = [];
         this.flag = 1;
       }
-      // console.log(this.tempArrayForBrand)
-      // this.allProductsList = [];
-      // this.newArrayForBrand.push(this.tempArrayForBrand);
-      // console.log(this.newArrayForBrand)
       for (let i = 0; i < this.tempArrayForBrand.length; i++) {
         this.FilteredProductList.push(this.tempArrayForBrand[i])
       }
@@ -198,14 +204,16 @@ export class ProductsComponent implements OnInit, OnChanges {
 
         this.productsService.getAllProducts().subscribe(prods => {
           this.FilteredProductList = prods;
+          this.FilteredProductList.forEach((a: any) => {
+            Object.assign(a, { quantity: 1, total: a.price })
+          });
           // console.log(this.arrays)
         });
       }
     } else {
       this.nocheck -= 1;
 
-      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => e.brand != event.target.value);
-      // this.newArrayForBrand = [];
+      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.brand == event.target.value || e.price >= event.target.value && e.price <= event.target.value + 200));
       this.FilteredProductList = [];
       // this.allProductsList.push(this.tempArrayForBrand)
       for (let i = 0; i < this.tempArrayForBrand.length; i++) {
@@ -215,6 +223,9 @@ export class ProductsComponent implements OnInit, OnChanges {
         this.flag = 0;
         this.productsService.getAllProducts().subscribe(prods => {
           this.FilteredProductList = prods;
+          this.FilteredProductList.forEach((a: any) => {
+            Object.assign(a, { quantity: 1, total: a.price })
+          });
           // console.log(this.arrays)
         });
       }
