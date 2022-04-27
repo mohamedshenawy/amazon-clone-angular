@@ -1,209 +1,214 @@
 <header class="d-flex flex-column w-100">
-    <!-- first nav -->
-    <nav class="first-nav d-flex justify-content-center justify-content-around align-items-center p-2 flex-wrap">
-        <div class="d-flex col-6 col-md-2">
+  <!-- first nav -->
+  <nav class="first-nav d-flex justify-content-center justify-content-around align-items-center p-2 flex-wrap">
+    <div class="d-flex col-6 col-md-2">
 
-            <div routerLink="home" class="firstnav-logo pe-1 w-border p-1 w-50 w-md-50 d-flex align-items-md-center">
-                <img src="../../../assets/amazon-logo.png" class="w-100" alt="amazon-logo">
-            </div>
+      <div routerLink="home" class="firstnav-logo pe-1 w-border p-1 w-50 w-md-50 d-flex align-items-md-center">
+        <img src="../../../assets/amazon-logo.png" class="w-100" alt="amazon-logo">
+      </div>
 
-            <div class="d-flex d-none d-md-inline w-border p-1">
+      <div class="d-flex d-none d-md-inline w-border p-1">
 
-                <div class="d-flex">
-                    <i class="fa-solid fa-location-dot align-self-end me-1"></i>
-                    <span class="small-txt">Deliver to <br> eygpt</span>
-                    <!-- <span class="small-txt bold-txt">Eygpt</span> -->
-                </div>
-            </div>
-
+        <div class="d-flex">
+          <i class="fa-solid fa-location-dot align-self-end me-1"></i>
+          <span class="small-txt">Deliver to <br> eygpt</span>
+          <!-- <span class="small-txt bold-txt">Eygpt</span> -->
         </div>
+      </div>
 
-
-        <div class="d-flex col-7 d-none d-md-inline">
-            <div class="d-flex w-100">
-                <div class="bg-light p-1 all-div-search">
-                    <span class="small-txt text-dark">All</span>
-                    <i class="fa fa-caret-down text-dark" aria-hidden="true"></i>
-                </div>
-                <div class="input-div">
-                    <input type="text" #searchInput class="w-100 p-1" name="" id="">
-                </div>
-                <div class="search-div-nav1">
-                    <i class="fa fa-search fs-5 p-2" (click)="searchByName(searchInput.value)" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="d-flex col-6 col-md-3 justify-content-md-around justify-content-end">
-            <div class="d-flex flag-parnt-div align-self-center w-border p-1">
-                <div class="nav1-flag-img me-2">
-                    <img class="w-100" src="../../../assets/Flag_of_Egypt.png" alt="flag">
-                </div>
-                <div>
-                    <i class="fa fa-caret-down down-in-flag" aria-hidden="true"></i>
-                </div>
-
-            </div>
-
-            <div class="d-flex w-border p-1 d-none d-md-inline" routerLink="signup">
-                <div class="me-2 d-flex">
-                    <span class="small-txt">Hello, Sign in <br> Account & Lists</span>
-                    <i class="fa fa-caret-down down-in-flag align-self-end ms-2" aria-hidden="true"></i>
-                </div>
-            </div>
-
-            <div class="d-flex align-self-end w-border p-1">
-                <a routerLink="orders" class="fs-6 second-nav-a">
-                    Order
-                </a>
-            </div>
-
-            <div class="d-flex align-self-end w-border p-1" routerLink="cart">
-                <div>
-                    <i class="fa-solid fa-cart-shopping text-light"></i>
-                </div>
-                <div>
-                    <span>Cart</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="d-flex col-12 col-md-7  d-md-none">
-            <div class="d-flex w-100">
-                <div class="bg-light p-1 all-div-search d-none d-md-inline">
-                    <span class="small-txt text-dark">All</span>
-                    <i class="fa fa-caret-down fs-6 text-dark" aria-hidden="true"></i>
-                </div>
-                <div class="input-div">
-                    <input type="text" class="w-100  p-1" name="" id="">
-                </div>
-                <div class="search-div-nav1">
-                    <i class="fa fa-search fs-5 p-2" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="d-flex col-12 d-inline d-md-none p-1 ">
-            <div class="align-self-end me-1">
-                <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div class="d-flex flex-md-column">
-                <span class="small-txt pe-1">Deliver to</span>
-                <span class="small-txt bold-txt">Eygpt</span>
-            </div>
-        </div>
-
-
-
-
-    </nav>
-
-
-    <!-- second nav -->
-    <nav class="second-nav d-flex p-1">
-
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                All
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Your amazon.eg
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Today's Deals
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Sell
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Help
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Today's Deals
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Fashion
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Grocery
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Perfumes
-            </a>
-        </div>
-        <div class="nav2-div">
-            <a href="" class="second-nav-a">
-                Mobile Phones
-            </a>
-        </div>
-        <div class="nav2-div d-none d-md-inline">
-            <a href="">
-                <img class="img-in-nav2"
-                    src="https://images-eu.ssl-images-amazon.com/images/G/42/Sunrise/Events/2022/MothersDay/Leadup/XCM_Manual_1410992_4527255_Egypt_EG_MD22_Leadup_SWM_EN_5_400x39_2X._CB628076869_.jpg"
-                    alt="">
-            </a>
-        </div>
-
-
-
-    </nav>
-
-
-    <!-- third nav -->
-    <nav class="third-nav d-md-flex d-none">
-        <div>
-            <a href="#">Electronics</a>
-        </div>
-        <div>
-            <a href="#">Best sellers</a>
-        </div>
-        <div>
-            <a href="#">Mobiels & Accessories</a>
-        </div>
-        <div>
-            <a href="#">Computer & accressories</a>
-        </div>
-        <div>
-            <a href="#">TVs</a>
-        </div>
-        <div>
-            <a href="#">Laptops</a>
-        </div>
-        <div>
-            <a href="#">Cameras & accressories</a>
-        </div>
-        <div>
-            <a href="#">Headphones</a>
-        </div>
-        <div>
-            <a href="#">Speakers</a>
-        </div>
-        <div>
-            <a href="#">Wearable Technology</a>
-        </div>
-    </nav>
-
-    <!-- free shipping -->
-    <div class="free-shipping">
-        <a href="#">
-            <img class="w-100" src="images/nav-4.jpg" alt="">
-        </a>
     </div>
+
+
+    <div class="d-flex col-7 d-none d-md-inline">
+      <div class="d-flex w-100">
+        <div class="bg-light p-1 all-div-search">
+          <span class="small-txt text-dark">All</span>
+          <i class="fa fa-caret-down text-dark" aria-hidden="true"></i>
+        </div>
+
+
+        <div class="input-div">
+
+          <input type="text" class="w-100 p-1 form-control" (keyup)="search($event)" [(ngModel)]="searchTerm">
+
+        </div>
+        <div class="search-div-nav1">
+          <i class="fa fa-search fs-5 p-2" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex col-6 col-md-3 justify-content-md-around justify-content-end">
+      <div class="d-flex flag-parnt-div align-self-center w-border p-1">
+        <div class="nav1-flag-img me-2">
+          <img class="w-100" src="../../../assets/Flag_of_Egypt.png" alt="flag">
+        </div>
+        <div>
+          <i class="fa fa-caret-down down-in-flag" aria-hidden="true"></i>
+        </div>
+
+      </div>
+
+      <div class="d-flex w-border p-1 d-none d-md-inline" routerLink="signup">
+        <div class="me-2 d-flex">
+          <span class="small-txt">Hello, Sign in <br> Account & Lists</span>
+          <i class="fa fa-caret-down down-in-flag align-self-end ms-2" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="d-flex align-self-end w-border p-1">
+        <a routerLink="orders" class="fs-6 second-nav-a">
+          Order
+        </a>
+      </div>
+
+      <div class="d-flex align-self-end w-border p-1" routerLink="cart">
+        <div>
+          <i class="fa-solid fa-cart-shopping text-light "></i>
+          <div class="badge">{{cartItem}}</div>
+        </div>
+        <div>
+          <span>Cart</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="d-flex col-12 col-md-7  d-md-none">
+      <div class="d-flex w-100">
+        <div class="bg-light p-1 all-div-search d-none d-md-inline">
+          <span class="small-txt text-dark">All</span>
+          <i class="fa fa-caret-down fs-6 text-dark" aria-hidden="true"></i>
+        </div>
+        <div class="input-div">
+          <input type="text" class="w-100  p-1" name="" id="">
+        </div>
+        <div class="search-div-nav1">
+          <i class="fa fa-search fs-5 p-2" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex col-12 d-inline d-md-none p-1 ">
+      <div class="align-self-end me-1">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="d-flex flex-md-column">
+        <span class="small-txt pe-1">Deliver to</span>
+        <span class="small-txt bold-txt">Eygpt</span>
+      </div>
+    </div>
+
+
+
+
+  </nav>
+
+
+  <!-- second nav -->
+  <nav class="second-nav d-flex p-1">
+
+    <div class="nav2-div">
+      <a routerLink="/product" class="second-nav-a">
+        All
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Your amazon.eg
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Today's Deals
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Sell
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Help
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Today's Deals
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Fashion
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Grocery
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Perfumes
+      </a>
+    </div>
+    <div class="nav2-div">
+      <a href="" class="second-nav-a">
+        Mobile Phones
+      </a>
+    </div>
+    <div class="nav2-div d-none d-md-inline">
+      <a href="">
+        <img class="img-in-nav2"
+          src="https://images-eu.ssl-images-amazon.com/images/G/42/Sunrise/Events/2022/MothersDay/Leadup/XCM_Manual_1410992_4527255_Egypt_EG_MD22_Leadup_SWM_EN_5_400x39_2X._CB628076869_.jpg"
+          alt="">
+      </a>
+    </div>
+
+
+
+  </nav>
+
+
+  <!-- third nav -->
+  <nav class="third-nav d-md-flex d-none">
+    <div>
+      <a href="#">Electronics</a>
+    </div>
+    <div>
+      <a href="#">Best sellers</a>
+    </div>
+    <div>
+      <a href="#">Mobiels & Accessories</a>
+    </div>
+    <div>
+      <a href="#">Computer & accressories</a>
+    </div>
+    <div>
+      <a href="#">TVs</a>
+    </div>
+    <div>
+      <a href="#">Laptops</a>
+    </div>
+    <div>
+      <a href="#">Cameras & accressories</a>
+    </div>
+    <div>
+      <a href="#">Headphones</a>
+    </div>
+    <div>
+      <a href="#">Speakers</a>
+    </div>
+    <div>
+      <a href="#">Wearable Technology</a>
+    </div>
+  </nav>
+
+  <!-- free shipping -->
+  <div class="free-shipping">
+    <a href="#">
+      <img class="w-100" src="images/nav-4.jpg" alt="">
+    </a>
+  </div>
 </header>

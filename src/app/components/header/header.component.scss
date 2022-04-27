@@ -19,7 +19,22 @@
     border-radius: 5px 0px 0px 5px;
     font-size: 0.9vw;
   }
-  
+
+  // Cart style
+  .fa-cart-shopping {
+    font-size: 26px;
+  }
+
+  .badge {
+    position: absolute;
+    right: 45px;
+    top:1px;
+    color:orange;
+    font-size: 20px;
+  }
+
+
+
   .search-div-nav1 {
     border-radius: 0px 5px 5px 0px;
     background-color: #febd69;
@@ -27,7 +42,7 @@
   .search-div-nav1:hover {
     background-color: #ff9d1c;
   }
-  
+
   .nav1-flag-img {
     width: 50%;
   }
@@ -51,7 +66,7 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .nav2-div a {
     text-align: center;
     margin: 0% 1%;
@@ -68,7 +83,7 @@
   .img-in-nav2 {
     max-width: 100%;
   }
-  
+
   .second-nav-a:hover {
     color: white;
   }
@@ -96,7 +111,7 @@
   .third-nav div:hover {
     border-bottom: 1px solid orangered;
   }
-  
+
   @media screen and (min-width: 720px) {
     .free-shipping {
       align-self: center;
@@ -211,7 +226,7 @@
     border: 1px solid rgba(0, 0, 0, 0.328);
     border-radius: 20px;
   }
-  
+
   .all-three {
     border-radius: 20px;
     font-size: small;
@@ -226,7 +241,7 @@
     text-align: center;
     color: white;
   }
-  
+
   .p-info-tilte {
     color: #cc6948;
   }
@@ -252,17 +267,17 @@
     border-radius: 7px;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.322);
   }
-  
+
   .cards-div div {
     margin: 1%;
   }
-  
+
   .v-line {
     border: 1px solid gray;
     opacity: 30%;
     box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.308);
   }
-  
+
   .inpt-w-search {
     border: 1px solid black;
     border-radius: 7px;
@@ -275,7 +290,7 @@
   .q-input {
     border: 0px solid white;
   }
-  
+
   .cust-reviews {
     background-color: red;
   }
@@ -285,7 +300,7 @@
   .sing-in-sec {
     background-color: yellow;
   }
-  
+
   .footer-sec {
     background-color: #232f3e;
   }
@@ -310,7 +325,7 @@
   .about-amazon-sec div p a:hover {
     text-decoration: underline;
   }
-  
+
   .f-amazon-img {
     width: 10%;
   }
@@ -328,11 +343,10 @@
     text-decoration: underline;
     color: white;
   }
-  
+
   .f-en-arb-div i {
     font-size: small;
   }
   .flag-footer {
     max-width: 25%;
   }
-  

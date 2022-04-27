@@ -19,7 +19,7 @@ export class CustomerService {
 
   addCustomer(user: IUser): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      `${environment.apiBaseUrl}/api/Authentication/Register`,
+      `https://localhost:44326/api/Authentication/Register`,
       JSON.stringify(user),
       this.httpOptions
     );
