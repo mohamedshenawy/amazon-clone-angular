@@ -14,7 +14,9 @@ export class CartComponent implements OnInit {
   public TotalItem: number = 0;
 
   constructor(private cartService: CartServiceService) {
-
+    this.cartService.cartSubject.subscribe((data) => {
+      this.TotalItem = data
+    })
   }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class CartComponent implements OnInit {
     if (localStorage.getItem('cart')) {
       this.getcartDetails = JSON.parse(localStorage.getItem('cart') || '{}')
       console.log(this.getcartDetails)
+      this.TotalItem = this.getcartDetails.length
     }
   }
 
