@@ -49,11 +49,24 @@
 
       </div>
 
-      <div class="d-flex w-border p-1 d-none d-md-inline" routerLink="signup">
+      <div class="d-flex w-border p-1 d-none d-md-inline">
         <div class="me-2 d-flex">
           <span *ngIf="userName == ''" class="small-txt">Hello, Sign in <br> Account & Lists</span>
           <span *ngIf="userName != ''" class="small-txt">Hello, {{userName}}</span>
-          <i class="fa fa-caret-down down-in-flag align-self-end ms-2" aria-hidden="true"></i>
+          <!-- Example split danger button -->
+          <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="signup">sign up</a></li>
+              <li><a class="dropdown-item" routerLink="login">Log in</a></li>
+              <li [hidden]="userName == ''"><a class="dropdown-item bg-danger" (click)="logOut()">log out</a>
+              </li>
+
+            </ul>
+          </div>
         </div>
       </div>
 

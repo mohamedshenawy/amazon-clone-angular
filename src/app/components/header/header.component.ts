@@ -50,11 +50,14 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
   getUsernameFormLocalStorage() {
     try {
-      console.log(localStorage.getItem('username'));
-      console.log(typeof localStorage.getItem('username'));
       this.userName = localStorage.getItem('username');
     } catch (e) {
       console.log(e);
     }
+  }
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.userName = '';
   }
 }

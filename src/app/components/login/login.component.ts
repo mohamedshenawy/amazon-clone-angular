@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   Component,
   EventEmitter,
@@ -7,10 +6,6 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-=======
-import { Location } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
->>>>>>> 0650daf50cfb664fc2a927b95869c609030f2b33
 import {
   FormBuilder,
   FormControl,
@@ -38,7 +33,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   logIn() {
     this.loginService.loginAuth(this.loginFormGroup.value).subscribe({
@@ -47,16 +42,12 @@ export class LoginComponent implements OnInit {
         this.token = JSON.stringify(t).split('"')[3];
         console.log(this.token);
         localStorage.setItem('token', this.token);
-<<<<<<< HEAD
         localStorage.setItem(
           'username',
           this.loginFormGroup.get('userName')?.value
         );
 
         this.route.navigate(['/home']);
-=======
-        this.route.navigate(['/home'])
->>>>>>> 0650daf50cfb664fc2a927b95869c609030f2b33
       },
       error: (err) => {
         this.errorMsg = 'wrong user name and password';
