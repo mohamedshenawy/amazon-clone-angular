@@ -11,13 +11,14 @@
         </div>
         <div class="p-1 priceLinks mt-5">
           <p style="font-weight: bold;">Price</p>
-          <!-- <ng-container *ngFor="let checkbox of checkBoxArrayForPrice">
-            <input type="{{checkbox.type}}" value="{{checkbox.id}}" (change)="onChange($event)">{{checkbox.price}}
+          <ng-container *ngFor="let Pcheckbox of checkBoxArrayForPrice">
+            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.min}} (change)="onChange($event)">{{Pcheckbox.price}}
             <br>
-          </ng-container> -->
+          </ng-container>
 
         </div>
       </div>
+
     </div>
 
     <div class="col-lg-10 col-md-8 col-sm-6">
@@ -38,7 +39,7 @@
       <div class="row">
 
         <ng-container
-          *ngFor="let item of FilteredProductList | paginate : {itemsPerPage:5, currentPage: p} | filter:searchkey:'name'">
+          *ngFor="let item of FilteredProductList | paginate : {itemsPerPage:4, currentPage: p} | filter:searchkey:'name'">
           <!-- [class.d-none]="catId != item.categoryId" -->
           <!-- *ngIf="item.categoryId == catId" -->
           <div class="col-lg-3 mb-3 ">
