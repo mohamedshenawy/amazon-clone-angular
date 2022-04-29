@@ -51,7 +51,8 @@
 
       <div class="d-flex w-border p-1 d-none d-md-inline" routerLink="signup">
         <div class="me-2 d-flex">
-          <span class="small-txt">Hello, Sign in <br> Account & Lists</span>
+          <span *ngIf="userName == ''" class="small-txt">Hello, Sign in <br> Account & Lists</span>
+          <span *ngIf="userName != ''" class="small-txt">Hello, {{userName}}</span>
           <i class="fa fa-caret-down down-in-flag align-self-end ms-2" aria-hidden="true"></i>
         </div>
       </div>

@@ -5,6 +5,7 @@
             <a routerLink="/home">
                 <img class="logo-photo" src="../../../assets/amazon-logo-blacktxt.png" alt="">
             </a>
+            <!-- <button type="button" (click)="show_token()" class="btn btn-primary">local storage</button> -->
         </section>
 
         <!-- content for sign up -->
@@ -34,6 +35,9 @@
                         {{errorMsg}}
                     </div>
                     <div class="line-div align-self-center"></div>
+
+                    create new account <button routerLink="/signup" type="button"
+                        class="btn btn-outline-secondary">create account</button>
 
                 </div>
             </form>

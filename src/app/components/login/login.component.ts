@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  ElementRef,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -35,12 +42,23 @@ export class LoginComponent implements OnInit {
         this.token = JSON.stringify(t).split('"')[3];
         console.log(this.token);
         localStorage.setItem('token', this.token);
+        localStorage.setItem(
+          'username',
+          this.loginFormGroup.get('userName')?.value
+        );
+
+        this.route.navigate(['/home']);
       },
       error: (err) => {
         this.errorMsg = 'wrong user name and password';
       },
     });
   }
+
+  // show_token() {
+  //   let t = localStorage.getItem('token');
+  //   console.log(t);
+  // }
 
   despalyPassword() {
     if (this.passwordInput.nativeElement.type == 'password') {
