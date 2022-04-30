@@ -33,7 +33,7 @@ export class ProductsService {
   getProductsById(prodID: number): Observable<Iproduct> {
     //let p:Iproduct
 
-    return this.httpClient.get<Iproduct>(`${environment.apiBaseUrl}/api/Product/ProductByID/${prodID}`)
+    return this.httpClient.get<Iproduct>(`${environment.apiBaseUrl}/api/Product/${prodID}`)
     //obserProd.subscribe(prod => p = prod);
     //return p;
 

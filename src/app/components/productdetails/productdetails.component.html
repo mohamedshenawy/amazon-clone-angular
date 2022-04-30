@@ -1,9 +1,8 @@
 <div class="back-to-results">
   <i class="fa fa-caret-left" aria-hidden="true"></i>
-  <a routerLink="/product">Back to results</a>
+  <a routerLink="/product">{{'Back to results'|translate}}</a>
 </div>
 
-<div>{{product.name}}</div>
 
 <!-- product section -->
 <section class="row row-cols-3 d-flex justify-content-center product-sec w-100">
@@ -30,7 +29,7 @@
     <div class="col-12 col-md-5">
       <hr>
       <p class="h5">{{product.name}}</p>
-      <span href="#" class="brand-style">Brand: {{product.brand}}</span>
+      <span href="#" class="brand-style">{{'Brand'|translate}}: {{product.brand}}</span>
 
 
       <hr>
@@ -43,7 +42,7 @@
           </div>
         </div>
         <div>
-          <p class="list-price">List Price: <span> {{product.price}}</span></p>
+          <p class="list-price">{{'List Price'|translate}}: <span> {{product.price}}</span></p>
         </div>
 
 
@@ -53,7 +52,7 @@
               src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB403797073_.png"
               alt="">
           </div>
-          <a href="#" class="brand-style small-text">Delivered by {{product.shipping}}</a>
+          <a href="#" class="brand-style small-text">{{'Delivered by'|translate}} {{product.shipping}}</a>
         </div>
 
 
@@ -63,7 +62,7 @@
           <div class="d-flex">
             <a href="#" class="brand-style small-txt">
               <span style="color: #ba4223;">
-                price: {{product.price * product.discount | currency : 'USD'}}
+                {{'Price'|translate}}: {{product.price * product.discount | currency : 'USD'}}
               </span>
             </a>
           </div>
@@ -72,14 +71,14 @@
 
               <li class="row row-cols-2">
                 <span class="bold-txt small-txt pe-5">
-                  Brand</span>
+                  {{'Brand'| translate}}</span>
                 <span class="small-txt">{{product.brand}}</span>
               </li>
 
 
               <li class="row row-cols-2">
                 <span class="bold-txt small-txt pe-5">
-                  Colour</span>
+                  {{'Color'|translate}}</span>
                 <span class="small-txt">Black</span>
               </li>
 
@@ -89,7 +88,7 @@
           <hr>
 
           <div>
-            <p class="h5">About this item</p>
+            <p class="h5">{{'About this item'|translate}}</p>
             <ul>
               <li class="small-txt">{{product.description}}</li>
             </ul>
@@ -131,11 +130,11 @@
       <div class="d-flex pt-2">
         <i class="fa-solid fa-location-dot small-txtj pe-2"></i>
         <p class="brand-style small-txt">
-          Deliver to Egypt</p>
+          {{'Deliver to'|translate}} {{'Egypt'|translate}}</p>
       </div>
 
       <div>
-        <p class="h5 text-success">In Stock. {{product.stock}}</p>
+        <p class="h5 text-success">{{'In Stock'|translate}}. {{product.stock}}</p>
       </div>
 
 
@@ -146,7 +145,7 @@
       </div>
 
       <div class="pt-2">
-        <p>Ships from and sold by Amazon.eg.</p>
+        <p>{{'Ships from and sold by Amazon.eg.'|translate}}</p>
       </div>
 
 

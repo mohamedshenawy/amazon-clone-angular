@@ -3,14 +3,14 @@
     <div class="col-lg-2 col-md-4 col-sm-6 leftside">
       <div class="row p-3">
         <div class="p-1">
-          <p style="font-weight: bold;">Brands</p>
+          <p style="font-weight: bold;">{{'Brands'| translate}}</p>
           <ng-container *ngFor="let checkbox of checkBoxArrayForBrand">
             <input type="{{checkbox.type}}" value="{{checkbox.Name}}" (change)="onChange($event)">{{checkbox.Name}}
             <br>
           </ng-container>
         </div>
         <div class="p-1 priceLinks mt-5">
-          <p style="font-weight: bold;">Price</p>
+          <p style="font-weight: bold;">{{'Price'| translate}}</p>
           <ng-container *ngFor="let Pcheckbox of checkBoxArrayForPrice">
             <input type="{{Pcheckbox.type}}" value={{Pcheckbox.min}} (change)="onChange($event)">{{Pcheckbox.price}}
             <br>
@@ -23,12 +23,18 @@
 
     <div class="col-lg-10 col-md-8 col-sm-6">
       <div class="p-3">
-        <p style="font-weight: bold;"> FIND YOUR Product</p>
-        <button class="btn btn-secondary m-1" (click)="getprod(0)">All</button>
+        <p style="font-weight: bold;"> {{'FIND YOUR Product' | translate}}</p>
+        <button class="btn btn-secondary m-1" (click)="getprod(0)">{{'All' | translate}}</button>
         <ng-container *ngFor="let item of allCategoriesList">
 
-          <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.name}}</button>
+          <div *ngIf="currentLang == 'en'" style="display:inline-block">
+            <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.name}}</button>
+          </div>
+          <div *ngIf="currentLang == 'ar'" style="display:inline-block">
+            <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.Name_AR}}</button>
+          </div>
         </ng-container>
+
 
       </div>
       <div class="row p-3">
@@ -42,7 +48,9 @@
           *ngFor="let item of FilteredProductList | paginate : {itemsPerPage:4, currentPage: p} | filter:searchkey:'name'">
           <!-- [class.d-none]="catId != item.categoryId" -->
           <!-- *ngIf="item.categoryId == catId" -->
-          <div class="col-lg-3 mb-3 ">
+
+          <!-- English Language  -->
+          <div class="col-lg-3 mb-3 " *ngIf="currentLang == 'en'">
             <div class="card" style="width: 18rem;">
 
               <div class="text-center">
@@ -61,39 +69,46 @@
                 <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
                     class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
                 <div class="text-center">
-                  <button class="btn btn-primary px-5" (click)="addtoCart(item)">Add to Cart</button>
+                  <button class="btn btn-primary px-5" (click)="addtoCart(item)">{{'Add to Cart'| translate}}</button>
                 </div>
               </div>
             </div>
           </div>
 
+
+          <!-- Arabic Language -->
+          <div class="col-lg-3 mb-3 " *ngIf="currentLang == 'ar'">
+            <div class="card" style="width: 18rem;">
+
+              <div class="text-center">
+                <a class="" (click)="goTodetails(item.id)" role="button">
+                  <img class="img-fluid" [src]="item.picture" alt="Card image cap">
+                </a>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title"
+                  style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
+                  {{item.name_AR}}
+                </h5>
+                <p class="card-text">Price : {{item.price | currency : "USD"}}</p>
+                <p class="card-text">Shippd by: {{item.shipping_AR}}</p>
+                <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
+                    class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
+                <div class="text-center">
+                  <button class="btn btn-primary px-5" (click)="addtoCart(item)">{{'Add to Cart'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-container>
+
         <div>
           <pagination-controls (pageChange)="p = $event"> </pagination-controls>
         </div>
-
       </div>
 
-      <!-- <ng-container *ngFor="let item of allProductsList">
-        <div class="col-lg-12 col-md-8 col-sm-6">
-          <div class="row p-3">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <a href="index2.html">
-                <img [src]="item.picture" class="img-fluid">
-              </a>
-            </div>
-            <div class="col-lg-9 col-md-6 col-sm-12">
-              <p>{{item.name}}
-              </p>
-              <p>{{item.price | currency : "USD"}}</p>
-              <p>{{item.shipping}}</p>
-            </div>
-          </div>
-        </div>
-      </ng-container> -->
-
     </div>
-
 
   </div>
 </div>

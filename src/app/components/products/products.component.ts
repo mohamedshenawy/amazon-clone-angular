@@ -1,18 +1,20 @@
+import { Iproduct } from './../../models/iproduct';
+import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { Icategory } from './../../models/icategory';
 import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Iproduct } from 'src/app/models/iproduct';
+
 import { ProductsService } from 'src/app/services/products.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
-  template: `<pagination-controls (pageChange)="p = $event"></pagination-controls>`
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnChanges {
+
 
 
 
@@ -28,7 +30,13 @@ export class ProductsComponent implements OnInit, OnChanges {
   catId: number = 0;
 
   FilteredProductList: Iproduct[] = [];
-  constructor(private productsService: ProductsService, private cartService: CartServiceService, private router: Router) {
+
+  currentLang: string = '';
+  constructor(private productsService: ProductsService, private cartService: CartServiceService, private router: Router,
+    public translate: TranslateService) {
+    this.currentLang = localStorage.getItem('currentLagn') || 'en';
+    this.translate.use(this.currentLang)
+
   }
 
   checkBoxArrayForPrice: any = [
@@ -119,22 +127,32 @@ export class ProductsComponent implements OnInit, OnChanges {
   ];
 
   ngOnChanges(changes: SimpleChanges): void {
+
   }
 
-  goTodetails(id: number) {
-    this.router.navigate(['productdetails/', id]);
-  }
+
+  // produtLang!: { en: Iproduct; ar: Iproduct };
+
+
 
 
   ngOnInit(): void {
+
 
     // get all products
     this.productsService.getAllProducts().subscribe(prods => {
       this.allProductsList = prods;
       this.FilteredProductList = prods
-      this.arrays = prods;
-      this.allProductsList.forEach((a: any) => {
+
+
+      this.FilteredProductList.forEach((a: Iproduct) => {
         Object.assign(a, { quantity: 1, total: a.price })
+
+        // this.produtLang = {
+        //   en: a,
+        //   ar: a,
+        // }
+
       });
       // console.log(this.arrays)
     });
@@ -162,7 +180,7 @@ export class ProductsComponent implements OnInit, OnChanges {
       this.FilteredProductList = [];
       this.productsService.getProductsByCategory(catId).subscribe(prod => {
         this.FilteredProductList = prod;
-        console.log(this.FilteredProductList)
+        // console.log(this.FilteredProductList)
         this.FilteredProductList.forEach((a: any) => {
           Object.assign(a, { quantity: 1, total: a.price })
         });
@@ -170,8 +188,12 @@ export class ProductsComponent implements OnInit, OnChanges {
     }
   }
 
+
+  goTodetails(id: number) {
+    this.router.navigate(['productdetails/', id]);
+  }
+
   tempArrayForBrand: any = [];
-  newArrayForBrand: any = [];
 
   flag: number = 0;
 

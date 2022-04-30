@@ -1,4 +1,5 @@
 import { CartServiceService } from './../../services/cart-service.service';
+import { TranslateService } from '@ngx-translate/core';
 import {
   Component,
   OnInit,
@@ -18,16 +19,30 @@ export class HeaderComponent implements OnInit, OnChanges {
   public TotalItem: number = 0;
   productName: string = '';
   userName: String | null = '';
-  constructor(private cartService: CartServiceService) {
+
+  currentLang: string = '';
+  constructor(private cartService: CartServiceService, public translate: TranslateService) {
+
+    this.currentLang = localStorage.getItem('currentLagn') || 'en';
+    this.translate.use(this.currentLang)
+
     this.cartService.cartSubject.subscribe((data) => {
       this.cartItem = data;
     });
   }
-  ngOnChanges(changes: SimpleChanges): void {}
+
+  changeCurrentLang(lang: string) {
+    this.translate.use(lang)
+    localStorage.setItem('currentLagn', lang)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void { }
 
   ngOnInit(): void {
     this.cartItemFunc();
     this.getUsernameFormLocalStorage();
+
+
   }
 
   cartItem: number = 0;

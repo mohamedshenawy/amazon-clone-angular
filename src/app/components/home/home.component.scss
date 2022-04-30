@@ -4,7 +4,7 @@
 
 body {
     background-color: #EAEDED;
-    
+
 }
 
 /* Start Navbar */
@@ -28,7 +28,7 @@ body {
 
 .alllink {
     max-width: 40px;
-    
+
 }
 
 .alllink a {
@@ -185,11 +185,17 @@ body {
     margin-top: -350px;
     position: relative;
 } */
-
+.secondsec {
+  background-color: #EAEDED;
+}
 .categories {
     background-color: white;
-}
 
+}
+.makemargin {
+  width:23% !important;
+  margin-right: 7px;
+}
 .categories p,
 a {
     font-size: .7rem;
@@ -204,7 +210,7 @@ a {
 }
 
 .health img {
-    max-width: 315px;
+    max-width: 306px;
 }
 
 .ship img {
