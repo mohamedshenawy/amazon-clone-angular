@@ -13,13 +13,13 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // if (this.LoginService.isUserLoggedin) {
-    //   return true;
-    // } else {
-    //   alert("You Must Login First")
-    //   this.router.navigate(['/login'])
-
-    // }
+    if (this.LoginService.isUserLoggedin) {
+      return true;
+    } else {
+      alert("You Must Login First")
+      this.router.navigate(['/login'])
+      return false
+    }
     return false
   }
 }

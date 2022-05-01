@@ -38,6 +38,12 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   }
 
+  isUserLogged: boolean = false;
+  logout() {
+    this.LoginService.logout();
+    this.isUserLogged = this.LoginService.isUserLoggedin;
+  }
+
   changeCurrentLang(lang: string) {
     this.translate.use(lang)
     localStorage.setItem('currentLang', lang)
