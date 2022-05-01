@@ -1,3 +1,4 @@
+import { AuthGuard } from './Guard/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NgModule } from '@angular/core';

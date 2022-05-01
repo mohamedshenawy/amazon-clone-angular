@@ -1,3 +1,6 @@
+import { LoginService } from 'src/app/services/login.service';
+import { Observable } from 'rxjs';
+import { IUser } from './../../models/icustomer';
 import { CartServiceService } from './../../services/cart-service.service';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -21,19 +24,23 @@ export class HeaderComponent implements OnInit, OnChanges {
   userName: String | null = '';
 
   currentLang: string = '';
-  constructor(private cartService: CartServiceService, public translate: TranslateService) {
 
-    this.currentLang = localStorage.getItem('currentLagn') || 'en';
+
+
+  constructor(private cartService: CartServiceService, public translate: TranslateService, private LoginService: LoginService) {
+
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang)
 
     this.cartService.cartSubject.subscribe((data) => {
       this.cartItem = data;
     });
+
   }
 
   changeCurrentLang(lang: string) {
     this.translate.use(lang)
-    localStorage.setItem('currentLagn', lang)
+    localStorage.setItem('currentLang', lang)
   }
 
   ngOnChanges(changes: SimpleChanges): void { }
@@ -41,8 +48,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.cartItemFunc();
     this.getUsernameFormLocalStorage();
-
-
   }
 
   cartItem: number = 0;
