@@ -67,10 +67,12 @@
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="signup">{{'Sign up' | translate}}</a></li>
-              <li><a class="dropdown-item" routerLink="login">{{'Login' | translate}}</a></li>
-              <li><a class="dropdown-item" routerLink="profile">{{'Profile' | translate}}</a></li>
-              <li [hidden]="userName == ''"><a class="dropdown-item bg-danger" (click)="logout()"
+              <li [hidden]="isUserLogged"><a class="dropdown-item" routerLink="signup">{{'Sign up' | translate}}</a>
+              </li>
+              <li [hidden]="isUserLogged"><a class="dropdown-item" routerLink="login">{{'Login' | translate}}</a></li>
+              <li [hidden]="!isUserLogged"><a class="dropdown-item" routerLink="profile">{{'Profile' | translate}}</a>
+              </li>
+              <li [hidden]="!isUserLogged"><a class="dropdown-item bg-danger" (click)="logout()"
                   style="cursor:pointer">{{'Logout' | translate}}</a>
               </li>
 

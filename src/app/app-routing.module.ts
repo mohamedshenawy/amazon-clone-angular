@@ -17,7 +17,7 @@ const routes: Routes = [
     path: "", component: MainLayoutComponent, children: [
       { path: "", component: HomeComponent, pathMatch: "full" },
       { path: "home", component: HomeComponent },
-      { path: "orders", component: OrdersComponent },
+      { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
       { path: "cart", component: CartComponent },
       { path: "productdetails/:id", component: ProductdetailsComponent },
       { path: "product", component: ProductsComponent },

@@ -54,6 +54,10 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.cartItemFunc();
     this.getUsernameFormLocalStorage();
+
+    this.LoginService.getLoggedStatus().subscribe(status => {
+      this.isUserLogged = status;
+    })
   }
 
   cartItem: number = 0;
