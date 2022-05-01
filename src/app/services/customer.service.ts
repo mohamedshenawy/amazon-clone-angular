@@ -24,4 +24,9 @@ export class CustomerService {
       this.httpOptions
     );
   }
+
+  getCustomerByToken(token: number): Observable<IUser> {
+    return this.httpClient.get<IUser>(`${environment.apiBaseUrl}api/Customer/profile${token}`)
+  }
+
 }

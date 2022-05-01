@@ -1,3 +1,4 @@
+<div class="mt-5"></div>
 <ng-container *ngIf="getcartDetails.length == 0">
   <div class="container-fluid mt-100">
     <div class="row">
@@ -92,7 +93,12 @@
 
           <div class="col text-right"> {{TotalPrice + 5 | currency : 'USD'}}</div>
         </div> <button class="btn" style="font-size:18px">{{'Checkout'|translate}}</button>
+        <hr>
+        <div id="myPaypalButtons"></div>
       </div>
+
+
+
 
     </div>
   </div>

@@ -1,3 +1,4 @@
+import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: "orders", component: OrdersComponent },
       { path: "cart", component: CartComponent },
       { path: "productdetails/:id", component: ProductdetailsComponent },
-      { path: "product", component: ProductsComponent }
+      { path: "product", component: ProductsComponent },
+      { path: "profile", component: ProfileComponent }
     ]
   },
   { path: "signup", component: SignupComponent },

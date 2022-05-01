@@ -69,6 +69,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" routerLink="signup">{{'Sign up' | translate}}</a></li>
               <li><a class="dropdown-item" routerLink="login">{{'Login' | translate}}</a></li>
+              <li><a class="dropdown-item" routerLink="profile">{{'Profile' | translate}}</a></li>
               <li [hidden]="userName == ''"><a class="dropdown-item bg-danger" (click)="logOut()"
                   style="cursor:pointer">{{'Logout' | translate}}</a>
               </li>
@@ -78,11 +79,11 @@
         </div>
       </div>
 
-      <!-- <div class="d-flex align-self-end w-border p-1">
+      <div class="d-flex align-self-end w-border p-1">
         <a routerLink="orders" class="fs-6 second-nav-a">
           {{'Order'|translate}}
         </a>
-      </div> -->
+      </div>
 
       <div class="d-flex align-self-end w-border ps-4" routerLink="cart">
         <div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Amazon-clone-angular';
+  textDir: any = "ltr"
+  constructor(public translat: TranslateService) {
+    this.translat.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar') {
+        this.textDir = 'rtl';
+      }
+      else {
+        this.textDir = 'ltr'
+      }
+    })
+
+
+  }
 }

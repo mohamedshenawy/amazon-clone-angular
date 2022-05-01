@@ -1,6 +1,7 @@
 import { Iproduct } from 'src/app/models/iproduct';
 import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnInit } from '@angular/core';
+import { render } from 'creditcardpayments/creditCardPayments'
 
 @Component({
   selector: 'app-cart',
@@ -17,6 +18,18 @@ export class CartComponent implements OnInit {
     this.cartService.cartSubject.subscribe((data) => {
       this.TotalItem = data
     })
+
+    render(
+      {
+        id: "#myPaypalButtons",
+        currency: "USD",
+        value: "100.00",
+        onApprove: (details) => {
+          alert("Transaction Successfully")
+        }
+      }
+    );
+
   }
 
   ngOnInit(): void {
@@ -27,6 +40,8 @@ export class CartComponent implements OnInit {
     // })
     this.cartdetails();
     this.LoatCart();
+
+
   }
 
 

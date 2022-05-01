@@ -64,8 +64,8 @@
                   style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
                   {{item.name}}
                 </h5>
-                <p class="card-text">Price : {{item.price | currency : "USD"}}</p>
-                <p class="card-text">Shippd by: {{item.shipping}}</p>
+                <p class="card-text">{{'Price'|translate}} : {{item.price | currency : "USD"}}</p>
+                <p class="card-text">{{'Shiping'|translate}}: {{item.shipping}}</p>
                 <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
                     class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
                 <div class="text-center">
@@ -91,8 +91,8 @@
                   style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
                   {{item.name_AR}}
                 </h5>
-                <p class="card-text">Price : {{item.price | currency : "USD"}}</p>
-                <p class="card-text">Shippd by: {{item.shipping_AR}}</p>
+                <p class="card-text">{{'Price'|translate}} : {{item.price | currency : "USD"}}</p>
+                <p class="card-text">{{'Shiping'|translate}}: {{item.shipping_AR}}</p>
                 <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
                     class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
                 <div class="text-center">
