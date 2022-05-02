@@ -39,27 +39,22 @@
     </div>
 
     <div class="d-flex col-6 col-md-3 justify-content-md-around justify-content-end">
-      <div class="d-flex flag-parnt-div align-self-center w-border p-1">
-        <!-- <div class="nav1-flag-img me-2">
-          <img class="w-100" src="../../../assets/Flag_of_Egypt.png" alt="flag">
-          <img class="w-100" src="../../../assets/britishFlag.png" alt="flag">
+
+      <div class="dropdown">
+        <button class="dropbtn">{{'Languages'|translate}} <i class="fa-solid fa-caret-down"></i> </button>
+        <div class="dropdown-content">
+          <a href="#"> <img (click)="changeCurrentLang('ar')" class="w-50" src="../../../assets/Flag_of_Egypt.png"
+              alt="flag"> Arabic</a>
+          <a href="#"> <img (click)="changeCurrentLang('en')" class="w-50 ms-2" src="../../../assets/britishFlag.png"
+              alt="flag"> English</a>
         </div>
-        <div>
-          <i class="fa fa-caret-down down-in-flag" aria-hidden="true"></i>
-        </div> -->
-        <!-- <select class="selectpicker" data-width="fit">
-          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-          <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Arabic</option>
-        </select> -->
-        <img (click)="changeCurrentLang('ar')" class="w-100" src="../../../assets/Flag_of_Egypt.png" alt="flag">
-        <img (click)="changeCurrentLang('en')" class="w-100 ms-2" src="../../../assets/britishFlag.png" alt="flag">
       </div>
 
       <div class="d-flex w-border p-1 d-none d-md-inline">
         <div class="me-2 mt-2 d-flex">
-          <span *ngIf="userName == ''" class="small-txt">{{'Hello, Sign in'|translate}} <br> {{'Account'|translate}}
+          <span [hidden]="isUserLogged" class="small-txt">{{'Hello, Sign in'|translate}} <br> {{'Account'|translate}}
           </span>
-          <span *ngIf="userName != ''" class="small-txt">{{'Hello'|translate}}, {{userName}}</span>
+          <span [hidden]="!isUserLogged" class="small-txt">{{'Hello'|translate}}, {{userName}}</span>
           <!-- Example split danger button -->
           <div class="btn-group">
             <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"

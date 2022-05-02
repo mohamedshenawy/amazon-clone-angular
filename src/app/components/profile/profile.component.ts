@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  loggerorNot: boolean = false;
+
   user!: IUser;
   ngOnInit(): void {
 
