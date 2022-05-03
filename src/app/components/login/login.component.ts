@@ -37,15 +37,24 @@ export class LoginComponent implements OnInit {
 
   isUserLogged: boolean = false;
 
-
-
   login() {
-    this.loginService.login(this.loginFormGroup.value);
+    this.loginService.login(this.loginFormGroup.value).subscribe({
+      next: (t) => {
+        this.errorMsg = '';
+        this.token = JSON.stringify(t).split('"')[3];
+        localStorage.setItem('token', this.token);
+        localStorage.setItem(
+          'username',
+          this.loginFormGroup.get('userName')?.value
+        );
+        this.route.navigate(['/home']);
+      },
+      error: (err) => {
+        this.errorMsg = 'wrong user name and password';
+      },
+    });
     this.isUserLogged = this.loginService.isUserLoggedin;
-
   }
-
-
 
   // show_token() {
   //   let t = localStorage.getItem('token');

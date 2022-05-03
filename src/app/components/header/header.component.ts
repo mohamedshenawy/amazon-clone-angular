@@ -30,46 +30,48 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   httoOptions = {};
 
-  constructor(private cartService: CartServiceService, public translate: TranslateService, private LoginService: LoginService,
-    private HttpClient: HttpClient, private route: Router) {
-
+  constructor(
+    private cartService: CartServiceService,
+    public translate: TranslateService,
+    private LoginService: LoginService,
+    private HttpClient: HttpClient,
+    private route: Router
+  ) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
-    this.translate.use(this.currentLang)
+    this.translate.use(this.currentLang);
 
     this.cartService.cartSubject.subscribe((data) => {
       this.cartItem = data;
     });
 
-
     this.httoOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      })
-    }
-
-
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
   }
 
   getCustomerByToken(): Observable<IUser> {
-    let myUser = this.HttpClient.get<IUser>(`${environment.apiBaseUrl}/api/Customer/profile`, this.httoOptions)
-    return myUser
+    let myUser = this.HttpClient.get<IUser>(
+      `${environment.apiBaseUrl}/api/Customer/profile`,
+      this.httoOptions
+    );
+    return myUser;
   }
-
 
   isUserLogged: boolean = false;
   logout() {
     this.LoginService.logout();
     this.isUserLogged = this.LoginService.isUserLoggedin;
-    this.route.navigate(['/login'])
+    this.route.navigate(['/login']);
   }
 
   changeCurrentLang(lang: string) {
-    this.translate.use(lang)
-    localStorage.setItem('currentLang', lang)
+    this.translate.use(lang);
+    localStorage.setItem('currentLang', lang);
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void { }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   user!: IUser;
 
@@ -77,14 +79,14 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.cartItemFunc();
     this.getUsernameFormLocalStorage();
 
-    this.LoginService.getLoggedStatus().subscribe(status => {
+    this.LoginService.getLoggedStatus().subscribe((status) => {
       this.isUserLogged = status;
-    })
+    });
 
-    this.getCustomerByToken().subscribe(user => {
-      this.user = user
-      this.userName = user.name
-    })
+    this.getCustomerByToken().subscribe((user) => {
+      this.user = user;
+      this.userName = user.name;
+    });
   }
 
   cartItem: number = 0;
@@ -108,9 +110,8 @@ export class HeaderComponent implements OnInit, OnChanges {
   getUsernameFormLocalStorage() {
     try {
       this.userName = localStorage.getItem('username');
-    } catch (e) {
-      console.log(e);
+    } catch {
+      this.userName = '';
     }
   }
-
 }
