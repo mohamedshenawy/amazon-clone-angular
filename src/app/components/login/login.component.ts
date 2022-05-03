@@ -35,25 +35,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logIn() {
-    this.loginService.loginAuth(this.loginFormGroup.value).subscribe({
-      next: (t) => {
-        this.errorMsg = '';
-        this.token = JSON.stringify(t).split('"')[3];
-        console.log(this.token);
-        localStorage.setItem('token', this.token);
-        localStorage.setItem(
-          'username',
-          this.loginFormGroup.get('userName')?.value
-        );
+  isUserLogged: boolean = false;
 
-        this.route.navigate(['/home']);
-      },
-      error: (err) => {
-        this.errorMsg = 'wrong user name and password';
-      },
-    });
+
+
+  login() {
+    this.loginService.login(this.loginFormGroup.value);
+    this.isUserLogged = this.loginService.isUserLoggedin;
+
   }
+
+
 
   // show_token() {
   //   let t = localStorage.getItem('token');

@@ -25,7 +25,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProfileComponent } from './components/profile/profile.component';
+<<<<<<< HEAD
 //import { PaypalComponent } from './Paypal/paypal/paypal.component';
+=======
+
+>>>>>>> 5d9fdbf4323948f5096e17201a073fb05eb9da44
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProductsComponent,
     FilterPipe,
     ProfileComponent,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d9fdbf4323948f5096e17201a073fb05eb9da44
   ],
   imports: [
     BrowserModule,

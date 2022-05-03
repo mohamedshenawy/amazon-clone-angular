@@ -1,3 +1,4 @@
+import { AuthGuard } from './Guard/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NgModule } from '@angular/core';
@@ -16,11 +17,11 @@ const routes: Routes = [
     path: "", component: MainLayoutComponent, children: [
       { path: "", component: HomeComponent, pathMatch: "full" },
       { path: "home", component: HomeComponent },
-      { path: "orders", component: OrdersComponent },
+      { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
       { path: "cart", component: CartComponent },
       { path: "productdetails/:id", component: ProductdetailsComponent },
       { path: "product", component: ProductsComponent },
-      { path: "profile", component: ProfileComponent }
+      { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] }
     ]
   },
   { path: "signup", component: SignupComponent },
