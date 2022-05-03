@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   logIn() {
     this.loginService.loginAuth(this.loginFormGroup.value).subscribe({
