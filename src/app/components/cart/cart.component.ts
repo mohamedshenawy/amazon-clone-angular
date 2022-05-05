@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
   cartdetails() {
     if (localStorage.getItem('cart')) {
       this.getcartDetails = JSON.parse(localStorage.getItem('cart') || '{}')
-      console.log(this.getcartDetails)
+      // console.log(this.getcartDetails)
       this.TotalItem = this.getcartDetails.length
     }
   }

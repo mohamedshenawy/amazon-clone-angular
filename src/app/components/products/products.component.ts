@@ -44,42 +44,42 @@ export class ProductsComponent implements OnInit, OnChanges {
       id: 1,
       type: "checkbox",
       price: "under $200",
-      min: 0,
+      priceRange: "0 200",
       max: 200,
     },
     {
       id: 2,
       type: "checkbox",
       price: "$200 to $400",
-      min: 200,
+      priceRange: "200 400",
       max: 400,
     },
     {
       id: 3,
       type: "checkbox",
       price: "$400 to $600",
-      min: 400,
+      priceRange: "400 600",
       max: 600,
     },
     {
       id: 4,
       type: "checkbox",
       price: "$600 to $800",
-      min: 600,
+      priceRange: "600 800",
       max: 800,
     },
     {
       id: 5,
       type: "checkbox",
       price: "$800 to $1000",
-      min: 800,
+      priceRange: "800 1000",
       max: 1000,
     },
     {
       id: 6,
       type: "checkbox",
       price: "above $1000",
-      min: 1000,
+      priceRange: "1000 1200",
       max: 100000,
     }
   ];
@@ -214,7 +214,11 @@ export class ProductsComponent implements OnInit, OnChanges {
     if (event.target.checked) {
       console.log(event.target.value)
       this.nocheck += 1;
-      this.tempArrayForBrand = this.allProductsList.filter((e: any) => (e.brand == event.target.value || e.price >= event.target.value && e.price <= event.target.value + 200));
+      var myvalue = event.target.value.split(' ', 2)
+      var minPrice = +myvalue[0]
+      var maxPrice = +myvalue[1]
+
+      this.tempArrayForBrand = this.allProductsList.filter((e: any) => (e.brand == event.target.value || e.price >= minPrice && e.price < maxPrice));
       if (this.flag == 0) {
         this.FilteredProductList = [];
         this.flag = 1;
@@ -235,7 +239,10 @@ export class ProductsComponent implements OnInit, OnChanges {
     } else {
       this.nocheck -= 1;
 
-      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.brand == event.target.value || e.price >= event.target.value && e.price <= event.target.value + 200));
+      var myvalue = event.target.value.split(' ', 2)
+      var minPrice = +myvalue[0]
+      var maxPrice = +myvalue[1]
+      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.brand == event.target.value || e.price >= minPrice && e.price < maxPrice));
       this.FilteredProductList = [];
       // this.allProductsList.push(this.tempArrayForBrand)
       for (let i = 0; i < this.tempArrayForBrand.length; i++) {
@@ -272,14 +279,6 @@ export class ProductsComponent implements OnInit, OnChanges {
   itemCart: any = [];
   addtoCart(item: any) {
     this.cartNumberFunc()
-    // this.cartService.addToCart(item);
-    // let products = [];
-    // if (localStorage.getItem('cart')) {
-    //   products = JSON.parse(localStorage.getItem('cart') || '{}');
-    // }
-    // products.push(item);
-    // localStorage.setItem('cart', JSON.stringify(products));
-
 
     let cartData = localStorage.getItem('cart')
     if (cartData == null) {

@@ -12,7 +12,8 @@
         <div class="p-1 priceLinks mt-5">
           <p style="font-weight: bold;">{{'Price'| translate}}</p>
           <ng-container *ngFor="let Pcheckbox of checkBoxArrayForPrice">
-            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.min}} (change)="onChange($event)">{{Pcheckbox.price}}
+            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.priceRange}}
+              (change)="onChange($event)">{{Pcheckbox.price}}
             <br>
           </ng-container>
 
