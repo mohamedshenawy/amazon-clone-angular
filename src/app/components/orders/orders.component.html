@@ -1,7 +1,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Order Date</th>
             <th scope="col">Delivery Date</th>
             <th scope="col">Address</th>
@@ -11,7 +10,6 @@
     <tbody>
         <tr *ngFor="let i of order">
             <ng-container>
-                <th scope="row">{{i.id}}</th>
                 <td> {{i.orderDate}}</td>
                 <td>{{i.DeliveryDate}}</td>
                 <td>{{i.Address }}</td>

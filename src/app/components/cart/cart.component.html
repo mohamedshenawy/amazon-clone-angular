@@ -92,7 +92,7 @@
           <div class="col">{{'Total Price'|translate}}</div>
 
           <div class="col text-right"> {{TotalPrice + 5 | currency : 'USD'}}</div>
-        </div> <button class="btn" style="font-size:18px">{{'Checkout'|translate}}</button>
+        </div> <button class="btn" (click)="checkOut()" style="font-size:18px">{{'Checkout'|translate}}</button>
         <hr>
         <div id="myPaypalButtons"></div>
       </div>
@@ -100,6 +100,29 @@
 
 
 
+
     </div>
+
   </div>
+
+  <form class=" container card mt-100 p-5" [hidden]="showOrderMaker == false">
+    <h1>Order Detalis</h1>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Order address</label>
+      <input type="text" [required]="" #orderAddress class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Order Date</label>
+      <input type="text" #ordrDate disabled value="{{orderDate}}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Estimated Delivery Date</label>
+      <input type="text" #orderEstDate disabled value="{{estimatedDelevryDate}}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Order Price</label>
+      <input type="text" #orderPrice disabled value="{{TotalPrice + 5 | currency : 'USD'}}" class="form-control">
+    </div>
+    <button type="submit" (click)="makeOrder(orderAddress.value)" class="btn btn-warning">make order</button>
+  </form>
 </ng-container>

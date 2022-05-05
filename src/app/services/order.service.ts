@@ -20,13 +20,13 @@ export class OrderService {
       `${environment.apiBaseUrl}/orders/getdetails`
     );
   }
-  getOrdersIds(): number[] {
-    let idsList: number[] = [];
-    this.getOrders().subscribe((list) => {
-      idsList = list.map((item) => item.id);
-    });
-    return idsList;
-  }
+  // getOrdersIds(): number[] {
+  //   let idsList: number[] = [];
+  //   this.getOrders().subscribe((list) => {
+  //     idsList = list.map((item) => item.id);
+  //   });
+  //   return idsList;
+  // }
   addOrder(ord: Iorder): Observable<Iorder[]> {
     return this.httpClient.post<Iorder[]>(
       `${environment.apiBaseUrl}/orders`,
