@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUserLogIn } from '../models/iuser-log-in';
+import { HeaderComponent } from '../components/header/header.component';
+import { LoginComponent } from '../components/login/login.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-
-
   private isLoggedSubject: BehaviorSubject<boolean>;
 
   httpOptions = {};
@@ -31,30 +31,17 @@ export class LoginService {
     );
   }
   token!: string;
-  errorMsg: string = '';
   login(user: IUserLogIn) {
-    this.loginAuth(user).subscribe({
-      next: (t) => {
-        this.errorMsg = '';
-        this.token = JSON.stringify(t).split('"')[3];
-        console.log(this.token);
-        localStorage.setItem('token', this.token);
-
-        this.route.navigate(['/home']);
-      },
-      error: (err) => {
-        this.errorMsg = 'wrong user name and password';
-      },
-    });
-
-    this.isLoggedSubject.next(true)
+    this.isLoggedSubject.next(true);
+    return this.loginAuth(user);
   }
   logout() {
-    localStorage.removeItem("token");
-    this.isLoggedSubject.next(false)
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.isLoggedSubject.next(false);
   }
   get isUserLoggedin(): boolean {
-    return (localStorage.getItem("token")) ? true : false
+    return localStorage.getItem('token') ? true : false;
   }
 
   getLoggedStatus(): Observable<boolean> {
