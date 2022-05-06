@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Iorder } from 'src/app/models/iorder';
 import { OrderService } from 'src/app/services/order.service';
+import { IorderProduct } from 'src/app/models/iorder-product';
+import { OrderProductService } from 'src/app/services/order-product.service';
 
 @Component({
   selector: 'app-cart',
@@ -29,7 +31,7 @@ export class CartComponent implements OnInit {
     private cartService: CartServiceService,
     private route: Router,
     private HttpClient: HttpClient,
-    private orderService: OrderService
+    private orderProdService: OrderProductService
   ) {
     this.httoOptions = {
       headers: new HttpHeaders({
@@ -161,25 +163,24 @@ export class CartComponent implements OnInit {
 
     //api to get customer_id
     let cust_id = this.user.id;
+    //list of order product
+    let orderproducts: IorderProduct[] = [];
 
-    let order: Iorder = {
-      orderDate: this.orderDate,
-      DeliveryDate: this.estimatedDelevryDate,
-      Address: orderAddress,
-      totalPrice: this.TotalPrice,
-      customerId: cust_id,
-    };
-    console.log(order);
+    for (let p of this.getcartDetails) {
+      let orderProd: IorderProduct = {
+        ProductId: p.id,
+        Quantity: p.quantity,
+      };
+      orderproducts.push(orderProd);
+    }
+    console.log(orderproducts);
 
     // make order [post ]
-    // this.orderService.addOrder(order).subscribe({
-    //   next: (ord) => {
-    //     alert('order done');
-    //   },
-    //   error: (ord) => {
-    //     alert('error');
-    //   },
-    // });
+    this.orderProdService.addOrder(orderproducts, orderAddress).subscribe({
+      next: (p) => {
+        console.log('order sent');
+      },
+    });
   }
   getCustomerByToken(): Observable<IUser> {
     let myUser = this.HttpClient.get<IUser>(
