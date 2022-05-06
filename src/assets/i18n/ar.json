@@ -12,7 +12,7 @@
   "Hello": "مرحبا",
   "Hello, Sign in": "مرحبا, سجل الدخل",
   "Account": "بحسابك",
-  "Order": "عمل طلب",
+  "Order": "طلباتك",
   "Cart": "العربة",
   "Your amazon.eg": "امازون مصر",
   "Today's Deals": "عروض اليوم",
@@ -60,5 +60,10 @@
   "Total Price": "السعر الاجمالى",
   "Checkout": "طلب المنتجات",
   "Profile": "حسابك",
-  "Languages": "اللغة"
+  "Languages": "اللغة",
+  "Arabic": "العربية",
+  "English": "الانجليزية",
+  "Results": "النتائج",
+  "Sign in for the best experience": "سجل لتجربة افضل",
+  "Sign in": "سجل الدخول الان"
 }

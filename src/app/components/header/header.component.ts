@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     localStorage.setItem('currentLang', lang);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void { }
 
   user!: IUser;
 

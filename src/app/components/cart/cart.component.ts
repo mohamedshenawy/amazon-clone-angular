@@ -111,7 +111,7 @@ export class CartComponent implements OnInit {
       ) {
         return acc + val.quantity * val.price;
       },
-      0);
+        0);
     }
   }
 

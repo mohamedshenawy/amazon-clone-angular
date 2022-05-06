@@ -11,7 +11,7 @@ export interface Iproduct {
   categoryId: number,
   sellerId: number
   Name_AR: string,
-  Shipping_AR: string,
+  shipping_AR: string,
   Brand_AR: string,
   Description_AR: string,
 

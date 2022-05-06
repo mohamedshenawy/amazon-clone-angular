@@ -1,18 +1,29 @@
 <div class="container-fluid pt-2">
   <div class="row">
+
     <div class="col-lg-2 col-md-4 col-sm-6 leftside">
-      <div class="row p-3">
-        <div class="p-1">
+
+      <div class="row ps-3">
+        <div>
+          <img src="../../../assets/image/ads.jpg" alt="test">
+        </div>
+        <div class="mt-3 mb-3">
           <p style="font-weight: bold;">{{'Brands'| translate}}</p>
           <ng-container *ngFor="let checkbox of checkBoxArrayForBrand">
-            <input type="{{checkbox.type}}" value="{{checkbox.Name}}" (change)="onChange($event)">{{checkbox.Name}}
+            <input type="{{checkbox.type}}" value="{{checkbox.Name}}" (change)="onChange($event)">
+            {{currentLang == 'en'?checkbox.Name:checkbox.ArName}}
+
             <br>
           </ng-container>
         </div>
-        <div class="p-1 priceLinks mt-5">
+        <hr>
+        <div class="p-1 priceLinks mt-1">
           <p style="font-weight: bold;">{{'Price'| translate}}</p>
           <ng-container *ngFor="let Pcheckbox of checkBoxArrayForPrice">
-            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.min}} (change)="onChange($event)">{{Pcheckbox.price}}
+            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.priceRange}} (change)="onChange($event)">
+            {{Pcheckbox.price}}
+
+
             <br>
           </ng-container>
 
@@ -26,19 +37,20 @@
         <p style="font-weight: bold;"> {{'FIND YOUR Product' | translate}}</p>
         <button class="btn btn-secondary m-1" (click)="getprod(0)">{{'All' | translate}}</button>
         <ng-container *ngFor="let item of allCategoriesList">
-
-          <div *ngIf="currentLang == 'en'" style="display:inline-block">
-            <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.name}}</button>
+          <!-- *ngIf="currentLang == 'en'" -->
+          <div style="display:inline-block">
+            <button class="btn btn-secondary m-1"
+              (click)="getprod(item.id)">{{currentLang == 'en'? item.name: item.name_AR}}</button>
           </div>
-          <div *ngIf="currentLang == 'ar'" style="display:inline-block">
+          <!-- <div *ngIf="currentLang == 'ar'" style="display:inline-block">
             <button class="btn btn-secondary m-1" (click)="getprod(item.id)">{{item.Name_AR}}</button>
-          </div>
+          </div> -->
         </ng-container>
 
 
       </div>
       <div class="row p-3">
-        <p style="font-size: large; font-weight: bold;">Results</p>
+        <p style="font-size: large; font-weight: bold;">{{'Results'| translate}}</p>
       </div>
       <hr>
 
@@ -46,11 +58,8 @@
 
         <ng-container
           *ngFor="let item of FilteredProductList | paginate : {itemsPerPage:4, currentPage: p} | filter:searchkey:'name'">
-          <!-- [class.d-none]="catId != item.categoryId" -->
-          <!-- *ngIf="item.categoryId == catId" -->
-
           <!-- English Language  -->
-          <div class="col-lg-3 mb-3 " *ngIf="currentLang == 'en'">
+          <div class="col-xl-3 col-lg-4 col-md-6 mb-3 ms-md-0">
             <div class="card" style="width: 18rem;">
 
               <div class="text-center">
@@ -62,22 +71,30 @@
               <div class="card-body">
                 <h5 class="card-title"
                   style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
-                  {{item.name}}
+                  {{currentLang == 'en'? item.name: item.name_AR}}
                 </h5>
                 <p class="card-text">{{'Price'|translate}} : {{item.price | currency : "USD"}}</p>
-                <p class="card-text">{{'Shiping'|translate}}: {{item.shipping}}</p>
-                <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
-                    class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
+                <p class="card-text">{{'Shiping'|translate}}: {{ currentLang == 'en'? item.shipping: item.shipping_AR}}
+                </p>
+                <div class="col mb-2 text-center">
+                  <button class='btn btn-danger' (click)="decrease(item)">-</button>
+                  <a style="text-decoration:none; color:black;margin:0 10px">{{item.quantity}}</a>
+                  <button class='btn btn-success' (click)="increase(item)">+</button>
+                </div>
                 <div class="text-center">
                   <button class="btn btn-primary px-5" (click)="addtoCart(item)">{{'Add to Cart'| translate}}</button>
                 </div>
               </div>
             </div>
           </div>
+        </ng-container>
 
 
-          <!-- Arabic Language -->
-          <div class="col-lg-3 mb-3 " *ngIf="currentLang == 'ar'">
+
+
+
+        <!-- Arabic Language -->
+        <!-- <div class="col-lg-3 mb-3 " *ngIf="currentLang == 'ar'">
             <div class="card" style="width: 18rem;">
 
               <div class="text-center">
@@ -93,15 +110,15 @@
                 </h5>
                 <p class="card-text">{{'Price'|translate}} : {{item.price | currency : "USD"}}</p>
                 <p class="card-text">{{'Shiping'|translate}}: {{item.shipping_AR}}</p>
-                <div class="col"> <button (click)="decrease(item)">-</button><a href="#"
+                <div class="col"> <button (click)="decrease(item)">-</button><a
                     class="border">{{item.quantity}}</a><button (click)="increase(item)">+</button> </div>
                 <div class="text-center">
                   <button class="btn btn-primary px-5" (click)="addtoCart(item)">{{'Add to Cart'| translate}}</button>
                 </div>
               </div>
             </div>
-          </div>
-        </ng-container>
+          </div> -->
+
 
         <div>
           <pagination-controls (pageChange)="p = $event"> </pagination-controls>
