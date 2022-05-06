@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   currentLang: string = '';
   constructor(private productsService: ProductsService, private cartService: CartServiceService, private router: Router,
     public translate: TranslateService) {
-    this.currentLang = localStorage.getItem('currentLagn') || 'en';
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang)
 
   }
@@ -45,42 +45,36 @@ export class ProductsComponent implements OnInit, OnChanges {
       type: "checkbox",
       price: "under $200",
       priceRange: "0 200",
-      max: 200,
     },
     {
       id: 2,
       type: "checkbox",
       price: "$200 to $400",
       priceRange: "200 400",
-      max: 400,
     },
     {
       id: 3,
       type: "checkbox",
       price: "$400 to $600",
       priceRange: "400 600",
-      max: 600,
     },
     {
       id: 4,
       type: "checkbox",
       price: "$600 to $800",
       priceRange: "600 800",
-      max: 800,
     },
     {
       id: 5,
       type: "checkbox",
       price: "$800 to $1000",
       priceRange: "800 1000",
-      max: 1000,
     },
     {
       id: 6,
       type: "checkbox",
       price: "above $1000",
-      priceRange: "1000 1200",
-      max: 100000,
+      priceRange: "1000 10000",
     }
   ];
   checkBoxArrayForBrand: any = [
@@ -88,41 +82,49 @@ export class ProductsComponent implements OnInit, OnChanges {
       id: 1,
       type: "checkbox",
       Name: "Lenovo",
+      ArName: "لينوفو"
     },
     {
       id: 2,
       type: "checkbox",
       Name: "HP",
+      ArName: "اتش بي"
     },
     {
       id: 3,
       type: "checkbox",
       Name: "Dell",
+      ArName: "ديل"
     },
     {
       id: 4,
       type: "checkbox",
       Name: "Samsung",
+      ArName: "سامسونج"
     },
     {
       id: 5,
       type: "checkbox",
       Name: "ZARA",
+      ArName: "زارا"
     },
     {
       id: 6,
       type: "checkbox",
       Name: "ASUS",
+      ArName: "اسيوس"
     },
     {
       id: 7,
       type: "checkbox",
       Name: "REALME",
+      ArName: "ريلمي"
     },
     {
       id: 8,
       type: "checkbox",
       Name: "IPhone",
+      ArName: "ايفون"
     },
   ];
 
@@ -130,13 +132,8 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   }
 
-
-  // produtLang!: { en: Iproduct; ar: Iproduct };
-
-
-
-
   ngOnInit(): void {
+
 
 
     // get all products
@@ -144,14 +141,8 @@ export class ProductsComponent implements OnInit, OnChanges {
       this.allProductsList = prods;
       this.FilteredProductList = prods
 
-
       this.FilteredProductList.forEach((a: Iproduct) => {
         Object.assign(a, { quantity: 1, total: a.price })
-
-        // this.produtLang = {
-        //   en: a,
-        //   ar: a,
-        // }
 
       });
       // console.log(this.arrays)
@@ -164,6 +155,8 @@ export class ProductsComponent implements OnInit, OnChanges {
       this.searchkey = val
     })
   }
+
+
   getprod(catId: number) {
 
     if (catId == 0) {
