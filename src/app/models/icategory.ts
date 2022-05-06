@@ -5,6 +5,6 @@ export interface Icategory {
   pictureUrl: string,
   supCatId: number,
 
-  Name_AR: string;
+  name_AR: string;
   Description_AR: string;
 }

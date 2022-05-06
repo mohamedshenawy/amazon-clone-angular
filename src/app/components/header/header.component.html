@@ -43,18 +43,18 @@
       <div class="dropdown">
         <button class="dropbtn">{{'Languages'|translate}} <i class="fa-solid fa-caret-down"></i> </button>
         <div class="dropdown-content">
-          <a href="#"> <img (click)="changeCurrentLang('ar')" class="w-50" src="../../../assets/Flag_of_Egypt.png"
-              alt="flag"> {{'Arabic'|translate}}</a>
-          <a href="#"> <img (click)="changeCurrentLang('en')" class="w-50 ms-2" src="../../../assets/britishFlag.png"
-              alt="flag"> {{'English'|translate}}</a>
+          <a> <img (click)="changeCurrentLang('ar')" class="w-50" src="../../../assets/Flag_of_Egypt.png" alt="flag">
+            {{'Arabic'|translate}}</a>
+          <a> <img (click)="changeCurrentLang('en')" class="w-50 ms-2" src="../../../assets/britishFlag.png" alt="flag">
+            {{'English'|translate}}</a>
         </div>
       </div>
 
       <div class="d-flex w-border p-1 d-none d-md-inline" style="cursor:pointer">
         <div class="me-2 mt-2 d-flex">
-          <span [hidden]="isUserLogged" class="small-txt">{{'Hello, Sign in'|translate}} <br> {{'Account'|translate}}
+          <span [hidden]="isUserLogged" class="mt-2">{{'Hello, Sign in'|translate}} <br> {{'Account'|translate}}
           </span>
-          <span [hidden]="!isUserLogged" class="small-txt">{{'Hello'|translate}}, {{userName}}</span>
+          <span [hidden]="!isUserLogged" class="mt-2">{{'Hello'|translate}}, {{userName}}</span>
           <!-- Example split danger button -->
           <div class="btn-group">
             <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <div class="d-flex align-self-end w-border p-1">
+      <div class="d-flex align-self-end w-border p-1 mb-3">
         <a routerLink="orders" class="fs-6 second-nav-a">
           {{'Order'|translate}}
         </a>
@@ -86,9 +86,8 @@
         <div>
           <div class="badge">{{cartItem}}</div>
           <div>
-            <i class="fa-solid fa-cart-shopping text-light "></i>
+            <i class="fa-solid fa-cart-shopping text-light"></i>
           </div>
-
 
         </div>
         <div class='mt-4'>
