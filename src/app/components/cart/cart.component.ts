@@ -46,15 +46,7 @@ export class CartComponent implements OnInit {
     });
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang)
-    render({
-      id: '#myPaypalButtons',
-      currency: 'USD',
-      value: '100.00',
-      onApprove: (details) => {
-        this.makeOrder(this.orderAddress.nativeElement.value);
-        alert('Transaction Successfully');
-      },
-    });
+
   }
 
   ngOnInit(): void {
@@ -120,6 +112,16 @@ export class CartComponent implements OnInit {
       },
         0);
     }
+    render({
+      id: '#myPaypalButtons',
+      currency: 'USD',
+      value: this.TotalPrice.toString(),
+      onApprove: (details) => {
+        this.makeOrder(this.orderAddress.nativeElement.value);
+        alert('Transaction Successfully');
+        this.route.navigate(['/home'])
+      },
+    });
   }
 
   removeItem(cartItemid: number) {
