@@ -11,13 +11,23 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
   allProducts: Iproduct[] = []
 
+  currentLang: string = '';
 
-
-  constructor(private productsService: ProductsService, public translate: TranslateService) { }
+  constructor(private productsService: ProductsService, public translate: TranslateService) {
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang)
+  }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts().subscribe(prods => { this.allProducts = prods })
-    console.log(this.allProducts);
+    this.productsService.getAllProducts().subscribe(prods => {
+      this.allProducts = prods;
+      // console.log(this.allProducts);
+      for (var i = 0; i < this.allProducts.length; i++) {
+        console.log(this.allProducts[i].name_AR);
+      }
+    })
+
   }
 
 }
+

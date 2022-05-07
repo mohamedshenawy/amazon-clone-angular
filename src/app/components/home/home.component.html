@@ -168,19 +168,19 @@
         </p>
       </header>
       <section>
-        <div class="product" *ngFor="let product of allProducts">
+        <div class="product" *ngFor="let item of allProducts">
           <picture>
-            <img [src]="product.picture" alt="">
+            <img [src]="item.picture" alt="">
           </picture>
           <div class="detail">
-            <p>
-              <b>{{product.name}}</b><br>
-              <small>{{product.description}}</small>
+            <p style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
+              <b>{{currentLang == 'en'? item.name: item.name_AR}}</b><br>
+              <small>{{currentLang == 'en'? item.description: item.description_AR}}</small>
             </p>
-            <samp>{{product.price}}</samp>
+            <samp>{{item.price|currency:"USD"}}</samp>
           </div>
           <div class="button">
-            <a href="#">Add-cart</a>
+            <a>{{'Add to Cart'| translate}}</a>
           </div>
         </div>
 

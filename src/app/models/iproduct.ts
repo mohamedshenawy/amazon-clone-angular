@@ -10,10 +10,10 @@ export interface Iproduct {
   description: string,
   categoryId: number,
   sellerId: number
-  Name_AR: string,
+  name_AR: string,
   shipping_AR: string,
   Brand_AR: string,
-  Description_AR: string,
+  description_AR: string,
 
 
 }

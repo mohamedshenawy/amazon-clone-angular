@@ -17,7 +17,7 @@ export class OrdersComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.orderService.getOrders().subscribe((ord) => {

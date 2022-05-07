@@ -69,6 +69,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   changeCurrentLang(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('currentLang', lang);
+    window.location.reload();
   }
 
   ngOnChanges(changes: SimpleChanges): void { }
