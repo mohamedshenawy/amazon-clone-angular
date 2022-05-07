@@ -129,12 +129,11 @@ export class ProductsComponent implements OnInit, OnChanges {
   ];
 
   ngOnChanges(changes: SimpleChanges): void {
-
+    this.ngOnInit();
   }
 
+
   ngOnInit(): void {
-
-
 
     // get all products
     this.productsService.getAllProducts().subscribe(prods => {
@@ -253,6 +252,7 @@ export class ProductsComponent implements OnInit, OnChanges {
       }
     }
     console.log(this.allProductsList)
+
   }
 
   decrease(item: any) {
