@@ -9,10 +9,19 @@ import { Iorder } from '../models/iorder';
 })
 export class OrderService {
   httpOptions = {};
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      }),
+    };
+  }
+
   getOrders(): Observable<Iorder[]> {
     return this.httpClient.get<Iorder[]>(
-      `${environment.apiBaseUrl}/api/orders`
+      `${environment.apiBaseUrl}/api/Order/get`,
+      this.httpOptions
     );
   }
   getOrderDetails(ordId: number): Observable<Iorder> {

@@ -1,6 +1,6 @@
 import { Iproduct } from 'src/app/models/iproduct';
 import { CartServiceService } from './../../services/cart-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Iorder } from 'src/app/models/iorder';
 import { OrderService } from 'src/app/services/order.service';
+import { IorderProduct } from 'src/app/models/iorder-product';
+import { OrderProductService } from 'src/app/services/order-product.service';
 
 @Component({
   selector: 'app-cart',
@@ -23,13 +25,13 @@ export class CartComponent implements OnInit {
   orderDate = new Date();
   estimatedDelevryDate = new Date();
   httoOptions = {};
-
+  @ViewChild('orderAddress') orderAddress!: ElementRef;
   user!: IUser;
   constructor(
     private cartService: CartServiceService,
     private route: Router,
     private HttpClient: HttpClient,
-    private orderService: OrderService
+    private orderProdService: OrderProductService
   ) {
     this.httoOptions = {
       headers: new HttpHeaders({
@@ -45,6 +47,7 @@ export class CartComponent implements OnInit {
       currency: 'USD',
       value: '100.00',
       onApprove: (details) => {
+        this.makeOrder(this.orderAddress.nativeElement.value);
         alert('Transaction Successfully');
       },
     });
@@ -59,6 +62,8 @@ export class CartComponent implements OnInit {
     this.cartdetails();
     this.LoatCart();
     this.getCustomerByToken().subscribe((u) => (this.user = u));
+
+    this.estimatedDelevryDate.setDate(this.estimatedDelevryDate.getDate() + 10);
   }
 
   // get cart Products from Local Storage
@@ -109,7 +114,7 @@ export class CartComponent implements OnInit {
       ) {
         return acc + val.quantity * val.price;
       },
-        0);
+      0);
     }
   }
 
@@ -147,9 +152,9 @@ export class CartComponent implements OnInit {
   checkOut() {
     this.showOrderMaker = true;
     window.scrollTo(0, 1000);
-    this.orderDate.getDate();
-    console.log(this.orderDate);
+    // this.estimatedDelevryDate.setDate(this.estimatedDelevryDate.getDate() + 3);
   }
+
   makeOrder(orderAddress: string) {
     let token: string | null;
     token = localStorage.getItem('token');
@@ -161,25 +166,24 @@ export class CartComponent implements OnInit {
 
     //api to get customer_id
     let cust_id = this.user.id;
+    //list of order product
+    let orderproducts: IorderProduct[] = [];
 
-    let order: Iorder = {
-      orderDate: this.orderDate,
-      DeliveryDate: this.estimatedDelevryDate,
-      Address: orderAddress,
-      totalPrice: this.TotalPrice,
-      customerId: cust_id,
-    };
-    console.log(order);
+    for (let p of this.getcartDetails) {
+      let orderProd: IorderProduct = {
+        ProductId: p.id,
+        Quantity: p.quantity,
+      };
+      orderproducts.push(orderProd);
+    }
+    console.log(orderproducts);
 
     // make order [post ]
-    // this.orderService.addOrder(order).subscribe({
-    //   next: (ord) => {
-    //     alert('order done');
-    //   },
-    //   error: (ord) => {
-    //     alert('error');
-    //   },
-    // });
+    this.orderProdService.addOrder(orderproducts, orderAddress).subscribe({
+      next: (p) => {
+        console.log('order sent');
+      },
+    });
   }
   getCustomerByToken(): Observable<IUser> {
     let myUser = this.HttpClient.get<IUser>(

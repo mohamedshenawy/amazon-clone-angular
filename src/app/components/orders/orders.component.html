@@ -11,8 +11,8 @@
         <tr *ngFor="let i of order">
             <ng-container>
                 <td> {{i.orderDate}}</td>
-                <td>{{i.DeliveryDate}}</td>
-                <td>{{i.Address }}</td>
+                <td>{{i.estimatedDeliveryDate}}</td>
+                <td>{{i.orderAddress }}</td>
                 <td>{{i.totalPrice | currency:"EGP"}}</td>
             </ng-container>
         </tr>
