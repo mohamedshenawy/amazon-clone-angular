@@ -73,7 +73,8 @@
                   style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
                   {{currentLang == 'en'? item.name: item.name_AR}}
                 </h5>
-                <p class="card-text">{{'Price'|translate}} : {{item.price | currency : "USD"}}</p>
+                <p class="card-text">{{'Price'|translate}} :
+                  {{currentLang == 'en'?(item.price | currency : "USD") : (item.price * 15 | currency : "EGP")}}</p>
                 <p class="card-text">{{'Shiping'|translate}}: {{ currentLang == 'en'? item.shipping: item.shipping_AR}}
                 </p>
                 <div class="col mb-2 text-center">

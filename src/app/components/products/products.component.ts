@@ -6,7 +6,6 @@ import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 import { ProductsService } from 'src/app/services/products.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',

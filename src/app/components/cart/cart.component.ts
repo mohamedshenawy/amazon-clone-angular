@@ -11,6 +11,7 @@ import { Iorder } from 'src/app/models/iorder';
 import { OrderService } from 'src/app/services/order.service';
 import { IorderProduct } from 'src/app/models/iorder-product';
 import { OrderProductService } from 'src/app/services/order-product.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
@@ -27,11 +28,13 @@ export class CartComponent implements OnInit {
   httoOptions = {};
   @ViewChild('orderAddress') orderAddress!: ElementRef;
   user!: IUser;
+  currentLang: string = '';
   constructor(
     private cartService: CartServiceService,
     private route: Router,
     private HttpClient: HttpClient,
-    private orderProdService: OrderProductService
+    private orderProdService: OrderProductService,
+    public translate: TranslateService
   ) {
     this.httoOptions = {
       headers: new HttpHeaders({
@@ -41,7 +44,8 @@ export class CartComponent implements OnInit {
     this.cartService.cartSubject.subscribe((data) => {
       this.TotalItem = data;
     });
-
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang)
     render({
       id: '#myPaypalButtons',
       currency: 'USD',
@@ -114,7 +118,7 @@ export class CartComponent implements OnInit {
       ) {
         return acc + val.quantity * val.price;
       },
-      0);
+        0);
     }
   }
 

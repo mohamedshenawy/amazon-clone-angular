@@ -47,17 +47,22 @@
                 <div class="col"> {{ i + 1 }} </div>
                 <div class="col-2"><img class="img-fluid" [src]="cartItem.picture"></div>
                 <div class="col">
-                  <div class="row text-muted">{{cartItem.Name}}</div>
+                  <div class="row text-muted"> {{currentLang == 'en'? cartItem.name: cartItem.name_AR}}</div>
                   <div class="row">{{cartItem.Brand}}</div>
                 </div>
 
-                <div class="col">&euro; {{cartItem.price | currency : 'USD'}}</div>
+                <div class="col">
+                  {{currentLang == 'en'?(cartItem.price | currency : "USD") : (cartItem.price * 15 | currency : "EGP")}}
+                </div>
 
-                <div class="col"> <button (click)="decQnt(cartItem.id, cartItem.quantity, cartItem.stock)">-</button><a
-                    class="border">{{cartItem.quantity}}</a><button
-                    (click)="incQnt(cartItem.id, cartItem.quantity, cartItem.stock)">+</button> </div>
+                <div class="col">
+                  <button class='decrease' (click)="decQnt(cartItem.id, cartItem.quantity, cartItem.stock)">-</button>
+                  <a class="border">{{cartItem.quantity}}</a>
+                  <button class='increase' (click)="incQnt(cartItem.id, cartItem.quantity, cartItem.stock)">+</button>
+                </div>
 
-                <div class="col">&euro; {{cartItem.price * cartItem.quantity | currency : 'USD'}}</div>
+                <div class="col">{{currentLang == 'en'?(cartItem.price * cartItem.quantity | currency : 'USD'):
+                  (cartItem.price * cartItem.quantity * 15 | currency : 'EGP') }}</div>
 
                 <button (click)="removeItem(cartItem.id)" class="col deleteicon"><i class="fas fa-trash-alt"></i>
                 </button>
@@ -70,8 +75,8 @@
 
 
         <button routerLink="/product" class="btn btn-primary backtoshop m-5">{{'Back to shop'|translate}}</button>
-        <button (click)="removeAllItems()" class="btn btn-danger emptycart m-5">{{'Remove All
-          Items'|translate}}</button>
+        <button (click)="removeAllItems()" class="btn btn-danger emptycart m-5">{{'Remove All Items'|translate}}
+        </button>
       </div>
 
       <div class="col-md-4 summary">
@@ -81,18 +86,22 @@
         <hr>
         <div class="row">
           <div class="col" style="padding-left:0;">{{TotalItem}} {{'Items'|translate}}</div>
-          <div class="col text-right"> {{TotalPrice | currency : 'USD'}}</div>
+          <div class="col text-right">
+            {{currentLang == 'en'? (TotalPrice | currency : 'USD') : (TotalPrice * 15| currency : 'EGP')}}</div>
         </div>
         <form>
           <p>{{'Shiping'|translate}}</p>
           <select>
-            <option class="text-muted">{{'Standard-Delivery'|translate}}- {{ Delivery |currency : 'USD'}}</option>
+            <option class="text-muted">{{'Standard-Delivery'|translate}}-
+              {{currentLang == 'en'? (Delivery |currency : 'USD'): (Delivery * 15 |currency : 'EGP')}}</option>
           </select>
         </form>
         <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
           <div class="col">{{'Total Price'|translate}}</div>
 
-          <div class="col text-right"> {{TotalPrice + 5 | currency : 'USD'}}</div>
+          <div class="col text-right">
+            {{currentLang == 'en'? (TotalPrice + 5 | currency : 'USD') : ((TotalPrice + 5) * 15| currency : 'EGP')}}
+          </div>
         </div> <button class="btn" (click)="checkOut()" style="font-size:18px">{{'Checkout'|translate}}</button>
         <hr>
 
@@ -107,28 +116,33 @@
   </div>
 
   <form class=" container card mt-100 p-5" [hidden]="showOrderMaker == false">
-    <h1>Order Detalis</h1>
+    <h1>{{'Order Detalis'|translate}}</h1>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Order address</label>
+      <label for="exampleInputEmail1" class="form-label">{{'Order Address'|translate}}</label>
       <input type="text" #orderAddress class="form-control">
-      <span class="text-danger">*enter your address</span>
+      <span class="text-danger">*{{'You must Enter your Address'|translate}}</span>
     </div>
     <div class="mb-3">
-      <label class="form-label">Order Date</label>
+      <label class="form-label">{{'Order Date'|translate}}</label>
       <input type="text" #ordrDate disabled value="{{orderDate|date:'short'}}" class="form-control">
     </div>
     <div class="mb-3">
-      <label class="form-label">Estimated Delivery Date</label>
+      <label class="form-label">{{'Estimated Delivery Date'|translate}}</label>
       <input type="text" #orderEstDate disabled value="{{estimatedDelevryDate|date:'short'}}" class="form-control">
     </div>
     <div class="mb-3">
-      <label class="form-label">Order Price</label>
-      <input type="text" #orderPrice disabled value="{{TotalPrice + 5 | currency : 'USD'}}" class="form-control">
+      <label class="form-label">{{'Order TotalPrice'|translate}}</label>
+      <input type="text" #orderPrice disabled
+        value="{{currentLang == 'en'? (TotalPrice + 5 | currency : 'USD') : ((TotalPrice + 5) * 15| currency : 'EGP')}}"
+        class="form-control">
     </div>
-    <div id="myPaypalButtons"></div>
+    <div class="text-center">
+      <div id="myPaypalButtons"></div>
+    </div>
+
   </form>
 </ng-container>
 
-<!-- 
+<!--
   <button type="submit" [disabled]="orderAddress.value == ''" (click)="makeOrder(orderAddress.value)"
     class="btn btn-warning">make order</button> -->

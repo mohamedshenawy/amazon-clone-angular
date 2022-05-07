@@ -33,7 +33,7 @@
 
 <div class="container-fluid secondsec ">
 
-  <div class="row mb-5">
+  <div class="row">
 
     <div class="col-lg-3 col-md-6 col-sm-12">
 
@@ -177,8 +177,9 @@
               <b>{{currentLang == 'en'? item.name: item.name_AR}}</b><br>
               <small>{{currentLang == 'en'? item.description: item.description_AR}}</small>
             </p>
-            <samp>{{item.price|currency:"USD"}}</samp>
+            <samp>{{currentLang == 'en'?(item.price | currency : "USD") : (item.price * 15 | currency : "EGP")}}</samp>
           </div>
+          <br>
           <div class="button">
             <a>{{'Add to Cart'| translate}}</a>
           </div>

@@ -4,6 +4,7 @@ import { Iproduct } from 'src/app/models/iproduct';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,8 +18,12 @@ export class ProductdetailsComponent implements OnInit {
   product: any;
 
   productQnt: number = 1;
+  currentLang: string = '';
   constructor(private activateRoute: ActivatedRoute, private producrService: ProductsService,
-    private router: Router, private location: Location, private cartService: CartServiceService) { }
+    private router: Router, private location: Location, private cartService: CartServiceService, private translate: TranslateService) {
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang)
+  }
 
   ngOnInit(): void {
 

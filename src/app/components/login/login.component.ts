@@ -15,6 +15,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -26,14 +27,18 @@ export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;
   token!: string;
   errorMsg: string = '';
-  constructor(private loginService: LoginService, private route: Router) {
+  currentLang: string = '';
+  constructor(private loginService: LoginService, private route: Router, public translate: TranslateService) {
     this.loginFormGroup = new FormGroup({
       userName: new FormControl(''),
       password: new FormControl(''),
     });
+
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang)
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   isUserLogged: boolean = false;
 

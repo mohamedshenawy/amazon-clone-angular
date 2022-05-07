@@ -28,21 +28,30 @@
 
     <div class="col-12 col-md-5">
       <hr>
-      <p class="h5">{{product.name}}</p>
+      <p class="h5">{{currentLang == 'en'? product.name: product.name_AR}}</p>
       <span href="#" class="brand-style">{{'Brand'|translate}}: {{product.brand}}</span>
 
 
       <hr>
       <div>
-        <div class="d-flex">
-          <p class="desc-style pe-2">{{product.discount * 100}}%</p>
+        <div class="">
           <div class="d-flex">
-
-            <p class="h3">{{product.price - (product.price * product.discount) | currency : 'USD'}}</p>
+            <p class="h3">
+              {{currentLang == 'en'? (product.price - (product.price * product.discount) | currency : 'USD') :
+              ((product.price - (product.price * product.discount)) * 15 | currency : 'EGP') }}
+            </p>
           </div>
+          <br>
+          <div>
+            <p class="desc-style pe-2">{{product.discount * 100}}% {{'Discount'|translate}}</p>
+          </div>
+
+
         </div>
         <div>
-          <p class="list-price">{{'List Price'|translate}}: <span> {{product.price}}</span></p>
+          <p class="list-price">{{'List Price'|translate}}: <span>
+              {{currentLang == 'en'?(product.price | currency : "USD") : (product.price * 15 | currency : "EGP")}}
+            </span></p>
         </div>
 
 
@@ -52,34 +61,29 @@
               src="https://images-na.ssl-images-amazon.com/images/G/42/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB403797073_.png"
               alt="">
           </div>
-          <a href="#" class="brand-style small-text">{{'Delivered by'|translate}} {{product.shipping}}</a>
+          <a href="#" class="brand-style small-text">{{'Delivered by'|translate}}
+            {{ currentLang == 'en'? product.shipping: product.shipping_AR}}</a>
         </div>
 
 
         <hr>
 
         <div>
-          <div class="d-flex">
-            <a href="#" class="brand-style small-txt">
-              <span style="color: #ba4223;">
-                {{'Price'|translate}}: {{product.price * product.discount | currency : 'USD'}}
-              </span>
-            </a>
-          </div>
+
           <div>
             <ul class="item-featrs">
 
               <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
+                <span class="bold-txt small-txt">
                   {{'Brand'| translate}}</span>
                 <span class="small-txt">{{product.brand}}</span>
               </li>
 
 
               <li class="row row-cols-2">
-                <span class="bold-txt small-txt pe-5">
+                <span class="bold-txt small-txt">
                   {{'Color'|translate}}</span>
-                <span class="small-txt">Black</span>
+                <span class="small-txt">{{'Black'|translate}}</span>
               </li>
 
             </ul>
@@ -90,13 +94,12 @@
           <div>
             <p class="h5">{{'About this item'|translate}}</p>
             <ul>
-              <li class="small-txt">{{product.description}}</li>
+              <li class="small-txt">{{ currentLang == 'en'? product.description: product.description_AR}}</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
 
 
   </div>
@@ -105,7 +108,6 @@
   <!-- payment info -->
   <div class="payment-div ms-3 col-12 col-md-3">
     <div class="d-flex justify-content-center">
-      <span> Share: </span>
       <div>
         <i class="fa-regular fa-envelope"></i>
       </div>
@@ -123,8 +125,8 @@
     <div class="pay-first-div pt-3 mt-1 pb-3">
 
       <div class="d-flex">
-        <p class="h5">{{product.price - (product.price * product.discount)  | currency : 'USD'}}</p>
-        <p class="small-txt">00</p>
+        <p class="h5"> {{currentLang == 'en'? (product.price - (product.price * product.discount) | currency : 'USD') :
+          ((product.price - (product.price * product.discount)) * 15 | currency : 'EGP') }}</p>
       </div>
 
       <div class="d-flex pt-2">
@@ -140,7 +142,7 @@
 
 
       <div class="d-flex flex-column justify-content-center">
-        <input type="button" class="btn btn-warning add-to-cart-btn mb-2" value="Add to Cart"
+        <input type="button" class="btn btn-warning add-to-cart-btn mb-2" value="{{'Add to Cart'|translate}}"
           (click)="addtoCart(product)">
       </div>
 

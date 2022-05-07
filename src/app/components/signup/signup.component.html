@@ -11,50 +11,50 @@
     <section class="d-flex  content-sec mt-5">
       <form [formGroup]="customerFormGroup" (ngSubmit)="register()">
         <div class="d-flex justify-content-center flex-column">
-          <p class="h2">Create Account</p>
-          <label class="h6" for="name-input">user name</label>
+          <p class="h2">{{'Create Account'|translate}}</p>
+          <label class="h6" for="name-input">{{'UserName'|translate}}</label>
           <input type="text" formControlName="userName" class="form-control inpt" name="userName" id="userName-input"
             [class.is-valid]="userName?.valid" [class.is-invalid]="userName?.invalid">
           <div [hidden]="userName?.valid || userName?.untouched" class="alert alert-danger">
             <small *ngIf="userName?.errors?.['required']">
-              User Name is required
+              {{'UserName is required'|translate}}
             </small>
           </div>
 
-          <label class="h6" for="name-input">first name</label>
+          <label class="h6" for="name-input">{{'First Name'|translate}}</label>
           <input type="text" formControlName="firstName" class="form-control inpt" name="firstName" id="firstName-input"
             [class.is-valid]="firstName?.valid" [class.is-invalid]="firstName?.invalid">
           <div [hidden]="firstName?.valid || firstName?.untouched" class="alert alert-danger">
             <small *ngIf="firstName?.errors?.['required']">
-              First Name is required
+              {{'First Name is required'|translate}}
             </small>
           </div>
 
-          <label class="h6" for="name-input">last name</label>
+          <label class="h6" for="name-input">{{'Last Name'|translate}}</label>
           <input type="text" formControlName="lastName" class="form-control inpt" name="lastName" id="lastName-input"
             [class.is-valid]="lastName?.valid" [class.is-invalid]="lastName?.invalid">
           <div [hidden]="lastName?.valid || lastName?.untouched" class="alert alert-danger">
             <small *ngIf="lastName?.errors?.['required']">
-              last Name is required
+              {{'Last Name is required'|translate}}
             </small>
           </div>
 
 
-          <label class="h6" for="Email-input">Email</label>
+          <label class="h6" for="Email-input">{{'Email'|translate}}</label>
           <input type="email" formControlName="email" class="form-control inpt" name="email" id="email-input"
             [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid">
           <div [hidden]="email?.valid || email?.untouched" class="alert alert-danger">
             <small *ngIf="email?.errors?.['required']">
-              email is required
+              {{'Email is required'|translate}}
             </small>
             <small *ngIf="email?.errors?.['email']">
-              email must contain @ - Ex: example@gmail.com
+              {{'Email must contain'|translate}} @ - Ex: example@gmail.com
             </small>
 
           </div>
 
           <div class="d-flex justify-content-center flex-column">
-            <label class="h6" for="password-input">Password</label>
+            <label class="h6" for="password-input">{{'Password'|translate}}</label>
             <div class="d-flex">
               <input type="Password" #passwordInput formControlName="password" class="form-control inpt" name="password"
                 id="password-input" [class.is-valid]="password?.valid" [class.is-invalid]="password?.invalid">
@@ -63,7 +63,7 @@
           </div>
           <div [hidden]="password?.valid || password?.untouched" class="alert alert-danger">
             <small *ngIf="password?.errors?.['required']">
-              password is required
+              {{'Password is required'|translate}
             </small>
             <small *ngIf="password?.errors?.['pattern']">
               at least one upper case <br> one lower case <br> at least one special charchter <br>at least
@@ -74,70 +74,71 @@
           </div>
 
 
-          <label class="h6" for="mobile-input">Mobile number</label>
-          <div class="w-100 d-flex  justify-content-between">
-            <input type="text" formControlName="phoneNumber" class="form-control inpt" name="phoneNumber"
-              id="phone-input" [class.is-valid]="phoneNumber?.valid" [class.is-invalid]="phoneNumber?.invalid">
-          </div>
-          <div [hidden]="phoneNumber?.valid || phoneNumber?.untouched" class="alert alert-danger">
-            <small *ngIf="phoneNumber?.errors?.['required']">
-              phoneNumber is required
-            </small>
-            <small *ngIf="phoneNumber?.errors?.['pattern']">
-              must start with 010 , 011 , 015 , 012 <br>
-              mobile length = 11 number
-            </small>
-          </div>
+          <label class="h6" for="mobile-input">{{'Phone Number'|translate}}</label>
+              <div class="w-100 d-flex  justify-content-between">
+                <input type="text" formControlName="phoneNumber" class="form-control inpt" name="phoneNumber"
+                  id="phone-input" [class.is-valid]="phoneNumber?.valid" [class.is-invalid]="phoneNumber?.invalid">
+              </div>
+              <div [hidden]="phoneNumber?.valid || phoneNumber?.untouched" class="alert alert-danger">
+                <small *ngIf="phoneNumber?.errors?.['required']">
+                  {{'Phone Number is required'|translate}}
+                </small>
+                <small *ngIf="phoneNumber?.errors?.['pattern']">
+                  must start with 010 , 011 , 015 , 012 <br>
+                  mobile length = 11 number
+                </small>
+              </div>
 
 
-          <label class="h6 mt-2" for="mobile-input">Gender</label>
-          <div class="w-100 d-flex">
-            <input type="radio" class="align-self-center" value="m" formControlName="gender" name="gender">
-            <span>male</span>
+              <label class="h6 mt-2" for="mobile-input">{{'Gender'|translate}}</label>
+              <div class="w-100 d-flex">
+                <input type="radio" class="align-self-center" value="M" formControlName="gender" name="gender">
+                <span>{{'Male'|translate}}</span>
 
-            <input type="radio" class="align-self-center ms-4" value="f" formControlName="gender" name="gender">
-            <span>female</span>
-          </div>
+                <input type="radio" class="align-self-center ms-4" value="F" formControlName="gender" name="gender">
+                <span>{{'Female'|translate}}</span>
+              </div>
 
-          <label class="h6 mt-2" for="postalcode-input">PostalCode</label>
-          <div class="w-100 d-flex">
-            <input type="number" class="form-control inpt" formControlName="postalCode" name="PostalCode">
-          </div>
+              <label class="h6 mt-2" for="postalcode-input">{{'PostalCode'|translate}}</label>
+              <div class="w-100 d-flex">
+                <input type="number" class="form-control inpt" formControlName="postalCode" name="PostalCode">
+              </div>
 
-          <label class="h6 mt-2" for="address-input">Address</label>
-          <div class="w-100 d-flex">
-            <input type="text" class="form-control inpt" formControlName="address" name="address"
-              [class.is-valid]="address?.valid" [class.is-invalid]="address?.invalid">
-          </div>
-          <div [hidden]="address?.valid || address?.untouched" class="alert alert-danger">
-            <small *ngIf="address?.errors?.['required']">
-              Address is required
-            </small>
-          </div>
+              <label class="h6 mt-2" for="address-input">{{'Address'|translate}}</label>
+              <div class="w-100 d-flex">
+                <input type="text" class="form-control inpt" formControlName="address" name="address"
+                  [class.is-valid]="address?.valid" [class.is-invalid]="address?.invalid">
+              </div>
+              <div [hidden]="address?.valid || address?.untouched" class="alert alert-danger">
+                <small *ngIf="address?.errors?.['required']">
+                  {{'Address is required'|translate}}
+                </small>
+              </div>
 
-          <label class="h6 mt-2" for="city-input">City</label>
-          <div class="w-100 d-flex">
-            <input type="text" class="form-control inpt" formControlName="city" name="city">
-          </div>
+              <label class="h6 mt-2" for="city-input">{{'City'|translate}}</label>
+              <div class="w-100 d-flex">
+                <input type="text" class="form-control inpt" formControlName="city" name="city">
+              </div>
 
-          <label class="h6 mt-2" for="street-input">Street</label>
-          <div class="w-100 d-flex">
-            <input type="text" class="form-control inpt" formControlName="street" name="street">
-          </div>
+              <label class="h6 mt-2" for="street-input">{{'Street'|translate}}</label>
+              <div class="w-100 d-flex">
+                <input type="text" class="form-control inpt" formControlName="street" name="street">
+              </div>
 
 
-          <div class="btn">
-            <!-- <input class="singup-btn" [disabled]="customerFormGroup.invalid" type="submit" value="sing up"> -->
-            <button type="submit" [hidden]="customerFormGroup.invalid" class="singup-btn">sing up</button>
+              <div class="btn">
+                <!-- <input class="singup-btn" [disabled]="customerFormGroup.invalid" type="submit" value="{{'Sign up'|translate=""}}"> -->
+                <button type="submit" [disabled]="customerFormGroup.invalid"
+                  class="singup-btn">{{'Sign up'|translate}}</button>
+              </div>
+              <div class="line-div align-self-center"></div>
+              <div>
+                <p>
+                  {{'Already have an account?'|translate}}
+                  <a routerLink="/login">{{'Sign in'|translate}}</a>
+                </p>
+              </div>
           </div>
-          <div class="line-div align-self-center"></div>
-          <div>
-            <p>
-              Already have an account?
-              <a routerLink="/login">sign in</a>
-            </p>
-          </div>
-        </div>
       </form>
     </section>
 
@@ -146,12 +147,11 @@
     <footer class="d-flex justify-content-center flex-column small-text">
       <div class="line-div align-self-center mt-3 mb-3"></div>
       <div class="d-flex justify-content-center mb-3">
-        <a href="" class="pe-3"> Conditions of Use</a>
-        <a href="" class="pe-5">Privacy Notice</a>
-        <a href="">Help</a>
+        <a href="" class="pe-3">{{'Conditions of Use'|translate}}</a>
+        <a href="" class="pe-5">{{'Privacy Notice'|translate}}</a>
       </div>
       <div class="d-flex justify-content-center">
-        <p> &copy; 1996–2022, Amazon.com, Inc. or its affiliates</p>
+        <p> {{'All Copy Rights Reserved'|translate}} &copy; {{'Team 2'| translate}}</p>
       </div>
     </footer>
   </div>

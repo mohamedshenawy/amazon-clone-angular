@@ -13,6 +13,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +23,10 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class SignupComponent implements OnInit {
   customerFormGroup!: FormGroup;
   @ViewChild('passwordInput') passwordInput!: ElementRef;
-  constructor(private route: Router, private customerService: CustomerService) {
+  currentLang: string = '';
+
+
+  constructor(private route: Router, private customerService: CustomerService, public translate: TranslateService) {
     this.customerFormGroup = new FormGroup({
       userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -48,9 +52,12 @@ export class SignupComponent implements OnInit {
       city: new FormControl(''),
       street: new FormControl(''),
     });
+
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang)
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   register() {
     this.customerService.addCustomer(this.customerFormGroup.value).subscribe();
