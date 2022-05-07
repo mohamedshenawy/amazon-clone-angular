@@ -70,8 +70,8 @@
 
 
         <button routerLink="/product" class="btn btn-primary backtoshop m-5">{{'Back to shop'|translate}}</button>
-        <button (click)="removeAllItems()"
-          class="btn btn-danger emptycart m-5">{{'Remove All Items'|translate}}</button>
+        <button (click)="removeAllItems()" class="btn btn-danger emptycart m-5">{{'Remove All
+          Items'|translate}}</button>
       </div>
 
       <div class="col-md-4 summary">
@@ -95,7 +95,7 @@
           <div class="col text-right"> {{TotalPrice + 5 | currency : 'USD'}}</div>
         </div> <button class="btn" (click)="checkOut()" style="font-size:18px">{{'Checkout'|translate}}</button>
         <hr>
-        <div id="myPaypalButtons"></div>
+
       </div>
 
 
@@ -110,20 +110,25 @@
     <h1>Order Detalis</h1>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Order address</label>
-      <input type="text" [required]="" #orderAddress class="form-control">
+      <input type="text" #orderAddress class="form-control">
+      <span class="text-danger">*enter your address</span>
     </div>
     <div class="mb-3">
       <label class="form-label">Order Date</label>
-      <input type="text" #ordrDate disabled value="{{orderDate}}" class="form-control">
+      <input type="text" #ordrDate disabled value="{{orderDate|date:'short'}}" class="form-control">
     </div>
     <div class="mb-3">
       <label class="form-label">Estimated Delivery Date</label>
-      <input type="text" #orderEstDate disabled value="{{estimatedDelevryDate}}" class="form-control">
+      <input type="text" #orderEstDate disabled value="{{estimatedDelevryDate|date:'short'}}" class="form-control">
     </div>
     <div class="mb-3">
       <label class="form-label">Order Price</label>
       <input type="text" #orderPrice disabled value="{{TotalPrice + 5 | currency : 'USD'}}" class="form-control">
     </div>
-    <button type="submit" (click)="makeOrder(orderAddress.value)" class="btn btn-warning">make order</button>
+    <div id="myPaypalButtons"></div>
   </form>
 </ng-container>
+
+<!-- 
+  <button type="submit" [disabled]="orderAddress.value == ''" (click)="makeOrder(orderAddress.value)"
+    class="btn btn-warning">make order</button> -->

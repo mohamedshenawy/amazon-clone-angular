@@ -1,7 +1,7 @@
 export interface Iorder {
   orderDate: Date;
-  DeliveryDate: Date;
-  Address: string;
+  estimatedDeliveryDate: Date;
+  orderAddress: string;
   totalPrice: number;
   customerId: number;
 }

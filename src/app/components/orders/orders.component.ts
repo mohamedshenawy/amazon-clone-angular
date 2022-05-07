@@ -22,6 +22,10 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.orderService.getOrders().subscribe((ord) => {
       this.order = ord;
+      for (let i of this.order) {
+        console.log(i.orderAddress);
+        console.log(i.estimatedDeliveryDate);
+      }
     });
   }
 }

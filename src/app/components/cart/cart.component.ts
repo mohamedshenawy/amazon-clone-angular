@@ -1,6 +1,6 @@
 import { Iproduct } from 'src/app/models/iproduct';
 import { CartServiceService } from './../../services/cart-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   orderDate = new Date();
   estimatedDelevryDate = new Date();
   httoOptions = {};
-
+  @ViewChild('orderAddress') orderAddress!: ElementRef;
   user!: IUser;
   constructor(
     private cartService: CartServiceService,
@@ -47,6 +47,7 @@ export class CartComponent implements OnInit {
       currency: 'USD',
       value: '100.00',
       onApprove: (details) => {
+        this.makeOrder(this.orderAddress.nativeElement.value);
         alert('Transaction Successfully');
       },
     });
@@ -61,6 +62,8 @@ export class CartComponent implements OnInit {
     this.cartdetails();
     this.LoatCart();
     this.getCustomerByToken().subscribe((u) => (this.user = u));
+
+    this.estimatedDelevryDate.setDate(this.estimatedDelevryDate.getDate() + 10);
   }
 
   // get cart Products from Local Storage
@@ -111,7 +114,7 @@ export class CartComponent implements OnInit {
       ) {
         return acc + val.quantity * val.price;
       },
-        0);
+      0);
     }
   }
 
@@ -149,9 +152,9 @@ export class CartComponent implements OnInit {
   checkOut() {
     this.showOrderMaker = true;
     window.scrollTo(0, 1000);
-    this.orderDate.getDate();
-    console.log(this.orderDate);
+    // this.estimatedDelevryDate.setDate(this.estimatedDelevryDate.getDate() + 3);
   }
+
   makeOrder(orderAddress: string) {
     let token: string | null;
     token = localStorage.getItem('token');
