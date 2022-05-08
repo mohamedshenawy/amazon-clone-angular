@@ -10,27 +10,38 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { SignupComponent } from './components/signup/signup.component';
-
+import { OrderDetalisComponent } from './components/order-detalis/order-detalis.component';
 
 const routes: Routes = [
   {
-    path: "", component: MainLayoutComponent, children: [
-      { path: "", component: HomeComponent, pathMatch: "full" },
-      { path: "home", component: HomeComponent },
-      { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
-      { path: "cart", component: CartComponent },
-      { path: "productdetails/:id", component: ProductdetailsComponent },
-      { path: "product", component: ProductsComponent },
-      { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] }
-    ]
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+      { path: 'cart', component: CartComponent },
+      { path: 'productdetails/:id', component: ProductdetailsComponent },
+      { path: 'product', component: ProductsComponent },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'orderDetails/:id',
+        component: OrderDetalisComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
-  { path: "signup", component: SignupComponent },
-  { path: "login", component: LoginComponent },
-  { path: "**", redirectTo: '', component: HomeComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

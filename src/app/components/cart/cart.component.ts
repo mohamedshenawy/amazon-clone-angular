@@ -45,11 +45,11 @@ export class CartComponent implements OnInit {
       this.TotalItem = data;
     });
     this.currentLang = localStorage.getItem('currentLang') || 'en';
-    this.translate.use(this.currentLang)
+    this.translate.use(this.currentLang);
     render({
       id: '#myPaypalButtons',
       currency: 'USD',
-      value: '100.00',
+      value: this.TotalPrice.toString(),
       onApprove: (details) => {
         this.makeOrder(this.orderAddress.nativeElement.value);
         alert('Transaction Successfully');
@@ -108,7 +108,7 @@ export class CartComponent implements OnInit {
   }
 
   // Get Total Price for cart
-  public TotalPrice: number = 0;
+  TotalPrice: number = 30;
   LoatCart() {
     if (localStorage.getItem('cart')) {
       this.getcartDetails = JSON.parse(localStorage.getItem('cart') || '{}');
@@ -118,7 +118,7 @@ export class CartComponent implements OnInit {
       ) {
         return acc + val.quantity * val.price;
       },
-        0);
+      0);
     }
   }
 

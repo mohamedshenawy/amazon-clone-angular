@@ -118,5 +118,8 @@
   "Street": "Street",
   "Already have an account?": "Already have an account?",
   "Name": "Name",
-  "Address details": "Address details"
+  "Address details": "Address details",
+  "Order Number": "Order Number",
+  "Details": "Details ",
+  "order Details": "order Details"
 }

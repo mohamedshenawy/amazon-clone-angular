@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OrderDetalisComponent } from './components/order-detalis/order-detalis.component';
 //import { PaypalComponent } from './Paypal/paypal/paypal.component';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProductsComponent,
     FilterPipe,
     ProfileComponent,
+    OrderDetalisComponent,
   ],
   imports: [
     BrowserModule,

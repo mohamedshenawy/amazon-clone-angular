@@ -118,5 +118,9 @@
   "Street": "الشارع",
   "Already have an account?": "تمتلك حساب بالفعل؟",
   "Name": "الاسم",
-  "Address details": "تفاصيل العنوان"
+  "Address details": "تفاصيل العنوان",
+  "Order Number": "رقم الطلب",
+  "Details": "تفاصيل ",
+
+  "order Details": "تفاصيل الطلب "
 }
