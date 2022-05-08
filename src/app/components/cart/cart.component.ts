@@ -45,6 +45,7 @@ export class CartComponent implements OnInit {
       this.TotalItem = data;
     });
     this.currentLang = localStorage.getItem('currentLang') || 'en';
+
     this.translate.use(this.currentLang);
     render({
       id: '#myPaypalButtons',
@@ -55,6 +56,7 @@ export class CartComponent implements OnInit {
         alert('Transaction Successfully');
       },
     });
+    this.translate.use(this.currentLang);
   }
 
   ngOnInit(): void {
@@ -120,6 +122,16 @@ export class CartComponent implements OnInit {
       },
       0);
     }
+    render({
+      id: '#myPaypalButtons',
+      currency: 'USD',
+      value: this.TotalPrice.toString(),
+      onApprove: (details) => {
+        this.makeOrder(this.orderAddress.nativeElement.value);
+        alert('Transaction Successfully');
+        this.route.navigate(['/home']);
+      },
+    });
   }
 
   removeItem(cartItemid: number) {
