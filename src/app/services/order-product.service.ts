@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IorderProduct } from '../models/iorder-product';
 
 @Injectable({
@@ -22,7 +23,7 @@ export class OrderProductService {
     address: string
   ): Observable<IorderProduct[]> {
     return this.httpClient.post<IorderProduct[]>(
-      `https://localhost:44326/api/Order/add?address=${address}`,
+      `${environment.apiBaseUrl}/api/Order/add?address=${address}`,
       JSON.stringify(orderProds),
       this.httpOptions
     );

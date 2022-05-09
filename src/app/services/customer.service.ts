@@ -19,14 +19,15 @@ export class CustomerService {
 
   addCustomer(user: IUser): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      `https://localhost:44326/api/Authentication/Register`,
+      `${environment.apiBaseUrl}/api/Authentication/Register`,
       JSON.stringify(user),
       this.httpOptions
     );
   }
 
-  getCustomerByToken(token: number): Observable<IUser> {
-    return this.httpClient.get<IUser>(`${environment.apiBaseUrl}api/Customer/profile${token}`)
-  }
-
+  // getCustomerByToken(token: number): Observable<IUser> {
+  //   return this.httpClient.get<IUser>(
+  //     `${environment.apiBaseUrl}/api/Customer/profile${token}`
+  //   );
+  // }
 }
