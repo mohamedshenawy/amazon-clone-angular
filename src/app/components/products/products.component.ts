@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Icategory } from './../../models/icategory';
 import { CartServiceService } from './../../services/cart-service.service';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -15,7 +16,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit, OnChanges {
 
 
-
+  // URL = environment.DashboardURL;
 
   searchkey: string = "";
 
@@ -186,9 +187,12 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   tempArrayForBrand: any = [];
+  AllProductByBrand: any = [];
 
   flag: number = 0;
 
+  enterBrandorNot: number = 0;
+  checkProduct: number = 0;
   nocheck: number = 0;
   // Filter by brand
   onChange(event: any) {
@@ -200,31 +204,28 @@ export class ProductsComponent implements OnInit, OnChanges {
         this.FilteredProductList.forEach((a: any) => {
           Object.assign(a, { quantity: 1, total: a.price })
         });
-        // console.log(this.arrays)
       });
     }
     if (event.target.checked) {
-      // console.log(event.target.value)
       this.nocheck += 1;
-      var myvalue = event.target.value.split(' ', 2)
-      var minPrice = +myvalue[0]
-      var maxPrice = +myvalue[1]
+      this.enterBrandorNot = 1;
+      // var myvalue = event.target.value.split(' ', 2)
+      // var minPrice = +myvalue[0]
+      // var maxPrice = +myvalue[1]
 
-      this.tempArrayForBrand = this.allProductsList.filter((e: any) => (e.brand == event.target.value || e.price >= minPrice && e.price < maxPrice));
-
+      this.tempArrayForBrand = this.allProductsList.filter((e: any) => (e.brand == event.target.value));
+      this.AllProductByBrand = this.tempArrayForBrand;
       if (this.flag == 0) {
         this.FilteredProductList = [];
         this.flag = 1;
       }
       // console.log(this.catId)
+
       for (let i = 0; i < this.tempArrayForBrand.length; i++) {
         if (this.catId == 0) {
           this.FilteredProductList.push(this.tempArrayForBrand[i])
         }
         if (this.tempArrayForBrand[i].categoryId == this.catId) {
-          // for(let j=0; j < this.FilteredProductList.length; j++){
-
-          // }
           this.FilteredProductList.push(this.tempArrayForBrand[i])
         }
       }
@@ -244,7 +245,7 @@ export class ProductsComponent implements OnInit, OnChanges {
       var myvalue = event.target.value.split(' ', 2)
       var minPrice = +myvalue[0]
       var maxPrice = +myvalue[1]
-      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.brand == event.target.value || e.price >= minPrice && e.price < maxPrice));
+      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.brand == event.target.value));
       this.FilteredProductList = [];
       // this.allProductsList.push(this.tempArrayForBrand)
       for (let i = 0; i < this.tempArrayForBrand.length; i++) {
@@ -252,6 +253,91 @@ export class ProductsComponent implements OnInit, OnChanges {
       }
       if (this.nocheck == 0) {
         this.flag = 0;
+        this.productsService.getAllProducts().subscribe(prods => {
+          this.FilteredProductList = prods;
+          this.FilteredProductList.forEach((a: any) => {
+            Object.assign(a, { quantity: 1, total: a.price })
+          });
+          // console.log(this.arrays)
+        });
+      }
+    }
+
+  }
+
+  checkProductPrice: number = 0;
+  flagPrice: number = 0;
+  onChangePrice(event: any) {
+    if (!event.target.value) {
+      this.productsService.getAllProducts().subscribe(prods => {
+        this.FilteredProductList = prods;
+        // console.log(event.target.value)
+        // this.arrays = prods;
+        this.FilteredProductList.forEach((a: any) => {
+          Object.assign(a, { quantity: 1, total: a.price })
+        });
+      });
+    }
+    if (event.target.checked) {
+      this.nocheck += 1;
+      var myvalue = event.target.value.split(' ', 2)
+      var minPrice = +myvalue[0]
+      var maxPrice = +myvalue[1]
+
+      if (this.enterBrandorNot == 0) {
+
+        this.tempArrayForBrand = this.allProductsList.filter((e: any) => e.price >= minPrice && e.price < maxPrice)
+      } else {
+        this.tempArrayForBrand = this.AllProductByBrand.filter((e: any) => e.price >= minPrice && e.price < maxPrice)
+        console.log(this.tempArrayForBrand)
+        // this.FilteredProductList = []
+      }
+
+
+      if (this.flagPrice == 0) {
+        this.FilteredProductList = [];
+        this.flagPrice = 1;
+      }
+      // console.log(this.catId)
+
+      for (let i = 0; i < this.tempArrayForBrand.length; i++) {
+        this.checkProductPrice = 0;
+        for (let j = 0; j < this.FilteredProductList.length; j++) {
+          if (this.tempArrayForBrand[i] == this.FilteredProductList[j]) {
+            this.checkProductPrice = 1;
+          }
+        }
+        if (this.catId == 0 && this.checkProductPrice == 0) {
+          this.FilteredProductList.push(this.tempArrayForBrand[i])
+        }
+        if (this.tempArrayForBrand[i].categoryId == this.catId && this.checkProductPrice == 0) {
+          this.FilteredProductList.push(this.tempArrayForBrand[i])
+        }
+      }
+
+      if (this.nocheck == 0) {
+        this.productsService.getAllProducts().subscribe(prods => {
+          this.FilteredProductList = prods;
+          this.FilteredProductList.forEach((a: any) => {
+            Object.assign(a, { quantity: 1, total: a.price })
+          });
+          // console.log(this.arrays)
+        });
+      }
+    } else {
+      this.nocheck -= 1;
+
+      var myvalue = event.target.value.split(' ', 2)
+      var minPrice = +myvalue[0]
+      var maxPrice = +myvalue[1]
+      this.tempArrayForBrand = this.FilteredProductList.filter((e: any) => !(e.price >= minPrice && e.price < maxPrice));
+      this.FilteredProductList = [];
+      // this.allProductsList.push(this.tempArrayForBrand)
+      for (let i = 0; i < this.tempArrayForBrand.length; i++) {
+        this.FilteredProductList.push(this.tempArrayForBrand[i])
+      }
+      if (this.nocheck == 0) {
+        this.flagPrice = 0;
         this.productsService.getAllProducts().subscribe(prods => {
           this.FilteredProductList = prods;
           this.FilteredProductList.forEach((a: any) => {

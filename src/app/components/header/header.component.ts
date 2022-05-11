@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnChanges {
+
   searchTerm: string = '';
   public TotalItem: number = 0;
   productName: string = '';

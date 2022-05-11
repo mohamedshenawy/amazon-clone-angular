@@ -20,7 +20,7 @@
         <div class="p-1 priceLinks mt-1">
           <p style="font-weight: bold;">{{'Price'| translate}}</p>
           <ng-container *ngFor="let Pcheckbox of checkBoxArrayForPrice">
-            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.priceRange}} (change)="onChange($event)">
+            <input type="{{Pcheckbox.type}}" value={{Pcheckbox.priceRange}} (change)="onChangePrice($event)">
             {{Pcheckbox.price}}
 
 
@@ -64,6 +64,7 @@
 
               <div class="text-center">
                 <a class="" (click)="goTodetails(item.id)" role="button">
+                  <!-- <img class="img-fluid" [src]="URL + item.picture" alt="Card image cap"> -->
                   <img class="img-fluid" [src]="item.picture" alt="Card image cap">
                 </a>
               </div>

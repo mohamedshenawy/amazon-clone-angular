@@ -49,14 +49,76 @@
   background-color: #596161;
 }
 
+
+
+// Responsive Navbar
+.firstnav {
+  background-color: #131921;
+}
+
+#deliver {
+  float: right;
+}
+
+#deliver p {
+  font-size: .7em;
+  margin: 0;
+}
+
+#deliver span {
+  font-weight: 600;
+}
+
+
+.alllink {
+  max-width: 40px;
+
+}
+
+.alllink a {
+  border-radius: 5px 0 0 5px;
+  background-color: #DADADA;
+  padding:12px
+}
+
+
+
+.navbar .btn-success {
+  background-color: #F3A847;
+}
+
+.navbar form img {
+  max-width: 23px;
+}
+
+
+
+.countries img {
+  max-width: 30px;
+}
+
+
+
+
+#navbarbold {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+
+// End Responsive Navbar
+
+
+
+
+
+
 //--------------------------------------------
 .first-nav {
     background-color: #131921;
     color: white;
   }
-  .w-border:hover {
-    border: 1px solid white;
-  }
+
   /* .holder-of-logo-div {
     width: 12%;
   } */
@@ -64,7 +126,7 @@
     max-width: 50%;
   }
   .input-div {
-    width: 87%;
+    width: 100%;
     height: 100%;
   }
   .all-div-search {
