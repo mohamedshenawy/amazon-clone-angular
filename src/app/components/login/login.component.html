@@ -10,38 +10,38 @@
 
     <!-- content for sign up -->
     <section class="d-flex  content-sec mt-5">
-      <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+      <form [formGroup]="loginFormGroup" class="w-100" (ngSubmit)="login()">
+        <!-- <div class="d-flex justify-content-center flex-column"> -->
+        <p class="h2">{{'Login'|translate}}</p>
+
+
+        <label class="h6" for="name-input">{{'UserName'|translate}}:</label>
+        <input type="text" formControlName="userName" class="form-control inpt" name="userName" id="userName-input">
+
+
         <div class="d-flex justify-content-center flex-column">
-          <p class="h2">{{'Login'|translate}}</p>
-
-
-          <label class="h6" for="name-input">{{'UserName'|translate}}:</label>
-          <input type="text" formControlName="userName" class="form-control inpt" name="userName" id="userName-input">
-
-
-          <div class="d-flex justify-content-center flex-column">
-            <label class="h6" for="name-input">{{'Password'|translate}}</label>
-            <div class="d-flex">
-              <input type="password" #passwordInput formControlName="password" class="form-control inpt" name="password"
-                id="password-input">
-              <i class="fa-solid fa-eye align-self-center ms-3" (click)="despalyPassword()"></i>
-            </div>
+          <label class="h6" for="name-input">{{'Password'|translate}}</label>
+          <div class="d-flex">
+            <input type="password" #passwordInput formControlName="password" class="form-control inpt" name="password"
+              id="password-input">
+            <i class="fa-solid fa-eye align-self-center ms-3" (click)="despalyPassword()"></i>
           </div>
-          <div class="btn">
-            <input class="singup-btn" type="submit" value="{{'Login'|translate}}">
-          </div>
-          <div [hidden]="errorMsg == ''" class="alert alert-danger" role="alert">
-            {{errorMsg}}
-          </div>
-          <div class="line-div align-self-center"></div>
-
-          {{'Create New Account'|translate}} <button routerLink="/signup" type="button"
-            class="btn btn-outline-secondary">{{'Create Account'|translate}}</button>
-          <hr>
-          <button routerLink="/home" type="button"
-            class="btn btn-outline-secondary">{{'Back to Home page'|translate}}</button>
-
         </div>
+        <div class="btn">
+          <input class="singup-btn" type="submit" value="{{'Login'|translate}}">
+        </div>
+        <div [hidden]="errorMsg == ''" class="alert alert-danger" role="alert">
+          {{errorMsg}}
+        </div>
+        <div class="line-div align-self-center"></div>
+
+        {{'Create New Account:'|translate}} <br> <button routerLink="/signup" type="button"
+          class="btn btn-outline-secondary">{{'Create Account'|translate}}</button>
+        <hr>
+        <button routerLink="/home" type="button" class="btn btn-outline-secondary">{{'Back to Home
+          page'|translate}}</button>
+
+        <!-- </div> -->
       </form>
     </section>
 
