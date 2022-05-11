@@ -45,7 +45,7 @@
             <div class="row border-top border-bottom">
               <div class="row main align-items-center">
                 <div class="col"> {{ i + 1 }} </div>
-                <div class="col-2"><img class="img-fluid" [src]="cartItem.picture"></div>
+                <div class="col-2"><img class="img-fluid" [src]="URL + cartItem.picture"></div>
                 <div class="col">
                   <div class="row text-muted"> {{currentLang == 'en'? cartItem.name: cartItem.name_AR}}</div>
                   <div class="row">{{cartItem.Brand}}</div>
@@ -102,7 +102,8 @@
           <div class="col text-right">
             {{currentLang == 'en'? (TotalPrice + 5 | currency : 'USD') : ((TotalPrice + 5) * 15| currency : 'EGP')}}
           </div>
-        </div> <button class="btn" (click)="checkOut()" style="font-size:18px">{{'Checkout'|translate}}</button>
+        </div> <button class="btn" [disabled]="!gettoken" (click)="checkOut()"
+          style="font-size:18px">{{'Checkout'|translate}}</button>
         <hr>
 
       </div>

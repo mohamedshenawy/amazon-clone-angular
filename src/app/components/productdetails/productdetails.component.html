@@ -10,7 +10,7 @@
   <div class="imags-div col-1 d-none d-md-flex flex-column">
     <div class="d-flex justify-content-center">
       <a href="">
-        <img class="w-100 p-img" (mouseover)="testImg.src = t1.src" #t1 [src]="product.picture" alt="">
+        <img class="w-100 p-img" (mouseover)="testImg.src = t1.src" #t1 [src]="URL + product.picture" alt="">
       </a>
     </div>
 
@@ -21,7 +21,7 @@
   <div class="item-details col-12 col-md-8 row row-cols-2">
 
     <div class="col-md-7 col-12  d-flex align-items-start pt-5">
-      <img class="w-100" id="desplayed-img" #testImg [src]="product.picture" alt="">
+      <img class="w-100" id="desplayed-img" #testImg [src]="URL + product.picture" alt="">
     </div>
 
 

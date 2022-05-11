@@ -170,7 +170,7 @@
       <section>
         <div class="product" *ngFor="let item of allProducts">
           <picture>
-            <img [src]="item.picture" alt="">
+            <img [src]="URL + item.picture" alt="">
           </picture>
           <div class="detail">
             <p style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">

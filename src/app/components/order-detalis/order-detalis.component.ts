@@ -7,6 +7,7 @@ import { Iorderdetails } from 'src/app/models/iorderdetails';
 import { Iproduct } from 'src/app/models/iproduct';
 import { OrderService } from 'src/app/services/order.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { environment } from 'src/environments/environment';
 import { OrdersComponent } from '../orders/orders.component';
 
 @Component({
@@ -15,6 +16,7 @@ import { OrdersComponent } from '../orders/orders.component';
   styleUrls: ['./order-detalis.component.scss'],
 })
 export class OrderDetalisComponent implements OnInit {
+  URL = environment.DashboardURL;
   currentId: number = 0;
   orderProdIdAndQty: Iorderdetails[] = [];
   orderProducts: Iproduct[] = [];

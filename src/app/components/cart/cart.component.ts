@@ -19,6 +19,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
+
+  gettoken = localStorage.getItem('token');
+  URL = environment.DashboardURL;
+
   Delivery: number = 5;
   public products: any = [];
   public TotalItem: number = 0;

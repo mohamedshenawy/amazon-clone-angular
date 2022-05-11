@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./productdetails.component.scss']
 })
 export class ProductdetailsComponent implements OnInit {
+
+  URL = environment.DashboardURL;
 
   currentId: number = 0;
   product: any;

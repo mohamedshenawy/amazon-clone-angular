@@ -16,7 +16,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit, OnChanges {
 
 
-  // URL = environment.DashboardURL;
+  URL = environment.DashboardURL;
 
   searchkey: string = "";
 

@@ -1,0 +1,14 @@
+.card {
+  padding: 20px
+}
+
+.card img {
+  // min-height: 290px;
+  width: 250px;
+  height: 250px;
+  margin:  20px 0;
+  transition: .3s ease-in-out;
+}
+.card img:hover {
+  transform: scale(1.1);
+}

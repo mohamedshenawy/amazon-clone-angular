@@ -2,6 +2,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { Iproduct } from 'src/app/models/iproduct';
 import { ProductsService } from 'src/app/services/products.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  URL = environment.DashboardURL;
   allProducts: Iproduct[] = []
 
   currentLang: string = '';
