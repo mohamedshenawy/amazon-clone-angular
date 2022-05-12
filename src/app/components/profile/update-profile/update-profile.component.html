@@ -3,11 +3,11 @@
 
 
     <!-- content for sign up -->
-    <section class="d-flex  content-sec mt-5">
-      <form [formGroup]="customerFormGroup" class="w-100" (ngSubmit)="update()">
+    <section class="d-flex  content-sec mt-5 mb-5 justify-content-center">
+      <form [formGroup]="customerFormGroup" class="w-50" (ngSubmit)="update()">
         <!-- <div class="d-flex justify-content-center flex-column "> -->
         <p class="h2 text-center">{{'Update Profile'|translate}}</p>
-        <label class="h6" for="name-input">{{'name'|translate}}</label>
+        <label class="h6" for="name-input">{{'Name'|translate}}</label>
         <input type="text" formControlName="name" class="form-control w-100 inpt" name="name" id="name-input">
         <!-- [class.is-valid]="userName?.valid" [class.is-invalid]="userName?.invalid"> -->
         <div [hidden]="name?.valid || name?.untouched" class="alert alert-danger">

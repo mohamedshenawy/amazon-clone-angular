@@ -1,7 +1,7 @@
 <div class="mt-5"></div>
 <div class="container">
   <div class="main-body">
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-lg-4">
         <div class="card">
           <div class="card-body">
@@ -9,7 +9,6 @@
               <div class="mt-3">
                 <!-- <h4>Name : {{user.userName}}</h4> -->
                 <h4>{{'Name'|translate}} : {{user.name}}</h4>
-                <p class="text-secondary mb-1">{{'Email'|translate}} : {{user.email}}</p>
                 <p class="text-secondary mb-1">{{'Gender'|translate}} : {{user.gender}}</p>
                 <!-- <p class="text-secondary mb-1">Email : {{user.email}}</p> -->
               </div>
@@ -60,7 +59,31 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
+
+      <div class="col-lg-8 ">
+        <div class="card">
+          <h2 class="ms-3">{{'Contact details'|translate}}</h2>
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">{{'Email'|translate}}</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <div>{{user.email}}</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">{{'Phone Number'|translate}}</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <div>{{user.phoneNumber}}</div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
         <div class="card">
           <h2 class="ms-3">{{'Address details'|translate}}</h2>
           <div class="card-body">
@@ -80,14 +103,7 @@
                 <div>{{user.street}} </div>
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col-sm-3">
-                <h6 class="mb-0">{{'Phone Number'|translate}}</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <div>{{user.phoneNumber}}</div>
-              </div>
-            </div>
+
 
             <div class="row mb-3">
               <div class="col-sm-3">
@@ -101,7 +117,7 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" routerLink="/updateprofile">Update</button>
+        <button class="btn btn-primary" routerLink="/updateprofile">{{'Update'|translate}}</button>
       </div>
     </div>
   </div>

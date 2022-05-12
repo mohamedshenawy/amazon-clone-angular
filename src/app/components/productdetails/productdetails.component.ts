@@ -43,12 +43,12 @@ export class ProductdetailsComponent implements OnInit {
         : 0;
       this.producrService.getProductsById(this.currentId).subscribe((pro) => {
         this.product = pro;
-        // console.log(this.product)
+
       });
 
     });
 
-    console.log(this.currentId)
+    // console.log(this.currentId)
 
   }
 

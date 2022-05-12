@@ -1,3 +1,4 @@
+import { SuccessfulorderComponent } from './components/successfulorder/successfulorder.component';
 import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'productdetails/:id', component: ProductdetailsComponent },
       { path: 'product', component: ProductsComponent },
+      { path: 'succesfullorder', component: SuccessfulorderComponent },
       {
         path: 'profile',
         component: ProfileComponent,

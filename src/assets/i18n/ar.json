@@ -121,6 +121,12 @@
   "Address details": "تفاصيل العنوان",
   "Order Number": "رقم الطلب",
   "Details": "تفاصيل ",
-
-  "order Details": "تفاصيل الطلب "
+  "Contact details": "معلومات التواصل",
+  "Order Products": "منتجات الطلب",
+  "Products of this Order": "المنتجات فى هذا الاوردر",
+  "Update": "تعديل",
+  "Update Profile": "تعديل حسابك",
+  "Your Order made Successfully": "تم تنفيذ طلبك بنجاح",
+  "Go to Home Page": "الذهاب الى الصفحة الرئيسية",
+  "Go to Orders Page": "الذهاب الى صفحة الطلبات"
 }

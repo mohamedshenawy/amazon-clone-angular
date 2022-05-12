@@ -129,11 +129,11 @@ export class CartComponent implements OnInit {
     render({
       id: '#myPaypalButtons',
       currency: 'USD',
-      value: this.TotalPrice.toString(),
+      value: this.TotalPrice.toString() + 5,
       onApprove: (details) => {
         this.makeOrder(this.orderAddress.nativeElement.value);
         alert('Transaction Successfully');
-        this.route.navigate(['/home']);
+        this.route.navigate(['/succesfullorder']);
       },
     });
   }

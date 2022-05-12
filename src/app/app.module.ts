@@ -27,6 +27,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDetalisComponent } from './components/order-detalis/order-detalis.component';
 import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
+import { SuccessfulorderComponent } from './components/successfulorder/successfulorder.component';
 //import { PaypalComponent } from './Paypal/paypal/paypal.component';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { UpdateProfileComponent } from './components/profile/update-profile/upda
     ProfileComponent,
     OrderDetalisComponent,
     UpdateProfileComponent,
+    SuccessfulorderComponent,
   ],
   imports: [
     BrowserModule,
