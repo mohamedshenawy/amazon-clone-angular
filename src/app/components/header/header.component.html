@@ -122,9 +122,9 @@
                 </div>
               </button>
               <ul class="dropdown-menu">
-                <li [hidden]="isUserLogged"><a class="dropdown-item" routerLink="signup">{{'Sign up' | translate}}</a>
-                </li>
                 <li [hidden]="isUserLogged"><a class="dropdown-item" routerLink="login">{{'Login' | translate}}</a>
+                </li>
+                <li [hidden]="isUserLogged"><a class="dropdown-item" routerLink="signup">{{'Sign up' | translate}}</a>
                 </li>
                 <li [hidden]="!isUserLogged"><a class="dropdown-item" routerLink="profile">{{'Profile' | translate}}</a>
                 </li>

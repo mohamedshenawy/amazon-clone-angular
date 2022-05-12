@@ -11,7 +11,7 @@
     <section class="d-flex  content-sec mt-5">
       <form [formGroup]="customerFormGroup" class="w-100" (ngSubmit)="register()">
         <!-- <div class="d-flex justify-content-center flex-column "> -->
-        <p class="h2">{{'Create Account'|translate}}</p>
+        <p class="h2 text-center">{{'Create Account'|translate}}</p>
         <label class="h6" for="name-input">{{'UserName'|translate}}</label>
         <input type="text" formControlName="userName" class="form-control w-100 inpt" name="userName"
           id="userName-input">
@@ -126,10 +126,10 @@
         </div>
 
 
-        <div class="btn">
+        <div class=" mt-3 text-center mb-3">
           <!-- <input class="singup-btn" [disabled]="customerFormGroup.invalid" type="submit" value="{{'Sign up'|translate=""}}"> -->
-          <button type="submit" [disabled]="customerFormGroup.invalid" class="singup-btn">{{'Sign
-            up'|translate}}</button>
+          <button type="submit" [disabled]="customerFormGroup.invalid"
+            class="singup-btn">{{'Sign up'|translate}}</button>
         </div>
         <div class="line-div align-self-center"></div>
         <div>
