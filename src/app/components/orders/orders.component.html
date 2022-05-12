@@ -1,28 +1,35 @@
 <h1 class="m-2">{{'Your Orders'|translate}}</h1>
 <table class="table  container mt-100 p-5">
-    <thead>
-        <tr>
-            <th scope="col">{{'Order Number'|translate}}</th>
-            <th scope="col">{{"Order Date"|translate}}</th>
-            <th scope="col">{{'Order Date'|translate}}</th>
-            <th scope="col">{{"Address"|translate}}</th>
-            <th scope="col">{{"Total Price"|translate}}</th>
-            <th scope="col">{{"Details"|translate}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let i of order , let n = index">
-            <ng-container>
-                <td> {{n+1}}</td>
-                <td> {{i.orderDate}}</td>
-                <td>{{i.estimatedDeliveryDate}}</td>
-                <td>{{i.orderAddress }}</td>
-                <td>{{i.totalPrice | currency:"EGP"}}</td>
-                <td>
-                    <button type="button" class="btn btn-warning" (click)="orderDetalis(i.id)">{{'order
-                        Details'|translate}}</button>
-                </td>
-            </ng-container>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th scope="col">{{'Order Number'|translate}}</th>
+      <th scope="col">{{"Order Date"|translate}}</th>
+      <th scope="col">{{'Order Date'|translate}}</th>
+      <th scope="col">{{"Address"|translate}}</th>
+      <th scope="col">{{"Total Price"|translate}}</th>
+      <th scope="col">{{"Status"|translate}}</th>
+      <th scope="col">{{"Details"|translate}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of order , let n = index">
+      <ng-container>
+        <td> {{n+1}}</td>
+        <td> {{i.orderDate}}</td>
+        <td>{{i.estimatedDeliveryDate}}</td>
+        <td>{{i.orderAddress }}</td>
+        <td>{{i.totalPrice | currency:"EGP"}}</td>
+        <ng-container [ngSwitch]="i.status">
+          <td *ngSwitchCase="0">Pending</td>
+          <td *ngSwitchCase="1">Delivering</td>
+          <td *ngSwitchCase="2">Delivered</td>
+        </ng-container>
+
+        <td>
+          <button type="button" class="btn btn-warning"
+            (click)="orderDetalis(i.id)">{{'order Details'|translate}}</button>
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
 </table>

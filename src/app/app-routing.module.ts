@@ -1,3 +1,4 @@
+import { UpdateProfileComponent } from './components/profile/update-profile/update-profile.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -29,6 +30,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'updateprofile',
+        component: UpdateProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'orderDetails/:id',
         component: OrderDetalisComponent,
         canActivate: [AuthGuard],
@@ -44,4 +50,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

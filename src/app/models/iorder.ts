@@ -5,4 +5,5 @@ export interface Iorder {
   orderAddress: string;
   totalPrice: number;
   customerId: number;
+  status: number;
 }

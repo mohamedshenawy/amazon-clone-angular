@@ -1,42 +1,38 @@
-<div class=" row mt-5 p-5">
-  <!-- <ng-container *ngFor="let p of orderProducts">
+<div class="container">
+  <div class=" row mt-5 p-5">
+
+    <h1 class="text-center mb-5">Products of this Order</h1>
+
+    <ng-container *ngFor="let item of orderProducts">
+
+      <!-- English Language  -->
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-3 ms-md-0">
         <div class="card" style="width: 18rem;">
-            <img src="{{p.picture}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{p.name}}</h5>
-                <p class="card-text">{{p.price}}</p>
-                <p class="card-text">{{p.des}}</p>
-            </div>
-        </div>
-    </ng-container> -->
 
+          <div class="text-center">
+            <a class="" role="button">
+              <img class="img-fluid" [src]="URL + item.picture" alt="Card image cap">
+            </a>
+          </div>
 
-  <ng-container *ngFor="let item of orderProducts">
-    <!-- English Language  -->
-    <div class="col-xl-3 col-lg-4 col-md-6 mb-3 ms-md-0">
-      <div class="card" style="width: 18rem;">
-
-        <div class="text-center">
-          <a class="" role="button">
-            <img class="img-fluid" [src]="URL + item.picture" alt="Card image cap">
-          </a>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title"
-            style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
-            {{currentLang == 'en'? item.name: item.name_AR}}
-          </h5>
-          <p class="card-text">{{'Price'|translate}} :
-            {{currentLang == 'en'?(item.price | currency : "USD") : (item.price * 15 | currency : "EGP")}}
-          </p>
-          <p class="card-text">{{'Shiping'|translate}}: {{ currentLang == 'en'? item.shipping:
+          <div class="card-body">
+            <h5 class="card-title"
+              style="white-space:nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">
+              {{currentLang == 'en'? item.name: item.name_AR}}
+            </h5>
+            <p class="card-text">{{'Price'|translate}} :
+              {{currentLang == 'en'?(item.price | currency : "USD") : (item.price * 15 | currency : "EGP")}}
+            </p>
+            <p class="card-text">{{'Shiping'|translate}}: {{ currentLang == 'en'? item.shipping:
                         item.shipping_AR}}
-          </p>
+            </p>
 
 
+          </div>
         </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+
+  </div>
+
 </div>

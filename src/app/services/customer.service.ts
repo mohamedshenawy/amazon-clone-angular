@@ -25,6 +25,9 @@ export class CustomerService {
     );
   }
 
+  updateCustomer(id: any, data: any) {
+    return this.httpClient.put(`${environment.apiBaseUrl}/api/Customer/${id}`, data)
+  }
   // getCustomerByToken(token: number): Observable<IUser> {
   //   return this.httpClient.get<IUser>(
   //     `${environment.apiBaseUrl}/api/Customer/profile${token}`

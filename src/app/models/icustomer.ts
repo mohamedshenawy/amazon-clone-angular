@@ -11,4 +11,5 @@ export interface IUser {
   city: string;
   street: string;
   postalCode: string;
+  profileID: string;
 }

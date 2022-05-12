@@ -22,7 +22,7 @@ export class OrdersComponent implements OnInit {
     private router: Router,
     private location: Location,
     private productsService: ProductsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.orderService.getOrders().subscribe((ord) => {
