@@ -25,11 +25,10 @@ export class UpdateProfileComponent implements OnInit {
 
 
 
-
-
-
   }
+
   user!: IUser;
+
   ngOnInit(): void {
 
     this.getCustomerByToken().subscribe(user => {
@@ -49,14 +48,7 @@ export class UpdateProfileComponent implements OnInit {
         street: new FormControl(user['street']),
         profileID: new FormControl(user['profileID']),
       });
-
-
-
     })
-
-
-
-
   }
 
   getCustomerByToken(): Observable<IUser> {
